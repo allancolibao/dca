@@ -130,6 +130,7 @@ Route::post('/update-adverse-data/{id}' ,'AdverseEventController@update')->name(
  */
 Route::get('/transmit', 'DataTransmissionController@index')->name('transmit');
 Route::get('/transmission/{id}','DataTransmissionController@transmission')->name('send.data');
+Route::get('/send-all','DataTransmissionController@sendAll')->name('send.all.data');
 
 
 /**

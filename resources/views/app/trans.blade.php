@@ -18,6 +18,12 @@
                         </a>
                     </div>
                   <div class="card-body">
+                    <p>*If you want to use this feature make sure all the data completed</p>
+                    <a class="text-primary" href="{{ route('send.all.data')}}" role="button" aria-haspopup="true" aria-expanded="false">
+                        <button class="btn btn-sm btn-warning shadow-sm mb-2 send">
+                            <i class="fas fa-plane"></i> Send All Data
+                        </button>
+                    </a>
                     <div class="table-responsive">
                             <table class="table table-bordered" id="transTables" width="100%" cellspacing="0">
                                 <thead>
