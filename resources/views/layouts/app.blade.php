@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#FF5055">
-    <link rel="shortcut icon" type="image/png" href="{{ asset('img/vco.jpg') }}">
+    <link rel="shortcut icon" type="image/png" href="{{ asset('img/vco.png') }}">
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">

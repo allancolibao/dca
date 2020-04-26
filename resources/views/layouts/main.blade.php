@@ -10,7 +10,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
   <meta name="theme-color" content="#FF5055">
-  <link rel="shortcut icon" type="image/png" href="{{ asset('img/vco.jpg') }}">
+  <link rel="shortcut icon" type="image/png" href="{{ asset('img/vco.png') }}">
 
   <title>{{ config('app.name', 'VCO') }}</title>
 
