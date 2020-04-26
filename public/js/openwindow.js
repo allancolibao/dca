@@ -1,22 +1,10 @@
-$('.open-window').click(function (event) {
+$('.open-modal').click(function (event) {
     event.preventDefault();
     $.ajax({
         url: $(this).data('path'),
         success: function (response) {
-            $('#get-record').html(response);
-            $('#open-record').modal('show');
-        }
-    });
-    return false;
-});
-
-$('.open-count').click(function (event) {
-    event.preventDefault();
-    $.ajax({
-        url: $(this).data('path'),
-        success: function (response) {
-            $('#get-count').html(response);
-            $('#open-count').modal('show');
+            $('#get-page').html(response);
+            $('#open-modal-page').modal('show');
         }
     });
     return false;

@@ -12,12 +12,12 @@
 */
 
 /**
- * Landing page //
+ * Landing page
  * 
  * 
  */ 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
 
 
@@ -30,119 +30,96 @@ Auth::routes();
 
 
 /**
- * Upload csv , membership information 
+ * Home page 
  * 
  * 
  */ 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::post('/import_parse', 'HomeController@parseImport')->name('import_parse');
-Route::post('/import_process', 'HomeController@processImport')->name('import_process');
+
 
 /**
- * Start encoding controller 
+ * Handle participants information
  * 
  * 
  */ 
-Route::get('/start', 'StartEncodingController@index')->name('start');
-Route::any('/searcharea','StartEncodingController@searchArea')->name('search');
-Route::get('household/{eacode}','StartEncodingController@household')->name('household');
-Route::get('/other50/{eacode}', 'StartEncodingController@other50')->name('other50');
-Route::post('insertOther50','StartEncodingController@insertOther50')->name('insertOther50');
+Route::get('/assent', 'ParticipantController@assent')->name('assent');
+Route::get('/add-participant', 'ParticipantController@show')->name('add.participant');
+Route::get('/participant-edit-modal/{id}', 'ParticipantController@edit')->name('participant.edit.modal');
+Route::get('/participant-delete-modal/{id}', 'ParticipantController@showDelete')->name('participant.delete.modal');
+Route::get('/deleted-participants', 'ParticipantController@showDeletedParticipant')->name('deleted.participants');
+Route::get('/view-participant/{id}/{fullname}/{sex}/{age}', 'ParticipantController@view')->name('view.participant');
+
+Route::post('/insert-participant-data', 'ParticipantController@insert')->name('insert.participant.data');
+Route::post('/update-participant-data/{id}', 'ParticipantController@update')->name('update.participant.data');
+Route::post('/restore-participant-data/{id}', 'ParticipantController@restoreDeletedParticipant')->name('restore.participant.data');
+
+Route::delete('/participant-delete-data/{id}', 'ParticipantController@destroy')->name('participant.delete.data');
 
 
 /**
- * Form 6.0
+ * Handle screening form
  * 
  * 
  */ 
-Route::POST('insertF60','StartEncodingController@insertF60')->name('insertF60');
-Route::any('updateF60/{id}','StartEncodingController@updateF60')->name('updateF60');
+Route::get('/view-screening/{id}/{fullname}/{sex}/{age}', 'ScreeningController@index')->name('view.screening');
+
+Route::post('/insert-screening-data/{id}', 'ScreeningController@insert')->name('insert.screening.data');
+Route::post('/update-screening-data/{id}', 'ScreeningController@update')->name('update.screening.data');
 
 
 /**
- * Form 6.1
+ * Handle case-report form
  * 
  * 
  */ 
-Route::get('membership/{eacode}/{hcn}/{shsn}','StartEncodingController@membership')->name('membership');
-Route::get('membership/{eacode}/{hcn}/{shsn}/{member_code}/{givenname}/{surname}/{age}/{sex}/{psc}/{mp}','StartEncodingController@membershipEncode')->name('membership_encode');
-Route::POST('insertRecord','StartEncodingController@insertRecord')->name('insertRecord');
-Route::get('membershipview/{eacode}/{hcn}/{shsn}','StartEncodingController@membershipView')->name('membership_view');
-Route::get('membershipedit/{eacode}/{hcn}/{shsn}/{membercode}/{id}/edit','StartEncodingController@membershipEdit')->name('membership_edit');
-Route::any('insertupdate/{id}','StartEncodingController@membershipUpdate')->name('insertUpdate');
+Route::get('/view-case-report/{id}/{fullname}/{sex}/{age}', 'CaseReportController@index')->name('view.case.report');
+
+Route::post('/insert-case-report-data/{id}', 'CaseReportController@insert')->name('insert.case.report.data');
+Route::post('/update-case-report-data/{id}', 'CaseReportController@update')->name('update.case.report.data');
+
 
 /**
- * Form 6.3
+ * Handle food record
  * 
  * 
  */ 
-Route::get('foodrecord/{eacode}/{hcn}/{shsn}','StartEncodingController@foodrecordIndex')->name('foodrecord');
-Route::POST('addRecord','StartEncodingController@addRecord')->name('addRecord');
-Route::get('record/{eacode}/{hcn}/{shsn}','StartEncodingController@viewRecord')->name('foodrecord_view');
-Route::get('record/{eacode}/{hcn}/{shsn}/{id}/edit','StartEncodingController@editRecord')->name('foodrecord_edit');
-Route::any('updaterecord/{id}', 'StartEncodingController@updateRecord')->name('updateRecord');
+Route::get('/cycle-menu', 'FoodRecordController@menu')->name('cycle.menu');
+Route::get('/view-record/{id}/{fullname}/{sex}/{age}', 'FoodRecordController@index')->name('view.record');
+Route::get('/get-record-date/{id}/{fullname}/{sex}/{age}/{date}', 'FoodRecordController@getUpdateRecordDate')->name('get.record.date');
+Route::get('/encode-record/{id}/{fullname}/{sex}/{age}/{date}', 'FoodRecordController@encode')->name('encode.record');
+Route::get('/get-record/{id}/{fullname}/{sex}/{age}/{date}', 'FoodRecordController@getRecord')->name('get.record');
+
+Route::post('/insert-record-date/{id}/{fullname}/{sex}/{age}', 'FoodRecordController@insertRecordDate')->name('insert.record.date');
+Route::post('/insert-record-header/{id}/{fullname}/{sex}/{age}/{date}', 'FoodRecordController@updateRecordDate')->name('insert.record.header');
+Route::post('insert-record-data/{id}/{fullname}/{sex}/{age}/{date}' ,'FoodRecordController@insertRecordData')->name('insert.record.data');
+Route::post('update-record-data/{id}/{fullname}/{sex}/{age}/{date}' ,'FoodRecordController@updateRecordData')->name('update.record.data');
+Route::post('update-record-header/{id}/{fullname}/{sex}/{age}/{date}' ,'FoodRecordController@updateRecordHeader')->name('update.record.header');
 
 
 /**
- * Form 7.0
+ * Handle monitoring page
  * 
  * 
  */ 
-Route::POST('insertF70','StartEncodingController@insertF70')->name('insertF70');
-Route::any('updateF70/{id}','StartEncodingController@updateF70')->name('updateF70');
+Route::get('/encode-daily-monitoring/{id}/{fullname}/{sex}/{age}', 'DailyMonitoringController@index')->name('encode.daily.monitoring');
+Route::get('/view-daily-monitoring/{id}/{fullname}/{sex}/{age}', 'DailyMonitoringController@view')->name('view.daily.monitoring');
+Route::get('/edit-daily-monitoring/{id}/{fullname}/{sex}/{age}/{day}', 'DailyMonitoringController@edit')->name('edit.daily.monitoring');
 
+Route::post('/insert-monitoring-data/{id}', 'DailyMonitoringController@insert')->name('insert.monitoring.data');
+Route::post('/update-monitoring-data/{id}/{day}' ,'DailyMonitoringController@update')->name('update.monitoring.data');
+Route::post('/insert-monitoring-header/{id}', 'DailyMonitoringController@insertHeader')->name('insert.monitoring.header');
+Route::post('/update-monitoring-header/{id}', 'DailyMonitoringController@updateHeader')->name('update.monitoring.header');
 
 
 /**
- * Form 7.2
+ * Adverse event form
  * 
  * 
  */ 
-Route::get('foodrecall/{eacode}/{hcn}/{shsn}','StartEncodingController@foodrecall')->name('foodrecall');
-Route::get('foodrecall/{eacode}/{hcn}/{shsn}/{member_code}/{givenname}/{surname}/{age}/{sex}/{psc}','StartEncodingController@foodrecallEncode')->name('foodrecall_encode');
-Route::get('foodrecallday/{eacode}/{hcn}/{shsn}/{member_code}/{givenname}/{surname}/{age}/{sex}/{psc}/{day}','StartEncodingController@foodRecallDay')->name('foodrecall_day');
-Route::POST('insertRecall','StartEncodingController@insertRecall')->name('insertRecall');
-Route::get('foodrecalldayview/{eacode}/{hcn}/{shsn}/{member_code}/{givenname}/{surname}/{age}/{sex}/{psc}/{day}','StartEncodingController@foodRecallDayView')->name('foodrecall_view');
-Route::get('recall/{eacode}/{hcn}/{shsn}/{member_code}/{givenname}/{surname}/{age}/{sex}/{psc}/{day}/{id}/edit','StartEncodingController@editRecall')->name('foodrecall_edit');
-Route::any('updaterecall/{id}', 'StartEncodingController@updateRecall')->name('updateRecall');
+Route::get('/get-adverse-event/{id}/{fullname}/{sex}/{age}', 'AdverseEventController@index')->name('get.adverse.event');
 
-
-/**
- * Form 7.4 
- * 
- * 
- */ 
-Route::get('foodrecallf74/{eacode}/{hcn}/{shsn}/{member_code}/{givenname}/{surname}/{age}/{sex}/{psc}','StartEncodingController@foodRecallF74')->name('foodrecall_f74');
-Route::POST('insert74','StartEncodingController@insertForm74')->name('insertF74');
-Route::any('updatef74/{id}', 'StartEncodingController@updateF74')->name('updateF74');
-
-
-/**
- * Add Visitor
- * 
- * 
- * 
- */
-Route::get('/addVisitor/{eacode}/{hcn}/{shsn}', 'StartEncodingController@addVisitor')->name('addVisitor');
-
-
-/**
- * Export Report
- * 
- * 
- * 
- */
-Route::get('/exportReport', 'ExportReportController@exportReport')->name('exportReport');
-
-
-/**
- * Count Total
- * 
- * 
- * 
- */
-Route::get('/countReport', 'CountController@index')->name('countReport');
-
+Route::post('/insert-adverse-data/{id}', 'AdverseEventController@insert')->name('insert.adverse.data');
+Route::post('/update-adverse-data/{id}' ,'AdverseEventController@update')->name('update.adverse.data');
 
 
 /**
@@ -152,15 +129,7 @@ Route::get('/countReport', 'CountController@index')->name('countReport');
  * 
  */
 Route::get('/transmit', 'DataTransmissionController@index')->name('transmit');
-
-
-/**
- * Sending Data
- * 
- * 
- * 
- */
-Route::get('/transmission/{eacode}','SendDataController@transmission')->name('transmission');
+Route::get('/transmission/{id}','DataTransmissionController@transmission')->name('send.data');
 
 
 /**

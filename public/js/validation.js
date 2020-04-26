@@ -1,245 +1,293 @@
-var options = "";
-$("#LINENO").change(function() {
-    var value = $(this).val();
+let options = "";
 
-    if (value.length < 2) {
-        options = "<h4>Line number must be 2 characters long</h4>";
-        $("#message")
-            .html(options)
-            .css("color", "#ff4a4a");
+$("#save-record-btn").click( function(){
+    if ($("#line_no").val() === '' || $("#line_no").val().length < 2) {
+        toastr.error('Found an error! Check row number 1 Line number is required & must be 2 characters.');
     } else {
-        $("#message")
-            .find("h4")
-            .remove();
+        $('#save-record').modal('show');
     }
 });
 
-$("#CMC").change(function() {
-    if ($("#RCC").val() == 1 || $("#RCC").val() == 2 || $("#RCC").val() == 5) {
-        if ($("#CMC").val() != 6) {
-            $("#CMC").attr("style", "background-color:#ff5c5c; color:#ffffff;");
-        } else {
-            $("#CMC").removeAttr("style");
-        }
-    } else if ($("#RCC").val() == 3 || $("#RCC").val() == 6) {
-        if (
-            $("#CMC").val() == 1 ||
-            $("#CMC").val() == 2 ||
-            $("#CMC").val() == 3 ||
-            $("#CMC").val() == 4
-        ) {
-            $("#CMC").removeAttr("style");
-        } else {
-            $("#CMC").attr("style", "background-color:#ff5c5c; color:#ffffff;");
-        }
-    } else if ($("#RCC").val() == 4) {
-        if (
-            $("#CMC").val() == 1 ||
-            $("#CMC").val() == 2 ||
-            $("#CMC").val() == 3 ||
-            $("#CMC").val() == 4 ||
-            $("#CMC").val() == 5
-        ) {
-            $("#CMC").removeAttr("style");
-        } else {
-            $("#CMC").attr("style", "background-color:#ff5c5c; color:#ffffff;");
-        }
+$("#line_no").change(function() {
+    let value = $(this).val();
+
+    if (value.length === 0) {
+        toastr.error("Line number is required");
+    } else if (value.length < 2) {
+        toastr.error("Line number must be 2 characters long");
     }
 });
 
-$("#SRCCODE").change(function() {
-    if ($("#SUPCODE").val() == 1) {
+$(".line-number").change(function() {
+    let value = $(this).val();
+
+    if (value.length === 0) {
+        toastr.error("Line number is required");
+    } else if (value.length < 2) {
+        toastr.error("Line number must be 2 characters long");
+    }
+});
+
+$("#fw_cmc").change(function() {
+    if ($("#fw_rcc").val() == 1 || $("#fw_rcc").val() == 2 || $("#fw_rcc").val() == 5) {
+        if ($("#fw_cmc").val() != 6) {
+            $("#fw_cmc").attr("style", "background-color:#ff5c5c; color:#ffffff;");
+        } else {
+            $("#fw_cmc").removeAttr("style");
+        }
+    } else if ($("#fw_rcc").val() == 3 || $("#fw_rcc").val() == 6) {
         if (
-            $("#SRCCODE").val() == 1 ||
-            $("#SRCCODE").val() == 2 ||
-            $("#SRCCODE").val() == 3 ||
-            $("#SRCCODE").val() == 4 ||
-            $("#SRCCODE").val() == 5 ||
-            $("#SRCCODE").val() == 6 ||
-            $("#SRCCODE").val() == 7 ||
-            $("#SRCCODE").val() == 8 ||
-            $("#SRCCODE").val() == 9 ||
-            $("#SRCCODE").val() == 10 ||
-            $("#SRCCODE").val() == 11 ||
-            $("#SRCCODE").val() == 14 ||
-            $("#SRCCODE").val() == 15 ||
-            $("#SRCCODE").val() == 18 ||
-            $("#SRCCODE").val() == 19
+            $("#fw_cmc").val() == 1 ||
+            $("#fw_cmc").val() == 2 ||
+            $("#fw_cmc").val() == 3 ||
+            $("#fw_cmc").val() == 4
         ) {
-            $("#SRCCODE").removeAttr("style");
+            $("#fw_cmc").removeAttr("style");
         } else {
-            $("#SRCCODE").attr(
-                "style",
-                "background-color:#ff5c5c; color:#ffffff;"
-            );
+            $("#fw_cmc").attr("style", "background-color:#ff5c5c; color:#ffffff;");
         }
-    } else if ($("#SUPCODE").val() == 2) {
-        if ($("#SRCCODE").val() == 14 || $("#SRCCODE").val() == 15) {
-            $("#SRCCODE").removeAttr("style");
-        } else {
-            $("#SRCCODE").attr(
-                "style",
-                "background-color:#ff5c5c; color:#ffffff;"
-            );
-        }
-    } else if ($("#SUPCODE").val() == 3) {
+    } else if ($("#fw_rcc").val() == 4) {
         if (
-            $("#SRCCODE").val() == 1 ||
-            $("#SRCCODE").val() == 2 ||
-            $("#SRCCODE").val() == 3 ||
-            $("#SRCCODE").val() == 4 ||
-            $("#SRCCODE").val() == 5 ||
-            $("#SRCCODE").val() == 6 ||
-            $("#SRCCODE").val() == 7 ||
-            $("#SRCCODE").val() == 8 ||
-            $("#SRCCODE").val() == 9 ||
-            $("#SRCCODE").val() == 10 ||
-            $("#SRCCODE").val() == 11 ||
-            $("#SRCCODE").val() == 12 ||
-            $("#SRCCODE").val() == 13 ||
-            $("#SRCCODE").val() == 14 ||
-            $("#SRCCODE").val() == 15 ||
-            $("#SRCCODE").val() == 18 ||
-            $("#SRCCODE").val() == 19
+            $("#fw_cmc").val() == 1 ||
+            $("#fw_cmc").val() == 2 ||
+            $("#fw_cmc").val() == 3 ||
+            $("#fw_cmc").val() == 4 ||
+            $("#fw_cmc").val() == 5
         ) {
-            $("#SRCCODE").removeAttr("style");
+            $("#fw_cmc").removeAttr("style");
         } else {
-            $("#SRCCODE").attr(
-                "style",
-                "background-color:#ff5c5c; color:#ffffff;"
-            );
-        }
-    } else if ($("#SUPCODE").val() == 4) {
-        if (
-            $("#SRCCODE").val() == 2 ||
-            $("#SRCCODE").val() == 12 ||
-            $("#SRCCODE").val() == 14 ||
-            $("#SRCCODE").val() == 15
-        ) {
-            $("#SRCCODE").removeAttr("style");
-        } else {
-            $("#SRCCODE").attr(
-                "style",
-                "background-color:#ff5c5c; color:#ffffff;"
-            );
-        }
-    } else if ($("#SUPCODE").val() == 9) {
-        if ($("#SRCCODE").val() == 16 || $("#SRCCODE").val() == 17) {
-            $("#SRCCODE").removeAttr("style");
-        } else {
-            $("#SRCCODE").attr(
-                "style",
-                "background-color:#ff5c5c; color:#ffffff;"
-            );
+            $("#fw_cmc").attr("style", "background-color:#ff5c5c; color:#ffffff;");
         }
     }
 });
 
-$("#FOODCODE").change(function() {
-    if ($("#FOODCODE").val() == "W001 - Water") {
-        if (
-            $("#RFCODE").val() == 4 ||
-            $("#RFCODE").val() == 5 ||
-            $("#RFCODE").val() == 6 ||
-            $("#RFCODE").val() == 8
-        ) {
-            $("#RFCODE").removeAttr("style");
+
+$("#pw_cmc").change(function() {
+    if ($("#pw_rcc").val() == 1 || $("#pw_rcc").val() == 2 || $("#pw_rcc").val() == 5) {
+        if ($("#pw_cmc").val() != 6) {
+            $("#pw_cmc").attr("style", "background-color:#ff5c5c; color:#ffffff;");
         } else {
-            $("#RFCODE").attr(
+            $("#pw_cmc").removeAttr("style");
+        }
+    } else if ($("#pw_rcc").val() == 3 || $("#pw_rcc").val() == 6) {
+        if (
+            $("#pw_cmc").val() == 1 ||
+            $("#pw_cmc").val() == 2 ||
+            $("#pw_cmc").val() == 3 ||
+            $("#pw_cmc").val() == 4
+        ) {
+            $("#pw_cmc").removeAttr("style");
+        } else {
+            $("#pw_cmc").attr("style", "background-color:#ff5c5c; color:#ffffff;");
+        }
+    } else if ($("#pw_rcc").val() == 4) {
+        if (
+            $("#pw_cmc").val() == 1 ||
+            $("#pw_cmc").val() == 2 ||
+            $("#pw_cmc").val() == 3 ||
+            $("#pw_cmc").val() == 4 ||
+            $("#pw_cmc").val() == 5
+        ) {
+            $("#pw_cmc").removeAttr("style");
+        } else {
+            $("#pw_cmc").attr("style", "background-color:#ff5c5c; color:#ffffff;");
+        }
+    }
+});
+
+$("#src_code").change(function() {
+    if ($("#supply_code").val() == 1) {
+        if (
+            $("#src_code").val() == 1 ||
+            $("#src_code").val() == 2 ||
+            $("#src_code").val() == 3 ||
+            $("#src_code").val() == 4 ||
+            $("#src_code").val() == 5 ||
+            $("#src_code").val() == 6 ||
+            $("#src_code").val() == 7 ||
+            $("#src_code").val() == 8 ||
+            $("#src_code").val() == 9 ||
+            $("#src_code").val() == 10 ||
+            $("#src_code").val() == 11 ||
+            $("#src_code").val() == 14 ||
+            $("#src_code").val() == 15 ||
+            $("#src_code").val() == 18 ||
+            $("#src_code").val() == 19
+        ) {
+            $("#src_code").removeAttr("style");
+        } else {
+            $("#src_code").attr(
+                "style",
+                "background-color:#ff5c5c; color:#ffffff;"
+            );
+        }
+    } else if ($("#supply_code").val() == 2) {
+        if ($("#src_code").val() == 14 || $("#src_code").val() == 15) {
+            $("#src_code").removeAttr("style");
+        } else {
+            $("#src_code").attr(
+                "style",
+                "background-color:#ff5c5c; color:#ffffff;"
+            );
+        }
+    } else if ($("#supply_code").val() == 3) {
+        if (
+            $("#src_code").val() == 1 ||
+            $("#src_code").val() == 2 ||
+            $("#src_code").val() == 3 ||
+            $("#src_code").val() == 4 ||
+            $("#src_code").val() == 5 ||
+            $("#src_code").val() == 6 ||
+            $("#src_code").val() == 7 ||
+            $("#src_code").val() == 8 ||
+            $("#src_code").val() == 9 ||
+            $("#src_code").val() == 10 ||
+            $("#src_code").val() == 11 ||
+            $("#src_code").val() == 12 ||
+            $("#src_code").val() == 13 ||
+            $("#src_code").val() == 14 ||
+            $("#src_code").val() == 15 ||
+            $("#src_code").val() == 18 ||
+            $("#src_code").val() == 19
+        ) {
+            $("#src_code").removeAttr("style");
+        } else {
+            $("#src_code").attr(
+                "style",
+                "background-color:#ff5c5c; color:#ffffff;"
+            );
+        }
+    } else if ($("#supply_code").val() == 4) {
+        if (
+            $("#src_code").val() == 2 ||
+            $("#src_code").val() == 12 ||
+            $("#src_code").val() == 14 ||
+            $("#src_code").val() == 15
+        ) {
+            $("#src_code").removeAttr("style");
+        } else {
+            $("#src_code").attr(
+                "style",
+                "background-color:#ff5c5c; color:#ffffff;"
+            );
+        }
+    } else if ($("#supply_code").val() == 9) {
+        if ($("#src_code").val() == 16 || $("#src_code").val() == 17) {
+            $("#src_code").removeAttr("style");
+        } else {
+            $("#src_code").attr(
+                "style",
+                "background-color:#ff5c5c; color:#ffffff;"
+            );
+        }
+    }
+});
+
+$("#food_code").change(function() {
+    if ($("#food_code").val() == "W001 - Water") {
+        if (
+            $("#rf_code").val() == 4 ||
+            $("#rf_code").val() == 5 ||
+            $("#rf_code").val() == 6 ||
+            $("#rf_code").val() == 8
+        ) {
+            $("#rf_code").removeAttr("style");
+        } else {
+            $("#rf_code").attr(
                 "style",
                 "background-color:#ff5c5c; color:#ffffff;"
             );
         }
     } else if (
-        $("#FOODCODE").val() == "W002 - Water" ||
-        $("#FOODCODE").val() == "W003 - Water" ||
-        $("#FOODCODE").val() == "W004 - Water" ||
-        $("#FOODCODE").val() == "W005 - Water"
+        $("#food_code").val() == "W002 - Water" ||
+        $("#food_code").val() == "W003 - Water" ||
+        $("#food_code").val() == "W004 - Water" ||
+        $("#food_code").val() == "W005 - Water"
     ) {
-        if ($("#RFCODE").val() == 8) {
-            $("#RFCODE").removeAttr("style");
+        if ($("#rf_code").val() == 8) {
+            $("#rf_code").removeAttr("style");
         } else {
-            $("#RFCODE").attr(
+            $("#rf_code").attr(
                 "style",
                 "background-color:#ff5c5c; color:#ffffff;"
             );
         }
-    } else if ($("#FOODCODE").val() != "W001 - Water") {
+    } else if ($("#food_code").val() != "W001 - Water") {
         if (
-            $("#RFCODE").val() == 4 ||
-            $("#RFCODE").val() == 5 ||
-            $("#RFCODE").val() == 6 ||
-            $("#RFCODE").val() == 8
+            $("#rf_code").val() == 4 ||
+            $("#rf_code").val() == 5 ||
+            $("#rf_code").val() == 6 ||
+            $("#rf_code").val() == 8
         ) {
-            $("#RFCODE").attr(
+            $("#rf_code").attr(
                 "style",
                 "background-color:#ff5c5c; color:#ffffff;"
             );
         } else {
-            $("#RFCODE").removeAttr("style");
+            $("#rf_code").removeAttr("style");
         }
     } else if (
-        $("#FOODCODE").val() != "W002 - Water" ||
-        $("#FOODCODE").val() != "W003 - Water" ||
-        $("#FOODCODE").val() != "W004 - Water" ||
-        $("#FOODCODE").val() != "W005 - Water"
+        $("#food_code").val() != "W002 - Water" ||
+        $("#food_code").val() != "W003 - Water" ||
+        $("#food_code").val() != "W004 - Water" ||
+        $("#food_code").val() != "W005 - Water"
     ) {
-        if ($("#RFCODE").val() == 8) {
-            $("#RFCODE").attr(
+        if ($("#rf_code").val() == 8) {
+            $("#rf_code").attr(
                 "style",
                 "background-color:#ff5c5c; color:#ffffff;"
             );
         } else {
-            $("#RFCODE").removeAttr("style");
+            $("#rf_code").removeAttr("style");
         }
     }
 });
 
-$("#RFCODE").change(function() {
+$("#rf_code").change(function() {
     if (
-        $("#RFCODE").val() == 1 ||
-        $("#RFCODE").val() == 2 ||
-        $("#RFCODE").val() == 3 ||
-        $("#RFCODE").val() == 7
+        $("#rf_code").val() == 1 ||
+        $("#rf_code").val() == 2 ||
+        $("#rf_code").val() == 3 ||
+        $("#rf_code").val() == 7
     ) {
         if (
-            $("#FOODCODE").val() == "W001 - Water" ||
-            $("#FOODCODE").val() == "W002 - Water" ||
-            $("#FOODCODE").val() == "W003 - Water" ||
-            $("#FOODCODE").val() == "W004 - Water" ||
-            $("#FOODCODE").val() == "W005 - Water"
+            $("#food_code").val() == "W001 - Water" ||
+            $("#food_code").val() == "W002 - Water" ||
+            $("#food_code").val() == "W003 - Water" ||
+            $("#food_code").val() == "W004 - Water" ||
+            $("#food_code").val() == "W005 - Water"
         ) {
-            $("#RFCODE").attr(
+            $("#rf_code").attr(
                 "style",
                 "background-color:#ff5c5c; color:#ffffff;"
             );
         } else {
-            $("#RFCODE").removeAttr("style");
+            $("#rf_code").removeAttr("style");
         }
     } else if (
-        $("#RFCODE").val() == 4 ||
-        $("#RFCODE").val() == 5 ||
-        $("#RFCODE").val() == 6
+        $("#rf_code").val() == 4 ||
+        $("#rf_code").val() == 5 ||
+        $("#rf_code").val() == 6
     ) {
-        if ($("#FOODCODE").val() == "W001 - Water") {
-            $("#RFCODE").removeAttr("style");
+        if ($("#food_code").val() == "W001 - Water") {
+            $("#rf_code").removeAttr("style");
         } else {
-            $("#RFCODE").attr(
+            $("#rf_code").attr(
                 "style",
                 "background-color:#ff5c5c; color:#ffffff;"
             );
         }
-    } else if ($("#RFCODE").val() == 8) {
+    } else if ($("#rf_code").val() == 8) {
         if (
-            $("#FOODCODE").val() == "W001 - Water" ||
-            $("#FOODCODE").val() == "W002 - Water" ||
-            $("#FOODCODE").val() == "W003 - Water" ||
-            $("#FOODCODE").val() == "W004 - Water" ||
-            $("#FOODCODE").val() == "W005 - Water"
+            $("#food_code").val() == "W001 - Water" ||
+            $("#food_code").val() == "W002 - Water" ||
+            $("#food_code").val() == "W003 - Water" ||
+            $("#food_code").val() == "W004 - Water" ||
+            $("#food_code").val() == "W005 - Water"
         ) {
-            $("#RFCODE").removeAttr("style");
+            $("#rf_code").removeAttr("style");
         } else {
-            $("#RFCODE").attr(
+            $("#rf_code").attr(
                 "style",
                 "background-color:#ff5c5c; color:#ffffff;"
             );

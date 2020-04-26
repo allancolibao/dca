@@ -149,15 +149,15 @@ button.toast-close-button {
 }
 
 #toast-container>.toast-info {
-    background-color: rgb(25, 180, 228) !important
+    background-color: #13abda !important
 }
 
 #toast-container>.toast-error {
-    background-color: #f76e1e !important
+    background-color: #ff3d3d !important
 }
 
 #toast-container>.toast-success {
-    background-color: #1cc88a !important
+    background-color: #15c081 !important
 }
 
 #toast-container>.toast-warning {
@@ -187,7 +187,7 @@ button.toast-close-button {
 }
 
 .toast-error {
-    background-color: #f7371e
+    background-color: #FF5555
 }
 
 .toast-info {

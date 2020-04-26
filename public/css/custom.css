@@ -1,0 +1,54 @@
+/* Custom level CSS */
+
+/* Error message for validation */
+.has-error {
+    color: #ff5967;
+    border: 1px solid #ff6370;
+}
+
+.help-block {
+    color: #ff5967;
+}
+
+.form-header-field {
+    border-radius: 0 !important;
+    border:none !important;
+    border-bottom: 2px solid #253157 !important;
+}
+
+
+.form-header-field:focus {
+    border-radius: 0 !important;
+    border:none !important;
+    border-bottom: 2px solid #4a6ee6 !important;
+    box-shadow: none !important;
+}
+
+.save-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 999;
+    margin-top: 1rem;
+    margin-right: 1.5rem;
+}
+
+
+.record-list a{
+    color: #405ad1;
+    text-decoration: none !important;
+}
+
+.record-list a:hover {
+    background-color: #e7e7e7;
+}
+
+
+.form-list a{
+    color: #405ad1;
+    text-decoration: none !important;
+}
+
+.form-list a:hover {
+    background-color: #ececec;
+}

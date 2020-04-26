@@ -3,20 +3,21 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="theme-color" content="#5d0ef0">
-    <link rel="shortcut icon" type="image/png" href="{{ asset('img/des.jpg') }}">
+    <meta name="theme-color" content="#FF5055">
+    <link rel="shortcut icon" type="image/png" href="{{ asset('img/vco.jpg') }}">
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'DES20') }}</title>
+    <title>{{ config('app.name', 'VCO') }}</title>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <!-- Custom fonts for this template-->
     <link href="{{asset('main/vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+    <!-- Overide styles-->
+    <link href="{{asset('css/custom.css')}}" rel="stylesheet">
 
     <!-- Custom styles for this template-->
     <link href="{{asset('main/css/sb-admin-2.min.css')}}" rel="stylesheet">
@@ -36,15 +37,7 @@
                         @guest
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                            </li>
-
-                            {{-- Register Link hide for Security Purpose  --}}
-                            {{-- @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
-                            @endif --}}
-                            
+                            </li>                            
                         @else
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

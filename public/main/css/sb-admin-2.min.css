@@ -2017,27 +2017,27 @@ pre code {
 
 
 .form-f60::-webkit-input-placeholder {
-    color: #5e606b;
+    color: #a8a8a8;
     opacity: 1
 }
 
 .form-f60::-moz-placeholder {
-    color: #5e606b;
+    color: #a8a8a8;
     opacity: 1
 }
 
 .form-f60:-ms-input-placeholder {
-    color: #5e606b;
+    color: #a8a8a8;
     opacity: 1
 }
 
 .form-f60::-ms-input-placeholder {
-    color: #5e606b;
+    color: #a8a8a8;
     opacity: 1
 }
 
 .form-f60::placeholder {
-    color: #5e606b;
+    color: #a8a8a8;
     opacity: 1
 }
 
@@ -2147,27 +2147,27 @@ select.form-f60-dropdown:focus::-ms-value {
 }
 
 .form-no-border::-webkit-input-placeholder {
-    color: #5e606b;
+    color: #a8a8a8;
     opacity: 1
 }
 
 .form-no-border::-moz-placeholder {
-    color: #5e606b;
+    color: #a8a8a8;
     opacity: 1
 }
 
 .form-no-border:-ms-input-placeholder {
-    color: #5e606b;
+    color: #a8a8a8;
     opacity: 1
 }
 
 .form-no-border::-ms-input-placeholder {
-    color: #5e606b;
+    color: #a8a8a8;
     opacity: 1
 }
 
 .form-no-border::placeholder {
-    color: #5e606b;
+    color: #a8a8a8;
     opacity: 1
 }
 
@@ -2202,27 +2202,27 @@ select.form-no-border:focus::-ms-value {
 }
 
 .form-control::-webkit-input-placeholder {
-    color: #5e606b;
+    color: #a8a8a8;
     opacity: 1
 }
 
 .form-control::-moz-placeholder {
-    color: #5e606b;
+    color: #a8a8a8;
     opacity: 1
 }
 
 .form-control:-ms-input-placeholder {
-    color: #5e606b;
+    color: #a8a8a8;
     opacity: 1
 }
 
 .form-control::-ms-input-placeholder {
-    color: #5e606b;
+    color: #a8a8a8;
     opacity: 1
 }
 
 .form-control::placeholder {
-    color: #5e606b;
+    color: #a8a8a8;
     opacity: 1
 }
 
@@ -10659,11 +10659,11 @@ button.bg-dark:hover {
 
 a.text-primary:focus,
 a.text-primary:hover {
-    color: #224abe !important
+    color: #3f63ce !important
 }
 
 .text-secondary {
-    color: #858796 !important
+    color: #859685 !important
 }
 
 a.text-secondary:focus,
@@ -12458,7 +12458,8 @@ body.sidebar-toggled footer.sticky-footer {
 
 /* width */
 ::-webkit-scrollbar {
-    width: 5px;
+    width: 6px;
+    height: 10px;
 }
 
 /* Track */
@@ -12468,13 +12469,13 @@ body.sidebar-toggled footer.sticky-footer {
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-    background: rgb(42, 79, 241);
+    background: #4e73df;
 
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-    background: rgb(15, 50, 207);
+    background: #4366cf;
 }
 
 .table-responsive-foodrecord {
@@ -12495,17 +12496,17 @@ body.sidebar-toggled footer.sticky-footer {
 }
 
 #pagin a {
-    font-size: 2vmin;
-    color: rgb(58, 58, 58);
+    background-color: #777777;
+    font-size: 1.1em;
+    color: #ffffff;
     padding: 1vmin 2vmin;
     text-decoration: none;
     transition: background-color .3s;
-    border: 1px solid #94acf3;
 }
 
 .current {
     color: white !important;
-    background: #4e73df;
+    background-color: #2549b4 !important;
 }
 
 .prev {
@@ -12528,7 +12529,7 @@ body.sidebar-toggled footer.sticky-footer {
 /* Main Navigation active class */
 .navbar-nav li.active>a {
     font-weight: bolder;
-    color: #2a50c4 !important;
+    color: #4e73df !important;
 }
 
 

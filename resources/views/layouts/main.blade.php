@@ -9,16 +9,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-  <meta name="theme-color" content="#5d0ef0">
-  <link rel="shortcut icon" type="image/png" href="{{ asset('img/des.jpg') }}">
+  <meta name="theme-color" content="#FF5055">
+  <link rel="shortcut icon" type="image/png" href="{{ asset('img/vco.jpg') }}">
 
-  <title>{{ config('app.name', 'DES20') }}</title>
+  <title>{{ config('app.name', 'VCO') }}</title>
 
   <!-- Custom fonts for this template-->
   <link href="{{asset('main/vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
 
   <!-- Custom styles for this template-->
   <link href="{{asset('main/css/sb-admin-2.min.css')}}" rel="stylesheet">
+
+  <!-- Overide styles-->
+  <link href="{{asset('css/custom.css')}}" rel="stylesheet">
 
   {{-- Toastr Alert Notification css --}}
   <link href="{{asset('css/toastr.min.css')}}" rel="stylesheet">
@@ -40,40 +43,18 @@
         <!-- Topbar -->
         <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
 
-          <!-- Sidebar Toggle (Topbar) -->
-          <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
-            <i class="fa fa-bars"></i>
-          </button>
-
           <ul class="navbar-nav">
             <li class="nav-item {{ Request::is('home') ? 'active' : '' }}">
               <a class="nav-link text-primary" href="{{url('/home')}}">
-                <span>UPLOAD INFORMATION</span></a>
+                <span>HOME</span>
+              </a>
             </li>
-            <li class="nav-item {{ Request::is('start') ? 'active' : '' }}">
-              <a class="nav-link text-primary" href="{{url('/start')}}">
-                <span>START ENCODING</span></a>
-            </li>
-            <li class="nav-item {{ Request::is('transmit') ? 'active' : '' }} {{ Request::is('search_trans') ? 'active' : '' }}">
+            <li class="nav-item {{ Request::is('transmit') ? 'active' : '' }}">
               <a class="nav-link text-primary" href="{{url('/transmit')}}">
-                <span>TRANSMIT DATA</span></a>
+                <span>TRANSMISSION</span>
+              </a>
             </li>
           </ul>
-
-          
-          <!-- Topbar Search -->
-          <form method="POST" action="{{ action('StartEncodingController@searchArea') }}" role="search" class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-            @csrf 
-            <div class="input-group" {{ Request::is('start') ? 'hidden' : '' }} {{ Request::is('home') ? 'hidden' : '' }} {{ Request::is('searcharea') ? 'hidden' : '' }} {{ Route::is('household') ? 'hidden' : '' }} {{ Request::is('transmit') ? 'hidden' : '' }} {{ Request::is('search_trans') ? 'hidden' : '' }}>
-              <input type="text" name="key" class="form-control bg-light border-0 small" placeholder="Please enter the eacode [ 4-12 digits required ]" aria-label="Search" aria-describedby="basic-addon2">
-              <div class="input-group-append">
-                <button class="btn btn-primary" type="submit">
-                  <i class="fas fa-search fa-sm"></i>
-                </button>
-              </div>
-            </div>
-          </form>
-
           
           <!-- Topbar Navbar -->
           <ul class="navbar-nav ml-auto">
@@ -85,26 +66,18 @@
                 </a>
               </div>
             </li>
-            
-            @if (Auth::user()->is_admin == 1)
-            <li class="nav-item">
-              <a class="nav-link text-primary" href="{{url('/exportReport')}}" role="button" aria-haspopup="true" aria-expanded="false">
-                <button class="btn btn-sm btn-primary shadow-sm">
-                  <i class="fas fa-download fa-fw" style="padding-right:1vmin;"></i>Generate Report
-                </button>
-              </a>
-            </li>
-            @else 
-            <li class="nav-item">
-              <a class="nav-link text-primary"  role="button" aria-haspopup="true" aria-expanded="false">
-                <button class="btn btn-sm btn-custom shadow-sm open-count" data-path="{{url('/countReport')}}">
-                  <i class="fas fa-search fa-fw" style="padding-right:1vmin;"></i>Check Count
-                </button>
-              </a>
-            </li>
-            @endif
-            
 
+            <li class="nav-item">
+              <div >
+                <a href="{{ route('cycle.menu')}}" class="nav-link text-primary">
+                  <button type="button" class="d-sm-inline-block btn btn-sm  btn-danger shadow-sm">
+                      <i class="fas fa-utensils"></i> Cycle Menu
+                  </button>
+                </a>
+              </div>
+            </li>
+            
+            
             <!-- Version -->
             @include('inc.version')
 
@@ -115,11 +88,6 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                         </li>
-                        @if (Route::has('register'))
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                            </li>
-                        @endif
                     @else
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -147,6 +115,9 @@
 
       <!-- Footer -->
       @include('inc.footer')
+
+      <!--Global Modal -->
+      @include('inc.modal')
 
     </div>
     <!-- End of Content Wrapper -->
@@ -185,7 +156,6 @@
     </div>
   </div>
 
-
     <!-- Delete Modal-->
     <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
@@ -203,21 +173,6 @@
         </div>
       </div>
     </div>
-
-     <!-- Modal -->
-     <div class="modal fade" id="open-count" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-          <div class="modal-header">
-              <h1 class="h3 mb-2 text-grey-800">Check Count</h1>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          </div>
-              <div class="modal-body" id="get-count" style="overflow-x: scroll;">
-                  {{-- Count Table Display Here--}}
-              </div>
-        </div>
-      </div>
-  </div>
 
   <!-- Bootstrap core JavaScript-->
   <script src="{{asset('main/vendor/jquery/jquery.min.js')}}"></script>
@@ -259,30 +214,14 @@
   {{-- Loading spinner show --}}
   <script type="text/javascript" src="{{ asset('js/loading.js') }}"></script>
 
+  {{-- Auto compute age --}}
+  <script type="text/javascript" src="{{ asset('js/dob.js') }}"></script>
+
+  {{-- BMI --}}
+  <script type="text/javascript" src="{{ asset('js/bmi.js') }}"></script>
+
   {{-- Toastr alert session condition --}}
-  <script>
-    @if(Session::has('message'))
-      var type = "{{ Session::get('alert-type', 'info') }}";
-      switch(type)
-        {
-          case 'info':
-              toastr.info("{{ Session::get('message') }}");
-              break;
-
-          case 'warning':
-              toastr.warning("{{ Session::get('message') }}");
-              break;
-
-          case 'success':
-              toastr.success("{{ Session::get('message') }}");
-              break;
-
-          case 'error':
-              toastr.error("{{ Session::get('message') }}");
-              break;
-        }
-    @endif
-  </script>
+  @include('error.messages')
   
 </body>
 

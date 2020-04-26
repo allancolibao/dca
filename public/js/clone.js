@@ -1,14 +1,14 @@
-var regex = /^(.*)(\d)+$/i;
-var cindex = 1;
+let regex = /^(.*)(\d)+$/i;
+let cindex = 1;
 
 $("input.tr_clone_add").on('click', function () {
-    var $tr = $(this).closest('.tr_clone');
-    var $clone = $tr.clone(true);
+    let $tr = $(this).closest('.tr_clone');
+    let $clone = $tr.clone(true);
     cindex++;
     $clone.find('.remove').click(function (e) {
 
         // target row
-        var $remove = $(this).closest('.tr_clone');
+        let $remove = $(this).closest('.tr_clone');
 
         // show the modal
         $('#remove-clone').modal('show');
@@ -21,141 +21,157 @@ $("input.tr_clone_add").on('click', function () {
         
         e.preventDefault();
     });
+    
+    // Set the clone input to default
     $clone.find(':text').val('');
-    $clone.find('#LINENO').val('');
-    $clone.find('#FOODWEIGHT').val('');
-    $clone.find('#UNITCOST').val('');
-    $clone.find('#UNITWGT').val('');
-    $clone.find('#PW_WGT').val('');
-    $clone.find('#GO_WGT').val('');
-    $clone.find('#LO_WGT').val('');
-    $clone.find('#CMC').removeAttr('style');
-    $clone.find('#SRCCODE').removeAttr('style');
-    $clone.find('#RFCODE').removeAttr('style');
-    $clone.attr('id', 'line-' + (cindex)); //update row id
+    $clone.find('#line_no').val('');
+    $clone.find('#food_weight').val('');
+    $clone.find('#unit_cost').val('');
+    $clone.find('#unit_weight').val('');
+    $clone.find('#cmc').removeAttr('style');
+    $clone.find('#src_code').removeAttr('style');
+    $clone.find('#rf_code').removeAttr('style');
+
+     //update row id
+    $clone.attr('id', 'line-' + (cindex));
+
     //update ids of elements in row
     $clone.find("*").each(function () {
-        var id = this.id || "";
-        var match = id.match(regex) || [];
+        let id = this.id || "";
+        let match = id.match(regex) || [];
         if (match.length == 3) {
             this.id = match[1] + (cindex);
         }
     });
 
-    $clone.find("#CMC").change(function () {
-        if ($clone.find("#RCC").val() == 1 || $clone.find("#RCC").val() == 2 || $clone.find("#RCC").val() == 5) {
-            if ($clone.find("#CMC").val() != 6) {
-                $clone.find("#CMC").attr("style", "background-color:#ff5c5c; color:#ffffff;");
+    // Custom validation
+    $("#save-record-btn").click( function(){
+        $clone.find('#line_no').each(function(){
+            let value = $(this).val();
+            let i = 0;
+            i++;
+            if(value === '' || value.length < 2){
+                toastr.error('Found an error! Check row number '+ i +' Line number is required & must be 2 characters.');
             } else {
-                $clone.find("#CMC").removeAttr("style");
+                $('#save-record').modal('show');
             }
-        } else if ($clone.find("#RCC").val() == 3 || $clone.find("#RCC").val() == 6) {
-            if (
-                $clone.find("#CMC").val() == 1 ||
-                $clone.find("#CMC").val() == 2 ||
-                $clone.find("#CMC").val() == 3 ||
-                $clone.find("#CMC").val() == 4
-            ) {
-                $clone.find("#CMC").removeAttr("style");
+        });
+    });
+
+    $clone.find("#cmc").change(function () {
+        if ($clone.find("#rcc").val() == 1 || $clone.find("#rcc").val() == 2 || $clone.find("#rcc").val() == 5) {
+            if ($clone.find("#cmc").val() != 6) {
+                $clone.find("#cmc").attr("style", "background-color:#ff5c5c; color:#ffffff;");
             } else {
-                $clone.find("#CMC").attr("style", "background-color:#ff5c5c; color:#ffffff;");
+                $clone.find("#cmc").removeAttr("style");
             }
-        } else if ($clone.find("#RCC").val() == 4) {
+        } else if ($clone.find("#rcc").val() == 3 || $clone.find("#rcc").val() == 6) {
             if (
-                $clone.find("#CMC").val() == 1 ||
-                $clone.find("#CMC").val() == 2 ||
-                $clone.find("#CMC").val() == 3 ||
-                $clone.find("#CMC").val() == 4 ||
-                $clone.find("#CMC").val() == 5
+                $clone.find("#cmc").val() == 1 ||
+                $clone.find("#cmc").val() == 2 ||
+                $clone.find("#cmc").val() == 3 ||
+                $clone.find("#cmc").val() == 4
             ) {
-                $clone.find("#CMC").removeAttr("style");
+                $clone.find("#cmc").removeAttr("style");
             } else {
-                $clone.find("#CMC").attr("style", "background-color:#ff5c5c; color:#ffffff;");
+                $clone.find("#cmc").attr("style", "background-color:#ff5c5c; color:#ffffff;");
+            }
+        } else if ($clone.find("#rcc").val() == 4) {
+            if (
+                $clone.find("#cmc").val() == 1 ||
+                $clone.find("#cmc").val() == 2 ||
+                $clone.find("#cmc").val() == 3 ||
+                $clone.find("#cmc").val() == 4 ||
+                $clone.find("#cmc").val() == 5
+            ) {
+                $clone.find("#cmc").removeAttr("style");
+            } else {
+                $clone.find("#cmc").attr("style", "background-color:#ff5c5c; color:#ffffff;");
             }
         }
     });
 
-    $clone.find("#SRCCODE").change(function () {
-        if ($clone.find("#SUPCODE").val() == 1) {
+    $clone.find("#src_code").change(function () {
+        if ($clone.find("#supply_code").val() == 1) {
             if (
-                $clone.find("#SRCCODE").val() == 1 ||
-                $clone.find("#SRCCODE").val() == 2 ||
-                $clone.find("#SRCCODE").val() == 3 ||
-                $clone.find("#SRCCODE").val() == 4 ||
-                $clone.find("#SRCCODE").val() == 5 ||
-                $clone.find("#SRCCODE").val() == 6 ||
-                $clone.find("#SRCCODE").val() == 7 ||
-                $clone.find("#SRCCODE").val() == 8 ||
-                $clone.find("#SRCCODE").val() == 9 ||
-                $clone.find("#SRCCODE").val() == 10 ||
-                $clone.find("#SRCCODE").val() == 11 ||
-                $clone.find("#SRCCODE").val() == 14 ||
-                $clone.find("#SRCCODE").val() == 15 ||
-                $clone.find("#SRCCODE").val() == 18 ||
-                $clone.find("#SRCCODE").val() == 19
+                $clone.find("#src_code").val() == 1 ||
+                $clone.find("#src_code").val() == 2 ||
+                $clone.find("#src_code").val() == 3 ||
+                $clone.find("#src_code").val() == 4 ||
+                $clone.find("#src_code").val() == 5 ||
+                $clone.find("#src_code").val() == 6 ||
+                $clone.find("#src_code").val() == 7 ||
+                $clone.find("#src_code").val() == 8 ||
+                $clone.find("#src_code").val() == 9 ||
+                $clone.find("#src_code").val() == 10 ||
+                $clone.find("#src_code").val() == 11 ||
+                $clone.find("#src_code").val() == 14 ||
+                $clone.find("#src_code").val() == 15 ||
+                $clone.find("#src_code").val() == 18 ||
+                $clone.find("#src_code").val() == 19
             ) {
-                $clone.find("#SRCCODE").removeAttr("style");
+                $clone.find("#src_code").removeAttr("style");
             } else {
-                $clone.find("#SRCCODE").attr(
+                $clone.find("#src_code").attr(
                     "style",
                     "background-color:#ff5c5c; color:#ffffff;"
                 );
             }
-        } else if ($clone.find("#SUPCODE").val() == 2) {
-            if ($clone.find("#SRCCODE").val() == 14 || $clone.find("#SRCCODE").val() == 15) {
-                $clone.find("#SRCCODE").removeAttr("style");
+        } else if ($clone.find("#supply_code").val() == 2) {
+            if ($clone.find("#src_code").val() == 14 || $clone.find("#src_code").val() == 15) {
+                $clone.find("#src_code").removeAttr("style");
             } else {
-                $clone.find("#SRCCODE").attr(
+                $clone.find("#src_code").attr(
                     "style",
                     "background-color:#ff5c5c; color:#ffffff;"
                 );
             }
-        } else if ($clone.find("#SUPCODE").val() == 3) {
+        } else if ($clone.find("#supply_code").val() == 3) {
             if (
-                $clone.find("#SRCCODE").val() == 1 ||
-                $clone.find("#SRCCODE").val() == 2 ||
-                $clone.find("#SRCCODE").val() == 3 ||
-                $clone.find("#SRCCODE").val() == 4 ||
-                $clone.find("#SRCCODE").val() == 5 ||
-                $clone.find("#SRCCODE").val() == 6 ||
-                $clone.find("#SRCCODE").val() == 7 ||
-                $clone.find("#SRCCODE").val() == 8 ||
-                $clone.find("#SRCCODE").val() == 9 ||
-                $clone.find("#SRCCODE").val() == 10 ||
-                $clone.find("#SRCCODE").val() == 11 ||
-                $clone.find("#SRCCODE").val() == 12 ||
-                $clone.find("#SRCCODE").val() == 13 ||
-                $clone.find("#SRCCODE").val() == 14 ||
-                $clone.find("#SRCCODE").val() == 15 ||
-                $clone.find("#SRCCODE").val() == 18 ||
-                $clone.find("#SRCCODE").val() == 19
+                $clone.find("#src_code").val() == 1 ||
+                $clone.find("#src_code").val() == 2 ||
+                $clone.find("#src_code").val() == 3 ||
+                $clone.find("#src_code").val() == 4 ||
+                $clone.find("#src_code").val() == 5 ||
+                $clone.find("#src_code").val() == 6 ||
+                $clone.find("#src_code").val() == 7 ||
+                $clone.find("#src_code").val() == 8 ||
+                $clone.find("#src_code").val() == 9 ||
+                $clone.find("#src_code").val() == 10 ||
+                $clone.find("#src_code").val() == 11 ||
+                $clone.find("#src_code").val() == 12 ||
+                $clone.find("#src_code").val() == 13 ||
+                $clone.find("#src_code").val() == 14 ||
+                $clone.find("#src_code").val() == 15 ||
+                $clone.find("#src_code").val() == 18 ||
+                $clone.find("#src_code").val() == 19
             ) {
-                $clone.find("#SRCCODE").removeAttr("style");
+                $clone.find("#src_code").removeAttr("style");
             } else {
-                $clone.find("#SRCCODE").attr(
+                $clone.find("#src_code").attr(
                     "style",
                     "background-color:#ff5c5c; color:#ffffff;"
                 );
             }
-        } else if ($clone.find("#SUPCODE").val() == 4) {
+        } else if ($clone.find("#supply_code").val() == 4) {
             if (
-                $clone.find("#SRCCODE").val() == 2 ||
-                $clone.find("#SRCCODE").val() == 12 ||
-                $clone.find("#SRCCODE").val() == 14 ||
-                $clone.find("#SRCCODE").val() == 15
+                $clone.find("#src_code").val() == 2 ||
+                $clone.find("#src_code").val() == 12 ||
+                $clone.find("#src_code").val() == 14 ||
+                $clone.find("#src_code").val() == 15
             ) {
-                $clone.find("#SRCCODE").removeAttr("style");
+                $clone.find("#src_code").removeAttr("style");
             } else {
-                $clone.find("#SRCCODE").attr(
+                $clone.find("#src_code").attr(
                     "style",
                     "background-color:#ff5c5c; color:#ffffff;"
                 );
             }
-        } else if ($clone.find("#SUPCODE").val() == 9) {
-            if ($clone.find("#SRCCODE").val() == 16 || $clone.find("#SRCCODE").val() == 17) {
-                $clone.find("#SRCCODE").removeAttr("style");
+        } else if ($clone.find("#supply_code").val() == 9) {
+            if ($clone.find("#src_code").val() == 16 || $clone.find("#src_code").val() == 17) {
+                $clone.find("#src_code").removeAttr("style");
             } else {
-                $clone.find("#SRCCODE").attr(
+                $clone.find("#src_code").attr(
                     "style",
                     "background-color:#ff5c5c; color:#ffffff;"
                 );
@@ -163,80 +179,80 @@ $("input.tr_clone_add").on('click', function () {
         }
     });
 
-    $clone.find("#FOODCODE").change(function () {
-        if ($clone.find("#FOODCODE").val() === "W001 - Water") {
+    $clone.find("#food_code").change(function () {
+        if ($clone.find("#food_code").val() === "W001 - Water") {
             if (
-                $clone.find("#RFCODE").val() == 4 ||
-                $clone.find("#RFCODE").val() == 5 ||
-                $clone.find("#RFCODE").val() == 6 ||
-                $clone.find("#RFCODE").val() == 8
+                $clone.find("#rf_code").val() == 4 ||
+                $clone.find("#rf_code").val() == 5 ||
+                $clone.find("#rf_code").val() == 6 ||
+                $clone.find("#rf_code").val() == 8
             ) {
-                $clone.find("#RFCODE").removeAttr("style");
+                $clone.find("#rf_code").removeAttr("style");
             } else {
-                $clone.find("#RFCODE").attr(
+                $clone.find("#rf_code").attr(
                     "style",
                     "background-color:#ff5c5c; color:#ffffff;"
                 );
             }
-        } else if ($clone.find("#FOODCODE").val() === "W002 - Water" || $clone.find("#FOODCODE").val() === "W003 - Water" || $clone.find("#FOODCODE").val() === "W004 - Water" || $clone.find("#FOODCODE").val() === "W005 - Water") {
-            if ($clone.find("#RFCODE").val() == 8) {
-                $clone.find("#RFCODE").removeAttr("style");
+        } else if ($clone.find("#food_code").val() === "W002 - Water" || $clone.find("#food_code").val() === "W003 - Water" || $clone.find("#food_code").val() === "W004 - Water" || $clone.find("#food_code").val() === "W005 - Water") {
+            if ($clone.find("#rf_code").val() == 8) {
+                $clone.find("#rf_code").removeAttr("style");
             } else {
-                $clone.find("#RFCODE").attr(
+                $clone.find("#rf_code").attr(
                     "style",
                     "background-color:#ff5c5c; color:#ffffff;"
                 );
             }
-        } else if ($clone.find("#FOODCODE").val() != "W001 - Water") {
+        } else if ($clone.find("#food_code").val() != "W001 - Water") {
             if (
-                $clone.find("#RFCODE").val() == 4 ||
-                $clone.find("#RFCODE").val() == 5 ||
-                $clone.find("#RFCODE").val() == 6 ||
-                $clone.find("#RFCODE").val() == 8
+                $clone.find("#rf_code").val() == 4 ||
+                $clone.find("#rf_code").val() == 5 ||
+                $clone.find("#rf_code").val() == 6 ||
+                $clone.find("#rf_code").val() == 8
             ) {
-                $clone.find("#RFCODE").attr(
+                $clone.find("#rf_code").attr(
                     "style",
                     "background-color:#ff5c5c; color:#ffffff;"
                 );
             } else {
-                $clone.find("#RFCODE").removeAttr("style");
+                $clone.find("#rf_code").removeAttr("style");
             }
-        } else if ($clone.find("#FOODCODE").val() != "W002 - Water" || $clone.find("#FOODCODE").val() != "W003 - Water" || $clone.find("#FOODCODE").val() != "W004 - Water" || $clone.find("#FOODCODE").val() != "W005 - Water") {
-            if ($clone.find("#RFCODE").val() == 8) {
-                $clone.find("#RFCODE").attr(
+        } else if ($clone.find("#food_code").val() != "W002 - Water" || $clone.find("#food_code").val() != "W003 - Water" || $clone.find("#food_code").val() != "W004 - Water" || $clone.find("#food_code").val() != "W005 - Water") {
+            if ($clone.find("#rf_code").val() == 8) {
+                $clone.find("#rf_code").attr(
                     "style",
                     "background-color:#ff5c5c; color:#ffffff;"
                 );
             } else {
-                $clone.find("#RFCODE").removeAttr("style");
+                $clone.find("#rf_code").removeAttr("style");
             }
         }
     });
 
-    $clone.find("#RFCODE").change(function () {
-        if ($clone.find("#RFCODE").val() == 1 || $clone.find("#RFCODE").val() == 2 || $clone.find("#RFCODE").val() == 3 || $clone.find("#RFCODE").val() == 7) {
-            if ($clone.find("#FOODCODE").val() == "W001 - Water" || $clone.find("#FOODCODE").val() == "W002 - Water" || $clone.find("#FOODCODE").val() == "W003 - Water" || $clone.find("#FOODCODE").val() == "W004 - Water" || $clone.find("#FOODCODE").val() == "W005 - Water") {
-                $clone.find("#RFCODE").attr(
+    $clone.find("#rf_code").change(function () {
+        if ($clone.find("#rf_code").val() == 1 || $clone.find("#rf_code").val() == 2 || $clone.find("#rf_code").val() == 3 || $clone.find("#rf_code").val() == 7) {
+            if ($clone.find("#food_code").val() == "W001 - Water" || $clone.find("#food_code").val() == "W002 - Water" || $clone.find("#food_code").val() == "W003 - Water" || $clone.find("#food_code").val() == "W004 - Water" || $clone.find("#food_code").val() == "W005 - Water") {
+                $clone.find("#rf_code").attr(
                     "style",
                     "background-color:#ff5c5c; color:#ffffff;"
                 );
             } else {
-                $clone.find("#RFCODE").removeAttr("style");
+                $clone.find("#rf_code").removeAttr("style");
             }
-        } else if ($clone.find("#RFCODE").val() == 4 || $clone.find("#RFCODE").val() == 5 || $clone.find("#RFCODE").val() == 6) {
-            if ($clone.find("#FOODCODE").val() == "W001 - Water") {
-                $clone.find("#RFCODE").removeAttr("style");
+        } else if ($clone.find("#rf_code").val() == 4 || $clone.find("#rf_code").val() == 5 || $clone.find("#rf_code").val() == 6) {
+            if ($clone.find("#food_code").val() == "W001 - Water") {
+                $clone.find("#rf_code").removeAttr("style");
             } else {
-                $clone.find("#RFCODE").attr(
+                $clone.find("#rf_code").attr(
                     "style",
                     "background-color:#ff5c5c; color:#ffffff;"
                 );
             }
-        } else if ($clone.find("#RFCODE").val() == 8) {
-            if ($clone.find("#FOODCODE").val() == "W001 - Water" || $clone.find("#FOODCODE").val() == "W002 - Water" || $clone.find("#FOODCODE").val() == "W003 - Water" || $clone.find("#FOODCODE").val() == "W004 - Water" || $clone.find("#FOODCODE").val() == "W005 - Water") {
-                $clone.find("#RFCODE").removeAttr("style");
+        } else if ($clone.find("#rf_code").val() == 8) {
+            if ($clone.find("#food_code").val() == "W001 - Water" || $clone.find("#food_code").val() == "W002 - Water" || $clone.find("#food_code").val() == "W003 - Water" || $clone.find("#food_code").val() == "W004 - Water" || $clone.find("#food_code").val() == "W005 - Water") {
+                $clone.find("#rf_code").removeAttr("style");
             } else {
-                $clone.find("#RFCODE").attr(
+                $clone.find("#rf_code").attr(
                     "style",
                     "background-color:#ff5c5c; color:#ffffff;"
                 );

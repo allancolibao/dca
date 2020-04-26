@@ -1,15 +1,7 @@
 @extends('layouts.main')
 
 @section('content')
-
-        <!-- Search Eacode -->
-        <div class="container-fluid" style="padding-bottom:59vmin;">
-
-            <!-- Page Heading -->
-            <div class="d-sm-flex align-items-center justify-content-between mb-4">
-              <h1 class="text-center h3 mb-0 text-gray-800 ">DATA TRANSMISSION</h1>
-            </div>
-               
+<div class="container-fluid" style="padding-bottom:59vmin;">
               
             <!-- Content Row -->
             <div class="row">
@@ -30,18 +22,24 @@
                             <table class="table table-bordered" id="transTables" width="100%" cellspacing="0">
                                 <thead>
                                     <tr>
-                                        <th>EACODE</th>
-                                        <th>AREANAME</th>
+                                        <th>PATIENT ID</th>
+                                        <th>FULL NAME</th>
+                                        <th>AGE</th>
+                                        <th>SEX</th>
+                                        <th>TRANS COUNT</th>
                                         <th>TRANSMIT</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($areas as $area)
+                                    @foreach ($forTransmission as $data)
                                     <tr>
-                                        <td>{{$area->eacode}}</td>
-                                        <td>{{$area->areaname}}</td>
+                                        <td>{{$data->participant_id}}</td>
+                                        <td>{{$data->full_name}}</td>
+                                        <td>{{$data->age}}</td>
+                                        <td>{{$data->sex}}</td>
+                                        <td>{{$data->is_transmitted}}</td>
                                         <td>  
-                                            <a href="{{ route('transmission', ['eacode'=>$area->eacode ])}}">
+                                            <a href="{{ route('send.data', ['id'=>$data->participant_id ])}}">
                                                 <button type="submit" class="d-sm-inline-block btn btn-sm btn-primary shadow-sm send">
                                                          <i class="fas fa-plane"></i> Send Data
                                                 </button>

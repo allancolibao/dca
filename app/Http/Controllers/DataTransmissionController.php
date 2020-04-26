@@ -3,28 +3,16 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Input;
-use Carbon\Carbon;
-use Illuminate\Validation\Rule;
-use Illuminate\Support\Str;
-use App\http\Requests;
-use Validator;
-use Response;
+use App\Adverse;
+use App\CaseReport;
+use App\Header;
+use App\Monitoring;
+use App\MonitoringHeader;
+use App\Participant;
+use App\Record;
+use App\Screening;
 use Auth;
 use DB;
-use App\Localsurveyareas;
-use App\F11;
-use App\F60;
-use App\F61;
-use App\F63;
-use App\F70;
-use App\F71;
-use App\F76;
-use App\Options;
-use App\Reasons;
-use App\Meals;
-use App\F74_Questions;
-use App\is;
 
 class DataTransmissionController extends Controller
 {
@@ -33,9 +21,10 @@ class DataTransmissionController extends Controller
      *
      * @return void
      */
-    public function __construct()
-    {
+    public function __construct(Participant $participants)
+    {   
         $this->middleware('auth');
+        $this->participant = $participants;
     }
 
 
@@ -45,14 +34,82 @@ class DataTransmissionController extends Controller
      * @return \Illuminate\Contracts\Support\Renderable
      */
     public function index()
+    {        
+        $forTransmission = $this->participant->getAllParticipant();
+
+        return view('app.trans',compact('forTransmission'));
+    }
+
+    /**
+     * Send Data to the server
+     * 
+     * 
+     */
+    public function transmission(Request $request, $id)
     {
-        $areas = DB::table('d_f71')
-                    ->join('localsurveyareas', function ($join) {
-                        $join->on('localsurveyareas.eacode', '=', 'd_f71.eacode');   
-                    })
-                    ->distinct()
-                    ->get(['d_f71.eacode','localsurveyareas.areaname']);
-        
-        return view('app.trans',compact('areas'));
+
+        $connected = @fsockopen("www.google.com", 80); 
+                                       
+        if ($connected){
+
+            $is_conn = true; 
+
+            // Adverse Event
+            $adverse = Adverse::where('participant_id', $id)->exclude('id')->get()->toArray();
+            $insertAdverse = DB::connection('mysqlsec')->table('adverse_event')->insertIgnore($adverse);
+
+            // Case Report
+            $case = CaseReport::where('participant_id', $id)->exclude('id')->get()->toArray();
+            $insertCase = DB::connection('mysqlsec')->table('case_reports')->insertIgnore($case);
+
+            // Monitoring Data
+            $monitoringData = Monitoring::where('participant_id', $id)->exclude('id')->get()->toArray();
+            $insertMonitoringData = DB::connection('mysqlsec')->table('monitoring_data')->insertIgnore($monitoringData);
+
+            // Monitoring Header
+            $monitoringHeader = MonitoringHeader::where('participant_id', $id)->exclude('id')->get()->toArray();
+            $insertMonitoringHeader = DB::connection('mysqlsec')->table('monitoring_header')->insertIgnore($monitoringHeader);
+
+            // Participant
+            $participant = Participant::where('participant_id', $id)->exclude('id')->get()->toArray();
+            $insertParticipant = DB::connection('mysqlsec')->table('participants')->insertIgnore($participant);
+
+            // Record Data
+            $recordData = Record::where('participant_id', $id)->exclude('id')->get()->toArray();
+            $insertRecordData = DB::connection('mysqlsec')->table('record_data')->insertIgnore($recordData);
+
+            // Record Header
+            $recordHeader = Header::where('participant_id', $id)->exclude('id')->get()->toArray();
+            $insertRecordHeader = DB::connection('mysqlsec')->table('record_headers')->insertIgnore($recordHeader);
+
+            // Screening
+            $screening = Screening::where('participant_id', $id)->exclude('id')->get()->toArray();
+            $insertScreening = DB::connection('mysqlsec')->table('screenings')->insertIgnore($screening);
+
+            // Update Count
+            $getTransCount = $this->participant->getParticipant($id)->increment('is_transmitted');
+ 
+            $notification = array(
+                'message' => 'Data trasmitted successfully!',
+                'alert-type' => 'success'
+            );
+
+            return redirect('/transmit')->with($notification);
+
+
+            fclose($connected);
+
+        } else {
+
+            $is_conn = false; 
+
+            $notification = array(
+                'message' => 'Please check your internet connection!',
+                'alert-type' => 'error'
+            );
+            
+            return redirect('/transmit')->with($notification);
+
+        }
     }
 }
