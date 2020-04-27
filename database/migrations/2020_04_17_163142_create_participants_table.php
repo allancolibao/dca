@@ -33,7 +33,6 @@ class CreateParticipantsTable extends Migration
             $table->string('witness_address', 250)->nullable();
             $table->string('researcher_name', 50)->nullable();
             $table->string('researcher_date', 20)->nullable();
-            $table->tinyInteger('is_caregiver')->default('0')->nullable();
             $table->tinyInteger('is_transmitted')->default('0')->nullable();
             $table->string('encoded_by', 20)->nullable();
             $table->string('updated_by', 20)->nullable();

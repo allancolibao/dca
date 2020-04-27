@@ -31,6 +31,7 @@ class Monitoring extends Model
         'mon_chills',
         'mon_conjunct',
         'mon_cough',
+        'mon_cough_dry',
         'mon_diarrhea',
         'mon_runny',
         'mon_breath',
@@ -62,6 +63,7 @@ class Monitoring extends Model
         'mon_chills',
         'mon_conjunct',
         'mon_cough',
+        'mon_cough_dry',
         'mon_diarrhea',
         'mon_runny',
         'mon_breath',
@@ -127,5 +129,27 @@ class Monitoring extends Model
         return $this->where('participant_id', $id)
                     ->where('mon_day', $day)
                     ->update($data);
+    }
+
+    /**
+     *  Delete monitoring data
+     * 
+     * 
+     */
+    public function deleteMonitoringData($id)
+    {
+        return $this->where('participant_id', $id);
+    }
+
+    /**
+    * Get specific the participant data
+    *
+    *
+    */
+    public function restoreParticipant($id)
+    {   
+        return $this->onlyTrashed()
+                    ->where('participant_id', $id)
+                    ->restore();
     }
 }

@@ -9,20 +9,19 @@
                     </div>
                 </div>
                 <div class="line-content">
-                    <img src="{{ asset("/img/assent/en/en_1.jpg")}}" alt="" class="my-3" style="width:100%;">
-                    <img src="{{ asset("/img/assent/en/en_2.jpg")}}" alt="" class="my-3" style="width:100%;">
-                    <img src="{{ asset("/img/assent/en/en_3.jpg")}}" alt="" class="my-3" style="width:100%;">
-                    <img src="{{ asset("/img/assent/en/en_4.jpg")}}" alt="" class="my-3" style="width:100%;">
-                    <img src="{{ asset("/img/assent/en/en_5.jpg")}}" alt="" class="my-3" style="width:100%;">
-                    <img src="{{ asset("/img/assent/en/en_6.jpg")}}" alt="" class="my-3" style="width:100%;">
+                    <img src="{{ asset("/img/assent/en/en_01.jpg")}}" alt="" class="my-3" style="width:100%;">
+                    <img src="{{ asset("/img/assent/en/en_02.jpg")}}" alt="" class="my-3" style="width:100%;">
+                    <img src="{{ asset("/img/assent/en/en_03.jpg")}}" alt="" class="my-3" style="width:100%;">
+                    <img src="{{ asset("/img/assent/en/en_04.jpg")}}" alt="" class="my-3" style="width:100%;">
+                    <img src="{{ asset("/img/assent/en/en_05.jpg")}}" alt="" class="my-3" style="width:100%;">
+                    <img src="{{ asset("/img/assent/en/en_06.jpg")}}" alt="" class="my-3" style="width:100%;">
                 </div>
                 <div class="line-content">
-                    <img src="{{ asset("/img/assent/fn/fn_1.jpg")}}" alt="" class="my-3" style="width:100%;">
-                    <img src="{{ asset("/img/assent/fn/fn_2.jpg")}}" alt="" class="my-3" style="width:100%;">
-                    <img src="{{ asset("/img/assent/fn/fn_3.jpg")}}" alt="" class="my-3" style="width:100%;">
-                    <img src="{{ asset("/img/assent/fn/fn_4.jpg")}}" alt="" class="my-3" style="width:100%;">
-                    <img src="{{ asset("/img/assent/fn/fn_5.jpg")}}" alt="" class="my-3" style="width:100%;">
-                    <img src="{{ asset("/img/assent/fn/fn_6.jpg")}}" alt="" class="my-3" style="width:100%;">
+                    <img src="{{ asset("/img/assent/fn/fn_01.jpg")}}" alt="" class="my-3" style="width:100%;">
+                    <img src="{{ asset("/img/assent/fn/fn_02.jpg")}}" alt="" class="my-3" style="width:100%;">
+                    <img src="{{ asset("/img/assent/fn/fn_03.jpg")}}" alt="" class="my-3" style="width:100%;">
+                    <img src="{{ asset("/img/assent/fn/fn_04.jpg")}}" alt="" class="my-3" style="width:100%;">
+                    <img src="{{ asset("/img/assent/fn/fn_05.jpg")}}" alt="" class="my-3" style="width:100%;">
                 </div>
                 <button type="button" onclick="toggleStatusAssent()" data-dismiss="modal" aria-label="Close" class="btn btn-primary mt-4">Agree to take part in this research</button>
             </div>

@@ -93,4 +93,16 @@ class MonitoringHeader extends Model
         return $this->where('participant_id', $id)
                     ->update($data);
     }
+
+    /**
+    *Restore the participant data
+    *
+    *
+    */
+    public function restoreParticipant($id)
+    {   
+        return $this->onlyTrashed()
+                    ->where('participant_id', $id)
+                    ->restore();
+    }
 }

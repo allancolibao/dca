@@ -58,21 +58,21 @@
                                                 </tr>
                                                 <tr>
                                                     <td>
-                                                        <input type="hidden" value="0" name="sec_02_04_01">
+                                                        <input type="hidden" value="0" name="sec_01_19_01">
                                                         <input type="checkbox" value="1" style="width: 1.3em;  height: 1.3em;" name="sec_01_19_01" id="sec_01_19_01"  {{ ($data->sec_01_19_01 == '1' ? 'checked' : '') }}>
                                                         Cough
                                                     </td>                                                
                                                 </tr>
                                                 <tr>
                                                     <td>
-                                                        <input type="hidden" value="0" name="sec_02_04_02">
+                                                        <input type="hidden" value="0" name="sec_01_19_02">
                                                         <input type="checkbox" value="1" style="width: 1.3em;  height: 1.3em;" name="sec_01_19_02" id="sec_01_19_02"  {{ ($data->sec_01_19_02 == '1' ? 'checked' : '') }}>
                                                         Breathing difficulty
                                                     </td>                                                 
                                                 </tr>
                                                 <tr>
                                                     <td>
-                                                        <input type="hidden" value="0" name="sec_02_04_03">
+                                                        <input type="hidden" value="0" name="sec_01_19_03">
                                                         <input type="checkbox" value="1" style="width: 1.3em;  height: 1.3em;" name="sec_01_19_03" id="sec_01_19_03"  {{ ($data->sec_01_19_03 == '1' ? 'checked' : '') }}>
                                                         Fever
                                                         <input type="text" class="form-control mt-2" name="sec_01_19_03_temp" id="sec_01_19_03_temp" placeholder="Body Temperature (°C)"  value="{{ $data->sec_01_19_03_temp }}">
@@ -80,14 +80,14 @@
                                                 </tr>
                                                 <tr>
                                                     <td>
-                                                        <input type="hidden" value="0" name="sec_02_04_04">
+                                                        <input type="hidden" value="0" name="sec_01_19_04">
                                                         <input type="checkbox" value="1" style="width: 1.3em;  height: 1.3em;" name="sec_01_19_04" id="sec_01_19_04"  {{ ($data->sec_01_19_04 == '1' ? 'checked' : '') }}>
                                                         Tiredness
                                                     </td>  
                                                 </tr>
                                                 <tr>
                                                     <td>
-                                                        <input type="hidden" value="0" name="sec_02_04_05">
+                                                        <input type="hidden" value="0" name="sec_01_19_05">
                                                         <input type="checkbox" value="1" style="width: 1.3em;  height: 1.3em;" name="sec_01_19_05" id="sec_01_19_05"  {{ ($data->sec_01_19_05 == '1' ? 'checked' : '') }}>
                                                         Diarrhea
                                                     </td>                                                 
@@ -176,13 +176,13 @@
                                                         </small> 
                                                     </td>
                                                     <td>
-                                                        <input type="number" step="any" class="form-control" name="sec_02_03_01" id="sec_02_03_01" placeholder="(BMI) (kg/m2)" value="{{ $data->sec_02_03_01 }}">
+                                                        <input type="number" step="any" class="form-control" name="sec_02_03_01" id="sec_02_03_01" placeholder="(BMI) (kg/m2)" value="{{ $data->sec_02_03_01 }}" readonly>
                                                     </td> 
                                                     <td>
-                                                        <input type="number" step="any" class="form-control" name="sec_02_03_02" id="sec_02_03_02" placeholder="(BMI) (kg/m2)" value="{{ $data->sec_02_03_02 }}">
+                                                        <input type="number" step="any" class="form-control" name="sec_02_03_02" id="sec_02_03_02" placeholder="(BMI) (kg/m2)" value="{{ $data->sec_02_03_02 }}" readonly>
                                                     </td> 
                                                     <td>
-                                                        <input type="number" step="any" class="form-control" name="sec_02_03_03" id="sec_02_03_03" placeholder="(BMI) (kg/m2)" value="{{ $data->sec_02_03_03 }}">
+                                                        <input type="number" step="any" class="form-control" name="sec_02_03_03" id="sec_02_03_03" placeholder="(BMI) (kg/m2)" value="{{ $data->sec_02_03_03 }}" readonly>
                                                     </td> 
                                                 </tr>
                                                 <tr>
@@ -506,6 +506,66 @@
 
                                                 <tr>
                                                     <td colspan="2">
+                                                        2.14 ALT/SGPT
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" class="form-control" name="sec_02_14_01" id="sec_02_14_01" placeholder="" value="{{ $data->sec_02_14_01 }}">
+                                                    </td> 
+                                                    <td>
+                                                        <input type="text"  class="form-control" name="sec_02_14_02" id="sec_02_14_02" placeholder="" value="{{ $data->sec_02_14_02 }}">
+                                                    </td>  
+                                                    <td>
+                                                        <input type="text"  class="form-control" name="sec_02_14_03" id="sec_02_14_03" placeholder="" value="{{ $data->sec_02_14_03 }}">
+                                                    </td>                                                   
+                                                </tr>
+
+                                                <tr>
+                                                    <td colspan="2">
+                                                        2.15 AST/SGOT
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" class="form-control" name="sec_02_15_01" id="sec_02_15_01" placeholder="" value="{{ $data->sec_02_15_01 }}">
+                                                    </td> 
+                                                    <td>
+                                                        <input type="text"  class="form-control" name="sec_02_15_02" id="sec_02_15_02" placeholder="" value="{{ $data->sec_02_15_02 }}">
+                                                    </td>  
+                                                    <td>
+                                                        <input type="text"  class="form-control" name="sec_02_15_03" id="sec_02_15_03" placeholder="" value="{{ $data->sec_02_15_03 }}">
+                                                    </td>                                                   
+                                                </tr>
+
+                                                <tr>
+                                                    <td colspan="2">
+                                                        2.16 Viral Load
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" class="form-control" name="sec_02_16_01" id="sec_02_16_01" placeholder="" value="{{ $data->sec_02_16_01 }}">
+                                                    </td> 
+                                                    <td>
+                                                        <input type="text"  class="form-control" name="sec_02_16_02" id="sec_02_16_02" placeholder="" value="{{ $data->sec_02_16_02 }}">
+                                                    </td>  
+                                                    <td>
+                                                        <input type="text"  class="form-control" name="sec_02_16_03" id="sec_02_16_03" placeholder="" value="{{ $data->sec_02_16_03 }}">
+                                                    </td>                                                   
+                                                </tr>
+
+                                                <tr>
+                                                    <td colspan="2">
+                                                        2.17 CD4 + Count
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" class="form-control" name="sec_02_17_01" id="sec_02_17_01" placeholder="" value="{{ $data->sec_02_17_01 }}">
+                                                    </td> 
+                                                    <td>
+                                                        <input type="text"  class="form-control" name="sec_02_17_02" id="sec_02_17_02" placeholder="" value="{{ $data->sec_02_17_02 }}">
+                                                    </td>  
+                                                    <td>
+                                                        <input type="text"  class="form-control" name="sec_02_17_03" id="sec_02_17_03" placeholder="" value="{{ $data->sec_02_17_03 }}">
+                                                    </td>                                                   
+                                                </tr>
+
+                                                <tr>
+                                                    <td colspan="2">
                                                         Remarks
                                                     </td>
                                                     <td>
@@ -702,7 +762,7 @@
                                         <div class="col-md-3">
                                             <a href="#" data-toggle="modal" data-target="#save-case-report-form" >
                                                 <button type="submit" class="d-sm-inline-block btn  btn-primary shadow-sm">
-                                                    Save
+                                                    Update
                                                 </button>
                                             </a>
                                         </div>

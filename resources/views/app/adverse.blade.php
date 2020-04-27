@@ -77,7 +77,7 @@
                                                 <input type="radio" value="1" style="width: 1.3em;  height: 1.3em;" name="ae_03" id="ae_03"  {{$data ? ($data->ae_03 == 1 ? 'checked' : '') : (old("ae_03") == '1' ? 'checked' : '') }}>
                                                 <label for="ae_03" class="pr-3">YES</label>
 
-                                                <input type="radio" value="0" style="width: 1.3em;  height: 1.3em;" name="ae_03" id="ae_03"  {{$data ? ($data->ae_03 == 0 ? 'checked' : '') : (old("ae_03") == '0' ? 'checked' : '') }}>
+                                                <input type="radio" value="0" style="width: 1.3em;  height: 1.3em;" name="ae_03" id="ae_03"  {{$data ? ($data->ae_03 === 0 ? 'checked' : '') : (old("ae_03") == '0' ? 'checked' : '') }}>
                                                 <label for="ae_03" class="pr-3">NO</label><br><hr>
                                             </td>                                                  
                                         </tr>
@@ -98,7 +98,7 @@
                                                 <input type="radio" value="1" style="width: 1.3em;  height: 1.3em;" name="ae_05" id="ae_05"  {{$data ? ($data->ae_05 == 1 ? 'checked' : '') : (old("ae_05") == '1' ? 'checked' : '') }}>
                                                 <label for="ae_05" class="pr-3">YES</label>
 
-                                                <input type="radio" value="0" style="width: 1.3em;  height: 1.3em;" name="ae_05" id="ae_05"  {{$data ? ($data->ae_05 == 0 ? 'checked' : '') : (old("ae_05") == '0' ? 'checked' : '') }}>
+                                                <input type="radio" value="0" style="width: 1.3em;  height: 1.3em;" name="ae_05" id="ae_05"  {{$data ? ($data->ae_05 === 0 ? 'checked' : '') : (old("ae_05") == '0' ? 'checked' : '') }}>
                                                 <label for="ae_05" class="pr-3">NO</label>
 
                                                 <input type="radio" value="2" style="width: 1.3em;  height: 1.3em;" name="ae_05" id="ae_05"  {{$data ? ($data->ae_05 == 2 ? 'checked' : '') : (old("ae_05") == '2' ? 'checked' : '') }}>
@@ -185,7 +185,7 @@
                                                 <input type="radio" value="1" style="width: 1.3em;  height: 1.3em;" name="ae_10" id="ae_10"  {{$data ? ($data->ae_10 == 1 ? 'checked' : '') : (old("ae_10") == '1' ? 'checked' : '') }}>
                                                 <label for="ae_10" class="pr-3">YES</label>
 
-                                                <input type="radio" value="0" style="width: 1.3em;  height: 1.3em;" name="ae_10" id="ae_10"  {{$data ? ($data->ae_10 == 0 ? 'checked' : '') : (old("ae_10") == '0' ? 'checked' : '') }}>
+                                                <input type="radio" value="0" style="width: 1.3em;  height: 1.3em;" name="ae_10" id="ae_10"  {{$data ? ($data->ae_10 === 0 ? 'checked' : '') : (old("ae_10") == '0' ? 'checked' : '') }}>
                                                 <label for="ae_10" class="pr-3">NO</label><br><hr>
                                             </td>                                                  
                                         </tr>
@@ -196,7 +196,7 @@
                                                 <input type="radio" value="1" style="width: 1.3em;  height: 1.3em;" name="ae_11" id="ae_11"  {{$data ? ($data->ae_11 == 1 ? 'checked' : '') : (old("ae_11") == '1' ? 'checked' : '') }}>
                                                 <label for="ae_11" class="pr-3">YES</label>
 
-                                                <input type="radio" value="0" style="width: 1.3em;  height: 1.3em;" name="ae_11" id="ae_11"  {{$data ? ($data->ae_11 == 0 ? 'checked' : '') : (old("ae_11") == '0' ? 'checked' : '') }}>
+                                                <input type="radio" value="0" style="width: 1.3em;  height: 1.3em;" name="ae_11" id="ae_11"  {{$data ? ($data->ae_11 === 0 ? 'checked' : '') : (old("ae_11") == '0' ? 'checked' : '') }}>
                                                 <label for="ae_11" class="pr-3">NO</label><br><hr>
                                             </td>                                                  
                                         </tr>
@@ -207,7 +207,7 @@
                                                 <input type="radio" value="1" style="width: 1.3em;  height: 1.3em;" name="ae_12" id="ae_12"  {{$data ? ($data->ae_12 == 1 ? 'checked' : '') : (old("ae_12") == '1' ? 'checked' : '') }}>
                                                 <label for="ae_12" class="pr-3"> YES:<span class="text-warning"> If yes, enclose a Request for Revision Form and revised documents with all revisions in bold print or highlighted.</span></label><br>
 
-                                                <input type="radio" value="0" style="width: 1.3em;  height: 1.3em;" name="ae_12" id="ae_12"  {{$data ? ($data->ae_12 == 0 ? 'checked' : '') : (old("ae_12") == '0' ? 'checked' : '') }}>
+                                                <input type="radio" value="0" style="width: 1.3em;  height: 1.3em;" name="ae_12" id="ae_12"  {{$data ? ($data->ae_12 === 0 ? 'checked' : '') : (old("ae_12") == '0' ? 'checked' : '') }}>
                                                 <label for="ae_12" class="pr-3"> NO:<span class="text-warning"> Explain why not, if the risk is possibly, probably or definitely related and the risk is not in the current consent form.</span></label><br><hr>
                                             </td>                                                  
                                         </tr>
@@ -218,7 +218,7 @@
                                                 <input type="radio" value="1" style="width: 1.3em;  height: 1.3em;" name="ae_13" id="ae_13"  {{$data ? ($data->ae_13 == 1 ? 'checked' : '') : (old("ae_13") == '1' ? 'checked' : '') }}>
                                                 <label for="ae_13" class="pr-3">YES</label>
 
-                                                <input type="radio" value="0" style="width: 1.3em;  height: 1.3em;" name="ae_13" id="ae_13"  {{$data ? ($data->ae_13 == 0 ? 'checked' : '') : (old("ae_13") == '0' ? 'checked' : '') }}>
+                                                <input type="radio" value="0" style="width: 1.3em;  height: 1.3em;" name="ae_13" id="ae_13"  {{$data ? ($data->ae_13 === 0 ? 'checked' : '') : (old("ae_13") == '0' ? 'checked' : '') }}>
                                                 <label for="ae_13" class="pr-3">NO</label><br><br>
 
                                                 <label class="text-warning">If yes, describe method of notification: </label><br>

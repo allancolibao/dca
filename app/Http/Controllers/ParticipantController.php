@@ -10,6 +10,13 @@ use Hash;
 use Session;
 use Carbon\Carbon;
 use App\Participant;
+use App\Adverse;
+use App\CaseReport;
+use App\Header;
+use App\Monitoring;
+use App\MonitoringHeader;
+use App\Record;
+use App\Screening;
 
 
 class ParticipantController extends Controller
@@ -19,10 +26,17 @@ class ParticipantController extends Controller
     *
     * @return void
     */
-    public function __construct(Participant $participant)
+    public function __construct(Participant $participant, Adverse $adverse, Screening $screening, CaseReport $case, MonitoringHeader $monitoringHeader, Header $recordHeader, Monitoring $monitoring, Record $record)
     {
        $this->middleware('auth');
        $this->participant = $participant;
+       $this->adverse = $adverse;
+       $this->screening = $screening;
+       $this->case = $case;
+       $this->monitoringHeader = $monitoringHeader;
+       $this->recordHeader = $recordHeader;
+       $this->monitoring = $monitoring;
+       $this->record = $record;
     }
 
 
@@ -75,7 +89,6 @@ class ParticipantController extends Controller
             'witness_address' => $request['witness_address'],
             'researcher_name' => $request['researcher_name'],
             'researcher_date' => $request['researcher_date'],
-            'is_caregiver' => $request['is_caregiver'],
             'encoded_by' => Auth::user()->name
         ]);
 
@@ -162,7 +175,14 @@ class ParticipantController extends Controller
         {  
 
         $participant = $this->participant->getParticipant($id)->delete();
-        
+        $adverse = $this->adverse->getAdverseEventData($id)->delete();
+        $case = $this->case->getCaseReport($id)->delete();
+        $monitoringHeader = $this->monitoringHeader->getMonitoringHeader($id)->delete();
+        $screening = $this->screening->getScreening($id)->delete();
+        $monitoring = $this->monitoring->deleteMonitoringData($id)->delete();
+        $record = $this->record->deleteParticipantRecord($id)->delete();
+        $recordHeader = $this->recordHeader->deleteRecordDate($id)->delete();
+                     
         $notification = [
             'message' => 'Data successfully deleted!',
             'alert-type' => 'success'
@@ -203,6 +223,13 @@ class ParticipantController extends Controller
     {   
 
         $restore = $this->participant->restoreParticipant($id);
+        $adverse = $this->adverse->restoreParticipant($id);
+        $case = $this->case->restoreParticipant($id);
+        $recordHeader = $this->recordHeader->restoreParticipant($id);
+        $monitoring = $this->monitoring->restoreParticipant($id);
+        $monitoringHeader = $this->monitoringHeader->restoreParticipant($id);
+        $record = $this->record->restoreParticipant($id);
+        $screening = $this->screening->restoreParticipant($id);
 
         $notification = [
             'message' => 'Data successfully restored!',
@@ -220,7 +247,12 @@ class ParticipantController extends Controller
     public function view($id, $fullname, $sex, $age)
     {
 
-        return view('app.view-participant', compact('id','fullname','sex','age'));
+        $screening = $this->screening->getScreening($id);
+        $case = $this->case->getCaseReport($id);
+        $monitoring = $this->monitoringHeader->getMonitoringHeader($id);
+        $foodRecord = $this->recordHeader->getRecordDate($id);
+
+        return view('app.view-participant', compact('id','fullname','sex','age','screening','case','monitoring','foodRecord'));
 
     }
 }

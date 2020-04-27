@@ -103,12 +103,6 @@
                                             @endif
                                     </div>
                                 </div>
-                            </div>
-
-                            <div>
-                                <h6>Household caregiver has signed an informed consent?</h6>
-                                <input type="hidden" name="is_caregiver" id="is_caregiver" value="0">
-                                <input type="checkbox" value="1" style="width: 1.3em;  height: 1.3em;" name="is_caregiver" id="is_caregiver" {{ (old("is_caregiver") == '1' ? 'checked' : '') }}> Check if YES
                             </div><hr>
                            
                             <h4 class="text-dark">Second Step</h4>
@@ -323,7 +317,7 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label>Contact Details</label>
-                                        <input type="text"  class="form-control {{ $errors->has('contact') ? 'has-error' : ''}} participant" name="contact" id="contact" placeholder="639..." value="{{ old('contact') }}"/>
+                                        <input type="text"  class="form-control {{ $errors->has('contact') ? 'has-error' : ''}} participant" name="contact" id="contact" placeholder="09..." value="{{ old('contact') }}"/>
                                         @if ($errors->has('contact'))
                                             <span class="help-block">
                                                 <strong>{{ $errors->first('contact') }}</strong>

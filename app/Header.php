@@ -97,4 +97,26 @@ class Header extends Model
                     ->where('record_date', $date)
                     ->update($data);
     }
+
+     /**
+     *  Delete record header data
+     * 
+     * 
+     */
+    public function deleteRecordDate($id)
+    {
+        return $this->where('participant_id', $id);
+    }
+
+    /**
+    * Get specific the participant data
+    *
+    *
+    */
+    public function restoreParticipant($id)
+    {   
+        return $this->onlyTrashed()
+                    ->where('participant_id', $id)
+                    ->restore();
+    }
 }

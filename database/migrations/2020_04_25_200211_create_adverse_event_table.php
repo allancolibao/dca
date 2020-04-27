@@ -24,9 +24,9 @@ class CreateAdverseEventTable extends Migration
             $table->tinyInteger('ae_01_nurse')->default('0')->nullable();
             $table->tinyInteger('ae_01_rnd')->default('0')->nullable();
             $table->tinyInteger('ae_02')->default('0')->nullable();
-            $table->tinyInteger('ae_03')->default('0')->nullable();
+            $table->tinyInteger('ae_03')->nullable();
             $table->tinyInteger('ae_04')->default('0')->nullable();
-            $table->tinyInteger('ae_05')->default('0')->nullable();
+            $table->tinyInteger('ae_05')->nullable();
             $table->string('ae_05_action', 250)->nullable();
             $table->string('ae_05_urgency', 250)->nullable();
             $table->tinyInteger('ae_06')->default('0')->nullable();
@@ -36,10 +36,10 @@ class CreateAdverseEventTable extends Migration
             $table->tinyInteger('ae_rel_physician')->default('0')->nullable();
             $table->tinyInteger('ae_rel_nurse')->default('0')->nullable();
             $table->tinyInteger('ae_rel_rnd')->default('0')->nullable();
-            $table->tinyInteger('ae_10')->default('0')->nullable();
-            $table->tinyInteger('ae_11')->default('0')->nullable();
-            $table->tinyInteger('ae_12')->default('0')->nullable();
-            $table->tinyInteger('ae_13')->default('0')->nullable();
+            $table->tinyInteger('ae_10')->nullable();
+            $table->tinyInteger('ae_11')->nullable();
+            $table->tinyInteger('ae_12')->nullable();
+            $table->tinyInteger('ae_13')->nullable();
             $table->string('ae_13_01', 250)->nullable();
             $table->tinyInteger('ae_14')->default('0')->nullable();
             $table->string('ae_date', 20)->nullable();

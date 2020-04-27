@@ -59,6 +59,13 @@
                                     </tr>  
                                     <tr>
                                         <th>
+                                            Cough Only (dry)
+                                            <input type="hidden" value="0" name="mon_cough_dry">
+                                            <input type="checkbox" value="1" style="width: 1.3em;  height: 1.3em;"  class="form-control" name="mon_cough_dry" id="mon_cough_dry" {{ (old("mon_cough_dry") == '1' ? 'checked' : '') }}>
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <th>
                                             Diarrhea (loose stool/poop)
                                             <input type="hidden" value="0" name="mon_diarrhea">
                                             <input type="checkbox" value="1" style="width: 1.3em;  height: 1.3em;"  class="form-control" name="mon_diarrhea" id="mon_diarrhea" {{ (old("mon_diarrhea") == '1' ? 'checked' : '') }}>

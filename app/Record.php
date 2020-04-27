@@ -59,6 +59,7 @@ class Record extends Model
     protected $columns = [
         'id',
         'participant_id',
+        'record_date',
         'line_no',
         'food_item',
         'fi_amount_size',
@@ -98,6 +99,19 @@ class Record extends Model
 
     }
 
+
+    /**
+    * Get the specific participant record data
+    *
+    *
+    */
+    public function getParticipantRecord($id)
+    {   
+        return $this->where('participant_id', $id)
+                    ->get();
+    }
+
+
     /**
      * Get the record data
      * 
@@ -133,6 +147,28 @@ class Record extends Model
         return $this->where('participant_id', $participantId)
                     ->where('record_date',  $recordDate)  
                     ->update($data);
+    }
+
+    /**
+     *  Delete record data
+     * 
+     * 
+     */
+    public function deleteParticipantRecord($id)
+    {
+        return $this->where('participant_id', $id);
+    }
+
+    /**
+    * Restore the participant data
+    *
+    *
+    */
+    public function restoreParticipant($id)
+    {   
+        return $this->onlyTrashed()
+                    ->where('participant_id', $id)
+                    ->restore();
     }
 
 }

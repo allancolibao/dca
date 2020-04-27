@@ -683,8 +683,8 @@
                                         </div>
                                         <div class="col-md-3">
                                             <a href="#" data-toggle="modal" data-target="#update-screening" >
-                                                <button type="submit" class="d-sm-inline-block btn  btn-primary shadow-sm">
-                                                    Save
+                                                <button type="submit" class="d-sm-inline-block btn  btn-primary shadow-sm mr-4">
+                                                    Update
                                                 </button>
                                             </a>
                                         </div>

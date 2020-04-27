@@ -103,6 +103,18 @@ class CaseReport extends Model
         'sec_02_13_01',
         'sec_02_13_02',
         'sec_02_13_03',
+        'sec_02_14_01',
+        'sec_02_14_02',
+        'sec_02_14_03',
+        'sec_02_15_01',
+        'sec_02_15_02',
+        'sec_02_15_03',
+        'sec_02_16_01',
+        'sec_02_16_02',
+        'sec_02_16_03',
+        'sec_02_17_01',
+        'sec_02_17_02',
+        'sec_02_17_03',
         'sec_02_cli_rem_01',
         'sec_02_cli_rem_02',
         'sec_02_cli_rem_03',
@@ -234,6 +246,18 @@ class CaseReport extends Model
         'sec_02_13_01',
         'sec_02_13_02',
         'sec_02_13_03',
+        'sec_02_14_01',
+        'sec_02_14_02',
+        'sec_02_14_03',
+        'sec_02_15_01',
+        'sec_02_15_02',
+        'sec_02_15_03',
+        'sec_02_16_01',
+        'sec_02_16_02',
+        'sec_02_16_03',
+        'sec_02_17_01',
+        'sec_02_17_02',
+        'sec_02_17_03',
         'sec_02_cli_rem_01',
         'sec_02_cli_rem_02',
         'sec_02_cli_rem_03',
@@ -314,5 +338,17 @@ class CaseReport extends Model
     {
         return $this->where('participant_id', $id)
                     ->update($data);
+    }
+
+    /**
+    * Get specific the participant data
+    *
+    *
+    */
+    public function restoreParticipant($id)
+    {   
+        return $this->onlyTrashed()
+                    ->where('participant_id', $id)
+                    ->restore();
     }
 }

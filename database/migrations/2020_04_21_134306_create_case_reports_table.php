@@ -94,6 +94,18 @@ class CreateCaseReportsTable extends Migration
             $table->string('sec_02_13_01', 10)->nullable();
             $table->string('sec_02_13_02', 10)->nullable();
             $table->string('sec_02_13_03', 10)->nullable();
+            $table->string('sec_02_14_01', 10)->nullable();
+            $table->string('sec_02_14_02', 10)->nullable();
+            $table->string('sec_02_14_03', 10)->nullable();
+            $table->string('sec_02_15_01', 10)->nullable();
+            $table->string('sec_02_15_02', 10)->nullable();
+            $table->string('sec_02_15_03', 10)->nullable();
+            $table->string('sec_02_16_01', 10)->nullable();
+            $table->string('sec_02_16_02', 10)->nullable();
+            $table->string('sec_02_16_03', 10)->nullable();
+            $table->string('sec_02_17_01', 10)->nullable();
+            $table->string('sec_02_17_02', 10)->nullable();
+            $table->string('sec_02_17_03', 10)->nullable();
             $table->string('sec_02_cli_rem_01', 99)->nullable();
             $table->string('sec_02_cli_rem_02', 99)->nullable();
             $table->string('sec_02_cli_rem_03', 99)->nullable();

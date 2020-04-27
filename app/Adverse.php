@@ -154,4 +154,16 @@ class Adverse extends Model
         return $this->where('participant_id', $id)
                     ->update($data);
     }
+
+    /**
+    * Get specific the participant data
+    *
+    *
+    */
+    public function restoreParticipant($id)
+    {   
+        return $this->onlyTrashed()
+                    ->where('participant_id', $id)
+                    ->restore();
+    }
 }

@@ -56,7 +56,7 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Age</label>
-                                    <input type="number" step="any" class="form-control" name="age" id="age" placeholder="00.0" value="{{$participant->age}}"/>
+                                    <input type="number" step="any" class="form-control" name="age" id="age" placeholder="00.0" value="{{$participant->age}}" readonly/>
                                 </div>
                             </div>
                         </div>
@@ -177,3 +177,5 @@
         </div>  {{-- end row--}}           
     </div> {{-- end container-fluid --}}
 </div> {{-- end content --}}
+{{-- Auto compute age --}}
+<script type="text/javascript" src="{{ asset('js/dob.js') }}"></script>

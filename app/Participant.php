@@ -43,7 +43,6 @@ class Participant extends Model
         'witness_address',
         'researcher_name',
         'researcher_date',
-        'is_caregiver',
         'encoded_by',
         'updated_by'
     ]; 
@@ -74,7 +73,8 @@ class Participant extends Model
         'witness_address',
         'researcher_name',
         'researcher_date',
-        'is_caregiver',
+        'researcher_date',
+        'is_transmitted',
         'encoded_by',
         'updated_by',
         'created_at',
@@ -141,7 +141,7 @@ class Participant extends Model
     }
 
     /**
-    * Get specific the participant data
+    * Restore the participant data
     *
     *
     */

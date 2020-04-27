@@ -23,7 +23,7 @@ $("#calculate").click(function() {
     let weight = Number($('#sec_04_01_03').val(), 10);
     let height = Number($('#sec_04_02_03').val(), 10);
     let bmi = weight / (height * height);
-    $('#sec_04_03').val(!height || !height ? '' : formatter.format(bmi));
+    $('#sec_04_03').val(!weight || !height ? '' : formatter.format(bmi));
     
     if(weight && height){
         if(bmi < 18.5){
@@ -39,4 +39,26 @@ $("#calculate").click(function() {
         $('#sec_04_03_01').val('');
         $('#sec_04_03').val('');
     }
+});
+
+
+$("#sec_02_01_01, #sec_02_02_01").keyup(function() {
+    let weight = Number($('#sec_02_01_01').val(), 10);
+    let height = Number($('#sec_02_02_01').val(), 10);
+    let bmi = weight / ( height  * height );
+    $('#sec_02_03_01').val(!weight || !height ? '' : formatter.format(bmi));
+});
+
+$("#sec_02_01_02, #sec_02_02_02").keyup(function() {
+    let weight = Number($('#sec_02_01_02').val(), 10);
+    let height = Number($('#sec_02_02_02').val(), 10);
+    let bmi = weight / ( height  * height );
+    $('#sec_02_03_02').val(!weight || !height ? '' : formatter.format(bmi));
+});
+
+$("#sec_02_01_03, #sec_02_02_03").keyup(function() {
+    let weight = Number($('#sec_02_01_03').val(), 10);
+    let height = Number($('#sec_02_02_03').val(), 10);
+    let bmi = weight / ( height  * height );
+    $('#sec_02_03_03').val(!weight || !height ? '' : formatter.format(bmi));
 });

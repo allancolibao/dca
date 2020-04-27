@@ -22,6 +22,7 @@ class CreateMonitoringDataTable extends Migration
             $table->tinyInteger('mon_chills')->default('0')->nullable();
             $table->tinyInteger('mon_conjunct')->default('0')->nullable();
             $table->tinyInteger('mon_cough')->default('0')->nullable();
+            $table->tinyInteger('mon_cough_dry')->default('0')->nullable();
             $table->tinyInteger('mon_diarrhea')->default('0')->nullable();
             $table->tinyInteger('mon_runny')->default('0')->nullable();
             $table->tinyInteger('mon_breath')->default('0')->nullable();

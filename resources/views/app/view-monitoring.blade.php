@@ -68,6 +68,7 @@
                                             <th>Chills</th>
                                             <th>Conjunctivitis</th>
                                             <th>Cough & sputum</th>
+                                            <th>Cough Only (dry)</th>
                                             <th>Diarrhea</th>
                                             <th>Runny nose</th>
                                             <th>Short of breath</th>
@@ -98,6 +99,7 @@
                                                 <td>{{$data->mon_chills == 0 ? 'No' : 'Yes'}}</td>
                                                 <td>{{$data->mon_conjunct == 0 ? 'No' : 'Yes'}}</td>
                                                 <td>{{$data->mon_cough == 0 ? 'No' : 'Yes'}}</td>
+                                                <td>{{$data->mon_cough_dry == 0 ? 'No' : 'Yes'}}</td>
                                                 <td>{{$data->mon_diarrhea == 0 ? 'No' : 'Yes'}}</td>
                                                 <td>{{$data->mon_runny == 0 ? 'No' : 'Yes'}}</td>
                                                 <td>{{$data->mon_breath == 0 ? 'No' : 'Yes'}}</td>
@@ -115,7 +117,7 @@
                                         @endforeach
                                         @else 
                                             <tr>
-                                                <td colspan="20">No data to display</td>
+                                                <td colspan="21">No data to display</td>
                                             </tr>
                                         @endif
                                     </tbody>  
