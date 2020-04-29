@@ -15,6 +15,7 @@ class CreateParticipantsTable extends Migration
     {
         Schema::create('participants', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('hospital', 10);
             $table->string('participant_id', 10)->unique();
             $table->string('full_name', 50);
             $table->integer('sex');
@@ -31,13 +32,14 @@ class CreateParticipantsTable extends Migration
             $table->string('witness_name', 50)->nullable();
             $table->string('witness_mobile', 15)->nullable();
             $table->string('witness_address', 250)->nullable();
-            $table->string('researcher_name', 50)->nullable();
-            $table->string('researcher_date', 20)->nullable();
+            $table->string('admitting_officer', 50)->nullable();
+            $table->string('admitting_officer_date', 20)->nullable();
             $table->tinyInteger('is_transmitted')->default('0')->nullable();
             $table->string('encoded_by', 20)->nullable();
             $table->string('updated_by', 20)->nullable();
             $table->timestamps();
             $table->softDeletes();
+            $table->unique(['hospital','participant_id']);
         });
     }
 

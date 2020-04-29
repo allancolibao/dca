@@ -220,6 +220,9 @@
   {{-- BMI --}}
   <script type="text/javascript" src="{{ asset('js/bmi.js') }}"></script>
 
+  {{-- Participant ID --}}
+  <script type="text/javascript" src="{{ asset('js/id.js') }}"></script>
+
   {{-- Toastr alert session condition --}}
   @include('error.messages')
   

@@ -23,6 +23,7 @@ class ParticipantRequest extends FormRequest
     public function rules()
     {
         return [
+            'hospital' => 'required',
             'participant_id' => 'required|unique:participants',
             'full_name' => 'required',
             'sex' => 'required',

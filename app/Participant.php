@@ -25,6 +25,7 @@ class Participant extends Model
      * 
      */
     protected $fillable = [
+        'hospital',
         'participant_id',
         'full_name',
         'sex',
@@ -41,8 +42,8 @@ class Participant extends Model
         'witness_name',
         'witness_mobile',
         'witness_address',
-        'researcher_name',
-        'researcher_date',
+        'admitting_officer',
+        'admitting_officer_date',
         'encoded_by',
         'updated_by'
     ]; 
@@ -55,6 +56,7 @@ class Participant extends Model
      */
     protected $columns = [
         'id',
+        'hospital',
         'participant_id',
         'full_name',
         'sex',
@@ -71,9 +73,8 @@ class Participant extends Model
         'witness_name',
         'witness_mobile',
         'witness_address',
-        'researcher_name',
-        'researcher_date',
-        'researcher_date',
+        'admitting_officer',
+        'admitting_officer_date',
         'is_transmitted',
         'encoded_by',
         'updated_by',
@@ -102,7 +103,7 @@ class Participant extends Model
     */
     public function getAllParticipant()
     {   
-        return $this->all();
+        return $this->orderBy('participant_id', 'ASC')->get();
     }
 
 

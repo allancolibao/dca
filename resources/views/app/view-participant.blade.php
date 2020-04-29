@@ -12,7 +12,7 @@
                                 <i class="fas fa-arrow-left"></i>   
                             </button>
                         </a>
-                        <h6 class="m-0 font-weight-bold text-gray-800">ID-{{$id}} {{$fullname}} {{$age}} years old</h6>
+                        <h6 class="m-0 font-weight-bold text-gray-800">ID- {{$id}} {{$fullname}} {{$age}} years old</h6>
                     </div>
                     <div class="card-body">
                         <h4 class="text-dark">List of Forms</h4>

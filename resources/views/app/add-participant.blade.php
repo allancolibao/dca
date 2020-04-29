@@ -79,15 +79,15 @@
                                 </div>
                             </div>
 
-                            <h6 class="text-dark">Researcher/Person taking assent</h6>
+                            <h6 class="text-dark">Person taking assent</h6>
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                    <label>Name of Researcher</label>
-                                    <input type="text" class="form-control {{ $errors->has('researcher_name') ? 'has-error' : ''}} participant" name="researcher_name" id="researcher_name" value="{{ old('researcher_name') }}"/>
-                                            @if ($errors->has('researcher_name'))
+                                    <label>Name of Admitting Officer</label>
+                                    <input type="text" class="form-control {{ $errors->has('admitting_officer') ? 'has-error' : ''}} participant" name="admitting_officer" id="admitting_officer" value="{{ old('admitting_officer') }}"/>
+                                            @if ($errors->has('admitting_officer'))
                                                 <span class="help-block">
-                                                    <strong>{{ $errors->first('researcher_name') }}</strong>
+                                                    <strong>{{ $errors->first('admitting_officer') }}</strong>
                                                 </span>
                                             @endif
                                     </div>
@@ -95,10 +95,10 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                     <label>Date</label>
-                                    <input type="date" class="form-control {{ $errors->has('researcher_date') ? 'has-error' : ''}} participant" name="researcher_date" id="researcher_date" value="{{ old('researcher_date') }}"/>
-                                            @if ($errors->has('researcher_date'))
+                                    <input type="date" class="form-control {{ $errors->has('admitting_officer_date') ? 'has-error' : ''}} participant" name="admitting_officer_date" id="admitting_officer_date" value="{{ old('admitting_officer_date') }}"/>
+                                            @if ($errors->has('admitting_officer_date'))
                                                 <span class="help-block">
-                                                    <strong>{{ $errors->first('researcher_date') }}</strong>
+                                                    <strong>{{ $errors->first('admitting_officer_date') }}</strong>
                                                 </span>
                                             @endif
                                     </div>
@@ -108,10 +108,31 @@
                             <h4 class="text-dark">Second Step</h4>
                             <label>PARTICIPANT BACKGROUND INFORMATION</label>
                             <div class="row">
-                                <div class="col-md-12">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                    <label>Hospital/Center</label>
+                                    <select type="text" class="form-control {{ $errors->has('hospital') ? 'has-error' : ''}} participant" name="hospital" id="hospital" value="{{ old('hospital') }}">
+                                        <option selected="true" disabled="disabled">Please select</option>
+                                        <option value='CHO' {{ (old("hospital") == 'CHO' ? 'selected' : '') }} >CHO - City Health Office</option>
+                                        <option value='SRCH' {{ (old("hospital") == 'SRCH' ? 'selected' : '') }} >SRCH - Santa Rosa Community Hospital</option>
+                                        <option value='TMCSL' {{ (old("hospital") == 'TMCSL' ? 'selected' : '') }} >TMCSL - The Medical City South Luzon</option>
+                                    </select>
+                                        @if ($errors->has('hospital'))
+                                            <span class="help-block">
+                                                <strong>{{ $errors->first('hospital') }}</strong>
+                                            </span>
+                                        @endif
+                                </div>
+                                </div>
+                                <div class="col-md-6">
                                     <div class="form-group">
                                     <label>Participant ID Number</label>
-                                    <input type="text" class="form-control {{ $errors->has('participant_id') ? 'has-error' : ''}} participant" name="participant_id" id="participant_id" placeholder="000000" value="{{ old('participant_id') }}"/>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <input class="input-group-text {{ $errors->has('participant_id') ? 'has-error' : ''}}" id="hospital-initial" name="hospital-initial" value="{{ old('hospital-initial') }}" readonly/>
+                                        </div>
+                                        <input type="text" class="form-control {{ $errors->has('participant_id') ? 'has-error' : ''}} participant" name="participant_id" id="participant_id" placeholder="000000" value="{{ old('participant_id') }}"/>
+                                    </div>
                                             @if ($errors->has('participant_id'))
                                                 <span class="help-block">
                                                     <strong>{{ $errors->first('participant_id') }}</strong>
@@ -122,7 +143,7 @@
                             </div>
                             
                             <div class="row">
-                                    <div class="col-md-12">
+                                <div class="col-md-12">
                                         <div class="form-group">
                                         <label>Full Name</label>
                                         <input type="text" class="form-control {{ $errors->has('full_name') ? 'has-error' : ''}} participant" name="full_name" id="full_name" placeholder="Last Name , First Name, M.I." value="{{ old('full_name') }}"/>

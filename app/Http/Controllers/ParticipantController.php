@@ -8,6 +8,7 @@ use App\Http\Requests\UpdateParticipantRequest;
 use Auth;
 use Hash;
 use Session;
+use Exception;
 use Carbon\Carbon;
 use App\Participant;
 use App\Adverse;
@@ -68,36 +69,48 @@ class ParticipantController extends Controller
     * @return \Illuminate\Contracts\Support\Renderable
     */
     public function insert(ParticipantRequest $request)
-    {   
+    {    
+        try {
 
-        $participant = Participant::create([
-            'participant_id' => $request['participant_id'],
-            'full_name' => $request['full_name'],
-            'sex' => $request['sex'],
-            'csc' => $request['csc'],
-            'birth_date' => $request['birth_date'],
-            'age' => $request['age'],
-            'educ_attainment' => $request['educ_attainment'],
-            'specify_educ' => $request['specify_educ'],
-            'occupation' => $request['occupation'],
-            'home_address' => $request['home_address'],
-            'contact' => $request['contact'],
-            'is_agreed' => $request['is_agreed'],
-            'assent_date' => $request['assent_date'],
-            'witness_name' => $request['witness_name'],
-            'witness_mobile' => $request['witness_mobile'],
-            'witness_address' => $request['witness_address'],
-            'researcher_name' => $request['researcher_name'],
-            'researcher_date' => $request['researcher_date'],
-            'encoded_by' => Auth::user()->name
-        ]);
+            $participant = Participant::create([
+                'hospital' => $request['hospital'],
+                'participant_id' => $request['hospital'].'-'.$request['participant_id'],
+                'full_name' => $request['full_name'],
+                'sex' => $request['sex'],
+                'csc' => $request['csc'],
+                'birth_date' => $request['birth_date'],
+                'age' => $request['age'],
+                'educ_attainment' => $request['educ_attainment'],
+                'specify_educ' => $request['specify_educ'],
+                'occupation' => $request['occupation'],
+                'home_address' => $request['home_address'],
+                'contact' => $request['contact'],
+                'is_agreed' => $request['is_agreed'],
+                'assent_date' => $request['assent_date'],
+                'witness_name' => $request['witness_name'],
+                'witness_mobile' => $request['witness_mobile'],
+                'witness_address' => $request['witness_address'],
+                'admitting_officer' => $request['admitting_officer'],
+                'admitting_officer_date' => $request['admitting_officer_date'],
+                'encoded_by' => Auth::user()->name
+            ]);
 
-        $notification = [
-            'message' => 'Data  successfully inserted!',
-            'alert-type' => 'success'
-        ];
+            $notification = [
+                'message' => 'Data  successfully inserted!',
+                'alert-type' => 'success'
+            ];
 
-        return redirect()->route('home')->with($notification);
+            return redirect()->route('home')->with($notification);
+
+        }  catch (Exception $error) {
+
+            $notification = [
+
+                'message' => 'Error! Duplicate Participant ID',
+                'alert-type' => 'error'
+            ];
+            return redirect()->back()->with($notification)->withInput();
+        }
 
     }
 

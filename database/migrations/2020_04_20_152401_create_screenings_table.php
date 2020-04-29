@@ -44,6 +44,8 @@ class CreateScreeningsTable extends Migration
             $table->tinyInteger('sec_02_19')->default('0')->nullable();
             $table->tinyInteger('sec_02_20')->default('0')->nullable();
             $table->string('sec_02_20_01', 250)->nullable();
+            $table->string('sec_02_21', 250)->nullable();
+            $table->string('sec_02_22', 250)->nullable();
             $table->string('sec_03_01', 250)->nullable();
             $table->tinyInteger('sec_03_02')->default('0')->nullable();
             $table->string('sec_03_02_01', 250)->nullable();

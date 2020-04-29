@@ -257,6 +257,20 @@
                                                         <input type="text" class="form-control" name="sec_02_20_01" id="sec_02_20_01" placeholder="Please list food or drug allergies (separate with comma)"  value="{{ $data->sec_02_20_01 }}">
                                                     </td>                                                  
                                                 </tr>
+                                                <tr>
+                                                    <td>
+                                                        2.21 Food Preferences<br>
+                                                        Please list food preferences (separate with comma)<br>
+                                                        <textarea type="text" class="form-control" name="sec_02_21" id="sec_02_21" rows="4">{{ $data->sec_02_21 }}</textarea>
+                                                    </td>                                                  
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        2.22 Food Restrictions<br>
+                                                        Please list food restrictions (separate with comma)<br>
+                                                        <textarea type="text" class="form-control" name="sec_02_22" id="sec_02_22" rows="4">{{ $data->sec_02_22 }}</textarea>
+                                                    </td>                                                  
+                                                </tr>
                                             </tbody>
                                         </table>
                                     </div>

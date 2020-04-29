@@ -163,7 +163,7 @@
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label>Contact Details</label>
-                                    <input type="text"  class="form-control" name="contact" id="contact" placeholder="639..." value="{{$participant->contact}}"/>
+                                    <input type="text"  class="form-control" name="contact" id="contact" placeholder="09..." value="{{$participant->contact}}"/>
                                 </div>
                             </div>
                         </div>
