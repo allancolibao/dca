@@ -55,7 +55,7 @@ return [
             'strict' => true,
             'engine' => null,
             'dump' => [
-                'dump_binary_path' => 'c:\wamp64\bin\mysql\mysql5.7.24\bin', 
+                'dump_binary_path' => 'c:\wamp\bin\mysql\mysql5.7.24\bin', 
                 'use_single_transaction',
                 'timeout' => 60 * 5,
             ]  
