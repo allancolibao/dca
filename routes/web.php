@@ -140,3 +140,13 @@ Route::get('/send-all','DataTransmissionController@sendAll')->name('send.all.dat
  * 
  */
 Route::get('/backup','BackupDataController@backup')->name('backup');
+
+
+/**
+ * Get Data
+ * 
+ * 
+ * 
+ */
+Route::get('/get-data','GetDataController@index')->name('get.data');
+Route::get('/save-data/{id}','GetDataController@saveData')->name('save.data');

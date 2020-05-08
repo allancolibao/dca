@@ -77,6 +77,22 @@ return [
             'engine' => null,
         ],
 
+        'mysqltrd' => [
+            'driver' => 'mysql',
+            'host' => env('DB_HOST_TRD', '202.90.141.86'),
+            'port' => env('DB_PORT_TRD', '3674'),
+            'database' => env('DB_DATABASE_TRD', 'forge'),
+            'username' => env('DB_USERNAME_TRD', 'forge'),
+            'password' => env('DB_PASSWORD_TRD', ''),
+            'unix_socket' => env('DB_SOCKET_TRD', ''),
+            'charset' => 'utf8mb4',
+            'collation' => 'utf8mb4_unicode_ci',
+            'prefix' => '',
+            'prefix_indexes' => true,
+            'strict' => true,
+            'engine' => null,
+        ],
+
         'pgsql' => [
             'driver' => 'pgsql',
             'host' => env('DB_HOST', '127.0.0.1'),

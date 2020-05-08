@@ -11,19 +11,14 @@
                 <div class="card border-left-primary shadow h-100 py-2">
                     <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                         <h6 class="m-0 font-weight-bold text-primary">Please make sure you have internet connection, Thank you!</h6>
-                        <a class="text-primary" href="{{ route('backup')}}" role="button" aria-haspopup="true" aria-expanded="false">
-                            <button class="btn btn-sm btn-warning shadow-sm">
-                            <i class="fas fa-download fa-fw"></i>Quick Backup
-                            </button>
-                        </a>
                     </div>
                   <div class="card-body">
-                    <p>*If you want to use this feature make sure all the data completed</p>
-                    <a class="text-primary" href="{{ route('send.all.data')}}" role="button" aria-haspopup="true" aria-expanded="false">
+                    {{-- <p>*If you want to use this feature make sure the internet connection is stable.</p>
+                    <a class="text-primary" href="#" role="button" aria-haspopup="true" aria-expanded="false">
                         <button class="btn btn-sm btn-warning shadow-sm mb-2 send">
-                            <i class="fas fa-plane"></i> Send All Data
+                            <i class="fas fa-download"></i> Get All Data
                         </button>
-                    </a>
+                    </a> --}}
                     <div class="table-responsive">
                             <table class="table table-bordered" id="dataTables" width="100%" cellspacing="0">
                                 <thead>
@@ -32,22 +27,24 @@
                                         <th>FULL NAME</th>
                                         <th>AGE</th>
                                         <th>SEX</th>
-                                        <th>TRANS COUNT</th>
-                                        <th>TRANSMIT</th>
+                                        <th>GET DATA</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($forTransmission as $data)
-                                    <tr>
+                                    @foreach ($participants as $data)
+                                    <tr 
+                                        @foreach ($existings as $existing)
+                                            {{$data->participant_id == $existing->participant_id ? 'style=background-color:#d3f2df' : '' }}
+                                        @endforeach
+                                    >
                                         <td>{{$data->participant_id}}</td>
                                         <td>{{$data->full_name}}</td>
                                         <td>{{$data->age}}</td>
                                         <td>{{$data->sex}}</td>
-                                        <td>{{$data->is_transmitted}}</td>
                                         <td>  
-                                            <a href="{{ route('send.data', ['id'=>$data->participant_id ])}}">
+                                            <a href="{{ route('save.data', ['id'=>$data->participant_id ])}}">
                                                 <button type="submit" class="d-sm-inline-block btn btn-sm btn-primary shadow-sm send">
-                                                         <i class="fas fa-plane"></i> Send Data
+                                                         <i class="fas fa-download"></i> Get Data
                                                 </button>
                                             </a>
                                         </td>
@@ -67,7 +64,7 @@
           <div class="overlay__inner">
               <div class="overlay__content">
                   <span class="spinner"></span><br>
-                  <p class="text-light">Transmitting data...</p>
+                  <p class="text-light">Getting data...</p>
               </div>
           </div>
       </div>
