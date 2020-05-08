@@ -49,6 +49,11 @@
                 <span>HOME</span>
               </a>
             </li>
+            <li class="nav-item {{ Request::is('get-data') ? 'active' : '' }}">
+              <a class="nav-link text-primary" href="{{url('/get-data')}}">
+                <span>GET DATA</span>
+              </a>
+            </li>
             <li class="nav-item {{ Request::is('transmit') ? 'active' : '' }}">
               <a class="nav-link text-primary" href="{{url('/transmit')}}">
                 <span>TRANSMISSION</span>
