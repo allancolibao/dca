@@ -102,7 +102,7 @@ class GetDataController extends Controller
             // Record Header
             $getRecordHeader = Header::on('mysqlsec')->exclude('id')->where('participant_id', $id)->get()->toArray();
             $dataRecordHeader = json_decode( json_encode($getRecordHeader), true);
-            $recordHeader = Header::upsert($dataRecordHeader, $dataRecordHeader);
+            $recordHeader = Header::insertIgnore($dataRecordHeader);
 
             // Screening
             $getScreening = Screening::on('mysqlsec')->exclude('id')->where('participant_id', $id)->get()->toArray();
