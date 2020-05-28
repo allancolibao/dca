@@ -106,7 +106,7 @@ Route::get('/view-daily-monitoring/{id}/{fullname}/{sex}/{age}', 'DailyMonitorin
 Route::get('/edit-daily-monitoring/{id}/{fullname}/{sex}/{age}/{day}', 'DailyMonitoringController@edit')->name('edit.daily.monitoring');
 
 Route::post('/insert-monitoring-data/{id}', 'DailyMonitoringController@insert')->name('insert.monitoring.data');
-Route::post('/update-monitoring-data/{id}/{day}' ,'DailyMonitoringController@update')->name('update.monitoring.data');
+Route::post('/update-monitoring-data/{id}' ,'DailyMonitoringController@update')->name('update.monitoring.data');
 Route::post('/insert-monitoring-header/{id}', 'DailyMonitoringController@insertHeader')->name('insert.monitoring.header');
 Route::post('/update-monitoring-header/{id}', 'DailyMonitoringController@updateHeader')->name('update.monitoring.header');
 

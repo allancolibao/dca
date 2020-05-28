@@ -79,7 +79,7 @@
                                         @if(sizeOf($recordData) > 0 )
                                             @foreach ($recordData as $data)
                                                 <input type="hidden" name="row_id[]" value="{{$data->id}}"/>
-                                                <tr id="line">                   
+                                                <tr id="line" style="{{ strlen($data->line_no) >= 3  ? "background-color:#ffbfbf" : ""}}">                   
                                                     <td>
                                                         <div class="form-group-line">
                                                         <input type="number" step="any" class="form-no-border line-number" name="line_no[]" id="line_no" placeholder="00" value="{{$data->line_no}}" required/>

@@ -74,6 +74,16 @@
 
             <li class="nav-item">
               <div >
+                <a href="http://202.90.141.86/vco-dash/public/index.php" class="nav-link text-primary" target="blank">
+                  <button type="button" class="d-sm-inline-block btn btn-sm  btn-danger shadow-sm">
+                      <i class="fas fa-eye"></i> View Dashboard
+                  </button>
+                </a>
+              </div>
+            </li>
+
+            <li class="nav-item">
+              <div >
                 <a href="{{ route('cycle.menu')}}" class="nav-link text-primary">
                   <button type="button" class="d-sm-inline-block btn btn-sm  btn-danger shadow-sm">
                       <i class="fas fa-utensils"></i> Cycle Menu

@@ -7,10 +7,15 @@
                 <h6 class="m-0 font-weight-bold text-primary">ID {{$id}} - {{$fullname}} {{$age}}</h6>
                 <div class="card-body">
                     <h4 class="text-danger mb-4">Monitoring Day: {{$day}}</h4>
-                    <form id="update-monitoring-data" method="POST" action="{{ action('DailyMonitoringController@update', ['id'=> $id, 'day'=>$day]) }}" accept-charset="UTF-8">
+                    <form id="update-monitoring-data" method="POST" action="{{ action('DailyMonitoringController@update', $monitoring->id) }}" accept-charset="UTF-8">
                         @csrf 
-                        <input type="hidden" name="mon_day" id="mon_day" value="{{ $monitoring->mon_day }}">
-                        <table class="table table-bordered" id="dataTable" width="20%" cellspacing="0">   
+                        <table class="table table-bordered" id="dataTable" width="20%" cellspacing="0">  
+                            <tr>
+                                <th>
+                                    Monitoring Day
+                                    <input type="number" class="form-control {{ $errors->has('mon_day') ? 'has-error' : ''}}" name="mon_day" id="mon_day" value="{{ $monitoring->mon_day }}" required>
+                                </th>
+                            </tr> 
                             <tr>
                                 <th>
                                     Date (MM/DD)

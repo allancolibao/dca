@@ -82,7 +82,7 @@ class GetDataController extends Controller
             // Monitoring Data
             $getMonitoring = Monitoring::on('mysqlsec')->exclude('id')->where('participant_id', $id)->get()->toArray();
             $dataMonitoring = json_decode( json_encode($getMonitoring), true);
-            $monitoring = Monitoring::upsert($dataMonitoring, $dataMonitoring);
+            $monitoring = Monitoring::insertIgnore($dataMonitoring);
 
             // Monitoring Header
             $getMonitoringHeader = MonitoringHeader::on('mysqlsec')->exclude('id')->where('participant_id', $id)->get()->toArray();

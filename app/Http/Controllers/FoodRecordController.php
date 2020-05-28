@@ -80,12 +80,13 @@ class FoodRecordController extends Controller
 
         $fct = $this->fct->getAllFctData();
         $recordHeader = $this->header->getRecordHeader($id, $date);
+        $recordData = $this->record->getRecordData($id, $date);
 
         $recordDate = $date;
         $day = new DateTime($recordDate);
         $recordDay  = $day->format('l');
 
-        return view('app.encode-record', compact('id','fullname','sex','age','date','fct','recordDay','recordHeader'));
+        return view('app.encode-record', compact('id','fullname','sex','age','date','fct','recordDay','recordHeader','recordData'));
 
     }
 

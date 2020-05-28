@@ -104,6 +104,8 @@ class Monitoring extends Model
     public function getMonitoringData($id)
     {
         return $this->where('participant_id', $id)
+                    ->orderByRaw('LENGTH(mon_day)', 'ASC')
+                    ->orderBy('mon_day', 'ASC')
                     ->get();
     }
 
@@ -124,10 +126,9 @@ class Monitoring extends Model
      * 
      * 
      */
-    public function updateMonitoring($id, $day, $data)
+    public function updateMonitoring($id, $data)
     {
-        return $this->where('participant_id', $id)
-                    ->where('mon_day', $day)
+        return $this->where('id', $id)
                     ->update($data);
     }
 
