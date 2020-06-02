@@ -96,6 +96,13 @@ Route::post('update-record-data/{id}/{fullname}/{sex}/{age}/{date}' ,'FoodRecord
 Route::post('update-record-header/{id}/{fullname}/{sex}/{age}/{date}' ,'FoodRecordController@updateRecordHeader')->name('update.record.header');
 
 
+Route::get('/food-record-delete-data/{id}/{patid}/{date}/{day}/{lineno}', 'FoodRecordController@toDelete')->name('food.record.delete.data');
+Route::delete('/record-delete/{id}/{patid}/{date}', 'FoodRecordController@destroy')->name('record.delete');
+
+Route::get('/get-deleted-record/{id}/{fullname}/{sex}/{age}/{date}', 'FoodRecordController@getDeleted')->name('deleted.records');
+Route::post('/restore-line_number/{id}', 'FoodRecordController@restoreDeletedLineNumber')->name('restore.line.number');
+
+
 /**
  * Handle monitoring page
  * 

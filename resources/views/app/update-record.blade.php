@@ -13,6 +13,11 @@
                             </button>
                         </a>
                         <h6 class="m-0 font-weight-bold text-gray-800">Update Food Record: ID-{{$id}} {{$fullname}} {{$age}} years old | Record date: {{$date}} | Record day: {{$recordDay}}</h6>
+                        <a href="{{route('deleted.records', ['id'=> $id, 'fullname'=> $fullname, 'sex'=> $sex, 'age'=> $age, 'date'=>$date ])}}" class="mr-3">
+                            <button type="submit" class="d-sm-inline-block btn  btn-warning shadow-sm ml-4">
+                                Restore Data  
+                            </button>
+                        </a>
                     </div>
                     <form id="update-record-header" method="POST" action="{{ action('FoodRecordController@updateRecordHeader', ['id'=> $id, 'fullname'=> $fullname, 'sex'=> $sex, 'age'=> $age, 'date'=>$date ]) }}" accept-charset="UTF-8">
                         @csrf
@@ -52,6 +57,7 @@
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
+                                            <th>DEL</th>
                                             <th>LINE NO</th>
                                             <th>FOOD ITEM</th>
                                             <th>FI AMOUNT/SIZE</th>
@@ -79,7 +85,10 @@
                                         @if(sizeOf($recordData) > 0 )
                                             @foreach ($recordData as $data)
                                                 <input type="hidden" name="row_id[]" value="{{$data->id}}"/>
-                                                <tr id="line" style="{{ strlen($data->line_no) >= 3  ? "background-color:#ffbfbf" : ""}}">                   
+                                                <tr id="line" style="{{ strlen($data->line_no) >= 3  ? "background-color:#ffbfbf" : ""}}">  
+                                                    <td>
+                                                        <button data-path={{ route('food.record.delete.data', ['id'=> $data->id, 'patid'=> $id, 'date'=>$date, 'day'=>$recordDay, 'lineno'=>$data->line_no ])}} type="button" class="autofocus d-sm-inline-block btn btn-danger shadow-sm open-modal"><i class="fa fa-trash"></i></button>
+                                                    </td>                  
                                                     <td>
                                                         <div class="form-group-line">
                                                         <input type="number" step="any" class="form-no-border line-number" name="line_no[]" id="line_no" placeholder="00" value="{{$data->line_no}}" required/>

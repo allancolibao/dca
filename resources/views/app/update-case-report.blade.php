@@ -219,9 +219,8 @@
                                                     </td>
                                                     <td>
                                                         <small>
-                                                            - Normal 70-99<br>
-                                                            - Prediabetes 100-125<br>
-                                                            - Diabetes ≥126
+                                                            - Prediabetes 100.1 -125.06<br>
+                                                            - Diabetics ≥126.14
                                                         </small> 
                                                     </td>
                                                     <td>
@@ -269,8 +268,8 @@
                                                     <td>
                                                         <small>
                                                             - Desirable < 200<br>
-                                                            - Borderline 200-239<br>
-                                                            - High Risk ≥240
+                                                            - Borderline High 200.00 - 239.38<br>
+                                                            - High  ≥239.38
                                                         </small> 
                                                     </td>
                                                     <td>
@@ -289,9 +288,7 @@
                                                     </td>
                                                     <td>
                                                         <small>
-                                                            - Desirable 60-130<br>
-                                                            - Borderline 130-159<br>
-                                                            - High Risk 160-189
+                                                            - Normal 63.32 - 167.57
                                                         </small> 
                                                     </td>
                                                     <td>
@@ -310,9 +307,9 @@
                                                     </td>
                                                     <td>
                                                         <small>
-                                                            Desirable < 150<br>
-                                                            Borderline 150-199<br>
-                                                            High Risk 200-499
+                                                            Borderline High 149.57 - 199.12<br>
+                                                            High 200.1 - 499.14<br>
+                                                            Very High ≥500.02
                                                         </small> 
                                                     </td>
                                                     <td>
@@ -361,7 +358,7 @@
                                                     </td>
                                                     <td>
                                                         <small>
-                                                            Normal 7-56
+                                                            Normal 10.00 - 35.00
                                                         </small> 
                                                     </td>
                                                     <td>
@@ -380,7 +377,7 @@
                                                     </td>
                                                     <td>
                                                         <small>
-                                                            Normal 5-40
+                                                            Normal 10.00 - 35.00
                                                         </small> 
                                                     </td>
                                                     <td>
@@ -429,7 +426,7 @@
                                                     </td>
                                                     <td>
                                                         <small>
-                                                            Adult 4,300–10,000
+                                                            Normal 3.98 - 10.04
                                                         </small> 
                                                     </td>
                                                     <td>
@@ -449,7 +446,7 @@
                                                     </td>
                                                     <td>
                                                         <small>
-                                                            Adult 1,500–8,000
+                                                            Normal 34.00 - 71.00
                                                         </small> 
                                                     </td>
                                                     <td>
@@ -469,7 +466,7 @@
                                                     </td>
                                                     <td>
                                                         <small>
-                                                            Adult 800–5,000
+                                                            Normal 19.00 - 52.00
                                                         </small> 
                                                     </td>
                                                     <td>
@@ -490,7 +487,7 @@
                                                     <td>
                                                         <small>
                                                             - Normal < 10 <br>
-                                                            - Sign of infection >10
+                                                            - Sign of infection > 10
                                                         </small> 
                                                     </td>
                                                     <td>

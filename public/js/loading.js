@@ -3,3 +3,10 @@ $(document).ready(function () {
         $("#loading").removeAttr('style');
     });
 });
+
+
+$(document).ready(function () {
+    $(".backup").click(function () {
+        $("#loading-backup").removeAttr('style');
+    });
+});

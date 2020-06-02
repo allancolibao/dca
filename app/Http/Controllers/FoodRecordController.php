@@ -12,6 +12,7 @@ use DateTime;
 use App\Header;
 use App\Record;
 use App\FCT;
+use App\Activity;
 use Auth;;
 
 class FoodRecordController extends Controller
@@ -214,38 +215,79 @@ class FoodRecordController extends Controller
     */
     public function updateRecordData(RecordDataRequest $request, $participantId, $fullname, $sex, $age, $recordDate)
     {   
-        $i = 0;
-        if(sizeof($request->line_no) > 0)
-        {
-            foreach($request->line_no as $input => $value){
 
-                $i++;
+        $data = $request->all();
+        
+        $row_id = array_reverse($data['row_id']);
+        $line_no = array_reverse($data['line_no']);
+        $food_item = array_reverse($data['food_item']);
+        $fi_amount_size = array_reverse($data['fi_amount_size']);
+        $plate_waste = array_reverse($data['plate_waste']);
+        $pw_amount_size = array_reverse($data['pw_amount_size']);
+        $rf_code = array_reverse($data['rf_code']);
+        $meal_code = array_reverse($data['meal_code']);
+
+        if(Auth::user()->is_admin != 3) {
+        $food_code = array_reverse($data['food_code']);
+        $food_weight = array_reverse($data['food_weight']);
+        $fw_rcc = array_reverse($data['fw_rcc']);
+        $fw_cmc = array_reverse($data['fw_cmc']);
+        $supply_code = array_reverse($data['supply_code']);
+        $src_code = array_reverse($data['src_code']);
+        $pw_weight = array_reverse($data['pw_weight']);
+        $pw_rcc = array_reverse($data['pw_rcc']);
+        $pw_cmc = array_reverse($data['pw_cmc']);
+        $unit_cost = array_reverse($data['unit_cost']);
+        $unit_weight = array_reverse($data['unit_weight']);
+        $unit_meas = array_reverse($data['unit_meas']);
+        }
+
+        if(sizeOf($data) > 0)
+        {
+            foreach($line_no as $input => $value){
+
+                if(Auth::user()->is_admin != 3) {
 
                 $data = [
-                    'line_no' => $request->line_no[$input],
-                    'food_item' => $request->food_item[$input],
-                    'fi_amount_size' => $request->fi_amount_size[$input],
-                    'plate_waste' => $request->plate_waste[$input],
-                    'pw_amount_size' => $request->pw_amount_size[$input],
-                    'rf_code' => $request->rf_code[$input],
-                    'meal_code' => $request->meal_code[$input],
-                    'food_code' => $request->food_code[$input],
-                    'fic' => Str::substr($request->food_code[$input], 0, 4),
-                    'food_weight' => $request->food_weight[$input],
-                    'fw_rcc' => $request->fw_rcc[$input],
-                    'fw_cmc' => $request->fw_cmc[$input],
-                    'supply_code' => $request->supply_code[$input],
-                    'src_code' => $request->src_code[$input],
-                    'pw_weight' => $request->pw_weight[$input],
-                    'pw_rcc' => $request->pw_rcc[$input],
-                    'pw_cmc' => $request->pw_cmc[$input],
-                    'unit_cost' => $request->unit_cost[$input],
-                    'unit_weight' => $request->unit_weight[$input],
-                    'unit_meas' => $request->unit_meas[$input],
+                    'line_no' => $line_no[$input],
+                    'food_item' => $food_item[$input],
+                    'fi_amount_size' => $fi_amount_size[$input],
+                    'plate_waste' => $plate_waste[$input],
+                    'pw_amount_size' => $pw_amount_size[$input],
+                    'rf_code' => $rf_code[$input],
+                    'meal_code' => $meal_code[$input],
+                    'food_code' => $food_code[$input],
+                    'fic' => Str::substr($food_code[$input], 0, 4),
+                    'food_weight' => $food_weight[$input],
+                    'fw_rcc' => $fw_rcc[$input],
+                    'fw_cmc' => $fw_cmc[$input],
+                    'supply_code' => $supply_code[$input],
+                    'src_code' => $src_code[$input],
+                    'pw_weight' => $pw_weight[$input],
+                    'pw_rcc' => $pw_rcc[$input],
+                    'pw_cmc' => $pw_cmc[$input],
+                    'unit_cost' => $unit_cost[$input],
+                    'unit_weight' => $unit_weight[$input],
+                    'unit_meas' => $unit_meas[$input],
                     'updated_by' => Auth::user()->name
                 ];
 
-                $rowId = $request->row_id[$input];
+                } else {
+
+                $data = [
+                    'line_no' => $line_no[$input],
+                    'food_item' => $food_item[$input],
+                    'fi_amount_size' => $fi_amount_size[$input],
+                    'plate_waste' => $plate_waste[$input],
+                    'pw_amount_size' => $pw_amount_size[$input],
+                    'rf_code' => $rf_code[$input],
+                    'meal_code' => $meal_code[$input],
+                    'updated_by' => Auth::user()->name
+                ];
+
+                }
+
+                $rowId = $row_id[$input];
 
                 try {
 
@@ -255,7 +297,7 @@ class FoodRecordController extends Controller
 
                     $notification = [
 
-                        'message' => 'Unable to update! Duplicate entry on row number '.$i.'',
+                        'message' => 'Unable to update! Duplicate entry on line number '.$line_no[$input].'',
                         'alert-type' => 'error'
                     ];
                     return redirect()->back()->with($notification);
@@ -307,4 +349,106 @@ class FoodRecordController extends Controller
         return view('app.cycle-menu');
 
     }
+
+
+    /**
+    * Show food record for deletion
+    *
+    * @return \Illuminate\Contracts\Support\Renderable
+    */
+    public function toDelete($id, $patid, $date, $day, $lineno)
+    {   
+
+        return view('app.delete-food-record', compact('id','patid', 'date', 'day', 'lineno'));
+
+    }
+
+
+    /**
+    * Delete food record
+    *
+    * @return \Illuminate\Contracts\Support\Renderable
+    */
+    public function destroy($id, $patid, $date)
+    {   
+        
+        $line = $this->record->getMaxLineNumber($patid, $date);
+
+        if($line !== null) {
+
+            $data = [
+                'line_no' => $line + 1,
+            ];
+
+        } else {
+
+            $data = [
+                'line_no' => '500'
+            ];
+        }
+
+        $dataInserted = $this->record->updateLineNumber($id, $data);
+        $record = $this->record->deleteLineNumber($id);
+        $user = Auth::user()->name;
+
+        if($record) {
+            $data = Activity::create([
+                'action' => $user.' successfully deleted line number '.$data['line_no'].' on record date '.$date.'.',
+                'taken_by' => $user
+            ]);
+        }
+        
+        $notification = [
+            'message' => 'Successfully deleted!',
+            'alert-type' => 'warning'
+        ];
+
+        return redirect()->back()->with($notification);
+
+    }
+
+    /**
+    * Get deleted records
+    *
+    * @return \Illuminate\Contracts\Support\Renderable
+    */
+    public function getDeleted($id, $fullname, $sex, $age, $date)
+    {   
+
+        $recordData = $this->record->getDeletedLineNumber($id, $date);
+
+        $recordDate = $date;
+        $day = new DateTime($recordDate);
+        $recordDay  = $day->format('l');
+
+        return view('app.deleted-record', compact('id','fullname','sex','age','date', 'recordData', 'recordDay'));
+
+    }
+
+    /**
+    * Restore the target deleted participant
+    *
+    * @return \Illuminate\Contracts\Support\Renderable
+    */
+    public function restoreDeletedLineNumber($id)
+    {   
+
+        $record = $this->record->restoreLineNumber($id);
+        $user = Auth::user()->name;
+
+        if($record) {
+            $data = Activity::create([
+                'action' => $user.' successfully restored line number with id'.$id.'.',
+                'taken_by' => $user
+            ]);
+        }
+
+        $notification = [
+            'message' => 'Data successfully restored!',
+            'alert-type' => 'success'
+        ];
+
+        return redirect()->back()->with($notification);
+    }
 }
+
