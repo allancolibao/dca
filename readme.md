@@ -1,6 +1,6 @@
 # DCA
 
-Data Collection System
+Built with Laravel
 
 @arcdev
 
