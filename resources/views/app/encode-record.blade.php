@@ -13,16 +13,23 @@
                             </button>
                         </a>
                         <h6 class="m-0 font-weight-bold text-gray-800">Encode Food Record: ID-{{$id}} {{$fullname}} {{$age}} years old | Record date: {{$date}} | Record day: {{$recordDay}}</h6>
+
                         <a href="{{route('get.record', ['id'=> $id, 'fullname'=> $fullname, 'sex'=> $sex, 'age'=> $age, 'date'=>$date ])}}" class="mr-2">
                             <button type="submit" class="d-sm-inline-block btn  btn-primary shadow-sm ml-4">
                                 View and Edit  
                             </button>
                         </a>
+
+                        <button data-path="{{route('copy.records', ['id'=> $id, 'date'=>$date ])}}" type="submit" class="d-sm-inline-block btn  btn-success shadow-sm ml-4 mr-3 open-modal">
+                            Copy Data  
+                        </button>
+
                         <a href="{{route('deleted.records', ['id'=> $id, 'fullname'=> $fullname, 'sex'=> $sex, 'age'=> $age, 'date'=>$date ])}}" class="mr-3">
                             <button type="submit" class="d-sm-inline-block btn  btn-warning shadow-sm ml-4">
                                 Restore Data  
                             </button>
                         </a>
+
                     </div>
                     <form id="update-record-header" method="POST" action="{{ action('FoodRecordController@updateRecordHeader', ['id'=> $id, 'fullname'=> $fullname, 'sex'=> $sex, 'age'=> $age, 'date'=>$date ]) }}" accept-charset="UTF-8">
                         @csrf

@@ -103,6 +103,10 @@ Route::get('/get-deleted-record/{id}/{fullname}/{sex}/{age}/{date}', 'FoodRecord
 Route::post('/restore-line_number/{id}', 'FoodRecordController@restoreDeletedLineNumber')->name('restore.line.number');
 
 
+Route::get('/copy-record/{id}/{date}', 'FoodRecordController@copyRecords')->name('copy.records');
+Route::post('/copying-record/{id}/{date}', 'FoodRecordController@insertCopiedRecords')->name('insert.copied.record');
+
+
 /**
  * Handle monitoring page
  * 

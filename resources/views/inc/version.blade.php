@@ -1,6 +1,6 @@
 <li class="nav-item dropdown no-arrow mx-1">
     <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    <i class="fas fa-code-branch fa-fw" style="padding-right:1vmin;"></i>ND-1.0.4
+    <i class="fas fa-code-branch fa-fw" style="padding-right:1vmin;"></i>ND-1.0.5
     <!-- Version Changlog -->
     </a>
     <!-- Dropdown - Version -->
@@ -34,6 +34,12 @@
             <div class="small text-gray-500">ND-1.0.4 | June 01, 2020</div>
                 - Added delete and restore on food record line number<br/>
                 - Updated Laboratory Tests Reference Value on Case Report <br/>
+            </div>
+        </a>
+        <a class="dropdown-item d-flex align-items-center" href="#">
+            <div>
+            <div class="small text-gray-500">ND-1.0.5 | June 15, 2020</div>
+                - Copy food record feature<br/>
             </div>
         </a>
     </div>

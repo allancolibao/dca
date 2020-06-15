@@ -9,11 +9,12 @@ use Illuminate\Support\Str;
 use Carbon\Carbon;
 use Exception;
 use DateTime;
+use App\Participant;
 use App\Header;
 use App\Record;
 use App\FCT;
 use App\Activity;
-use Auth;;
+use Auth;
 
 class FoodRecordController extends Controller
 {
@@ -23,12 +24,13 @@ class FoodRecordController extends Controller
      *
      * @return void
      */
-    public function __construct(Header $header, FCT $fct, Record $record)
+    public function __construct(Header $header, FCT $fct, Record $record, Participant $participant)
     {   
         $this->middleware('auth');
         $this->header = $header;
         $this->fct = $fct;
         $this->record = $record;
+        $this->participant = $participant;
     }
 
     /**
@@ -414,14 +416,14 @@ class FoodRecordController extends Controller
     */
     public function getDeleted($id, $fullname, $sex, $age, $date)
     {   
-
+        $fct = $this->fct->getAllFctData();
         $recordData = $this->record->getDeletedLineNumber($id, $date);
 
         $recordDate = $date;
         $day = new DateTime($recordDate);
         $recordDay  = $day->format('l');
 
-        return view('app.deleted-record', compact('id','fullname','sex','age','date', 'recordData', 'recordDay'));
+        return view('app.deleted-record', compact('id','fullname','sex','age','date', 'recordData', 'recordDay', 'fct'));
 
     }
 
@@ -450,5 +452,91 @@ class FoodRecordController extends Controller
 
         return redirect()->back()->with($notification);
     }
+
+
+    /**
+    * Copy Records
+    *
+    * 
+    */
+    public function copyRecords($id, $date)
+    {   
+
+        $participant = $this->participant->getAllParticipant();
+
+        return view('app.copy-record', compact('id','date', 'participant'));
+
+    }
+
+
+
+    /**
+    * Insert Copied Records
+    *
+    * 
+    */
+    public function insertCopiedRecords(Request $request, $id, $date)
+    {   
+
+        $patientID = $request['patient_id'];
+        $patientRecordDate = $request['record_date'];
+
+        $recordData = $this->record->getRecordData($patientID, $patientRecordDate);
+
+        if(sizeOf($recordData) > 0 ) {
+            foreach($recordData as $record) {
+
+                $newData = $record->replicate();
+
+                $data = [
+                    'participant_id' =>  $id,
+                    'record_date' => $date,
+                    'line_no' => $newData->line_no,
+                    'food_item' => $newData->food_item,
+                    'fi_amount_size' => $newData->fi_amount_size,
+                    'plate_waste' => $newData->plate_waste,
+                    'pw_amount_size' => $newData->pw_amount_size,
+                    'rf_code' => $newData->rf_code,
+                    'meal_code' => $newData->meal_code,
+                    'food_code' => $newData->food_code,
+                    'fic' => $newData->fic,
+                    'food_weight' => $newData->food_weight,
+                    'fw_rcc' => $newData->fw_rcc,
+                    'fw_cmc' => $newData->fw_cmc,
+                    'supply_code' => $newData->supply_code,
+                    'src_code' => $newData->src_code,
+                    'pw_weight' => $newData->pw_weight,
+                    'pw_rcc' => $newData->pw_rcc,
+                    'pw_cmc' => $newData->pw_cmc,
+                    'unit_cost' => $newData->unit_cost,
+                    'unit_weight' => $newData->unit_weight,
+                    'unit_meas' => $newData->unit_meas,
+                    'encoded_by' => $newData->encoded_by,
+                    'updated_by' => $newData->updated_by
+                ];
+
+                $dataInserted = Record::insertIgnore($data);
+            }
+
+        } else {
+
+            $notification = [
+                'message' => 'Nothing to copy! Please select exact patient ID and date.',
+                'alert-type' => 'error'
+            ];
+    
+            return redirect()->back()->with($notification);
+
+        }        
+
+        $notification = [
+            'message' => 'Data successfully inserted!',
+            'alert-type' => 'success'
+        ];
+
+        return redirect()->back()->with($notification);
+
+    }
+
 }
 
