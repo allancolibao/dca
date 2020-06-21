@@ -161,6 +161,18 @@ class Record extends Model
     }
 
 
+
+    /**
+     *  Delete record data per date
+     * 
+     * 
+     */
+    public function deleteParticipantRecordPerDay($id, $date)
+    {
+        return $this->where('participant_id', $id)->where('record_date', $date);
+    }
+
+
     /**
      *  Delete specific line number
      * 

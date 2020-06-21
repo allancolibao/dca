@@ -107,6 +107,10 @@ Route::get('/copy-record/{id}/{date}', 'FoodRecordController@copyRecords')->name
 Route::post('/copying-record/{id}/{date}', 'FoodRecordController@insertCopiedRecords')->name('insert.copied.record');
 
 
+Route::get('/delete-all-record/{patid}/{date}/{day}', 'FoodRecordController@deleteAll')->name('delete.all');
+Route::delete('/destroy-all-record/{patid}/{date}', 'FoodRecordController@destroyAll')->name('destroy.all.record');
+
+
 /**
  * Handle monitoring page
  * 

@@ -30,6 +30,10 @@
                             </button>
                         </a>
 
+                        <button data-path="{{route('delete.all', ['patid'=> $id, 'date'=>$date, 'day'=>$recordDay])}}" type="submit" class="d-sm-inline-block btn  btn-danger shadow-sm ml-4 mr-3 open-modal">
+                            Delete All  
+                        </button>
+
                     </div>
                     <form id="update-record-header" method="POST" action="{{ action('FoodRecordController@updateRecordHeader', ['id'=> $id, 'fullname'=> $fullname, 'sex'=> $sex, 'age'=> $age, 'date'=>$date ]) }}" accept-charset="UTF-8">
                         @csrf

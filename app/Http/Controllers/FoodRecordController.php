@@ -15,6 +15,7 @@ use App\Record;
 use App\FCT;
 use App\Activity;
 use Auth;
+use Hash;
 
 class FoodRecordController extends Controller
 {
@@ -374,20 +375,9 @@ class FoodRecordController extends Controller
     public function destroy($id, $patid, $date)
     {   
         
-        $line = $this->record->getMaxLineNumber($patid, $date);
-
-        if($line !== null) {
-
-            $data = [
-                'line_no' => $line + 1,
-            ];
-
-        } else {
-
-            $data = [
-                'line_no' => '500'
-            ];
-        }
+        $data = [
+            'line_no' => random_int(500,999),
+        ];
 
         $dataInserted = $this->record->updateLineNumber($id, $data);
         $record = $this->record->deleteLineNumber($id);
@@ -536,6 +526,82 @@ class FoodRecordController extends Controller
 
         return redirect()->back()->with($notification);
 
+    }
+
+
+    /**
+    * Show delete all record confirmation
+    *
+    * @return \Illuminate\Contracts\Support\Renderable
+    */
+    public function deleteAll($patid, $date, $day)
+    {   
+        $record = $this->record->deleteParticipantRecordPerDay($patid, $date)->get();
+
+        return view('app.delete-all-record', compact('patid', 'date', 'day', 'record'));
+
+    }
+
+
+    /**
+    * Delete the target Participant
+    *
+    * @return \Illuminate\Contracts\Support\Renderable
+    */
+    public function destroyAll(Request $request, $patid, $date)
+    {   
+        if(Hash::check($request['password'], Auth::user()->password))
+        {  
+
+        $rowId = $request['row_id'];
+
+        if(is_array($rowId) && sizeof($rowId) > 0) {
+
+            foreach($rowId as $id) {
+
+                $data = [
+                    'line_no' => random_int(500,999),
+                ];
+
+                $lineUpdated = $this->record->updateLineNumber($id, $data);
+
+                $user = Auth::user()->name;
+
+                if($lineUpdated) {
+                    $data = Activity::create([
+                        'action' => $user.' successfully deleted line number '.$data['line_no'].' on record date '.$date.'.',
+                        'taken_by' => $user
+                    ]);
+                }
+            }
+
+            $record = $this->record->deleteParticipantRecordPerDay($patid, $date)->delete();
+                     
+            $notification = [
+                'message' => 'Data successfully deleted!',
+                'alert-type' => 'warning'
+            ];
+
+            return redirect()->back()->with($notification);
+
+        }
+                     
+        $notification = [
+            'message' => 'Nothing to delete!',
+            'alert-type' => 'error'
+        ];
+
+        return redirect()->back()->with($notification);
+
+        } else {
+
+        $notification = [
+            'message' => ' Incorrect password!',
+            'alert-type' => 'error'
+        ];
+
+        return redirect()->back()->with($notification);
+        }
     }
 
 }

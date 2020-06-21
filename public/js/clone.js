@@ -26,6 +26,7 @@ $("input.tr_clone_add").on('click', function () {
     $clone.find(':text').val('');
     $clone.find('#line_no').val('');
     $clone.find('#food_weight').val('');
+    $clone.find('#pw_weight').val('');
     $clone.find('#unit_cost').val('');
     $clone.find('#unit_weight').val('');
     $clone.find('#cmc').removeAttr('style');
