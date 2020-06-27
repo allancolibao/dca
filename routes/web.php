@@ -100,7 +100,8 @@ Route::get('/food-record-delete-data/{id}/{patid}/{date}/{day}/{lineno}', 'FoodR
 Route::delete('/record-delete/{id}/{patid}/{date}', 'FoodRecordController@destroy')->name('record.delete');
 
 Route::get('/get-deleted-record/{id}/{fullname}/{sex}/{age}/{date}', 'FoodRecordController@getDeleted')->name('deleted.records');
-Route::post('/restore-line_number/{id}', 'FoodRecordController@restoreDeletedLineNumber')->name('restore.line.number');
+Route::get('/get-line-number/{id}', 'FoodRecordController@getrestoreDeletedLineNumber')->name('get.line.number');
+Route::post('/restore-line-number/{id}', 'FoodRecordController@restoreDeletedLineNumber')->name('restore.line.number');
 
 
 Route::get('/copy-record/{id}/{date}', 'FoodRecordController@copyRecords')->name('copy.records');

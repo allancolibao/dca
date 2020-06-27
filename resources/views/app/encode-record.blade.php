@@ -72,6 +72,7 @@
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
+                                            <th>MENU TITLE</th>
                                             <th>LINE NO</th>
                                             <th>FOOD ITEM</th>
                                             <th>FI AMOUNT/SIZE</th>
@@ -98,10 +99,16 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr class="tr_clone" id="line-1">                   
+                                        <tr class="tr_clone" id="line-1">         
                                             <td>
                                                 <div class="form-group-line">
-                                                <input type="number" step="any" class="form-no-border" name="line_no[]" id="line_no" placeholder="00" value="" required autofocus/>
+                                                    <input type="text"class="form-no-border" name="menu_title[]" id="menu_title" placeholder="Menu Title" value="" autofocus/>
+                                                </div>
+                                            </td>
+
+                                            <td>
+                                                <div class="form-group-line">
+                                                <input type="number" step="any" class="form-no-border" name="line_no[]" id="line_no" placeholder="00" value="" required/>
                                                 </div>
                                             </td>
                                             
@@ -374,6 +381,7 @@
                                     <thead>
                                         <tr>
                                             <th>DEL</th>
+                                            <th>MENU TITLE</th>
                                             <th>LINE NO</th>
                                             <th>FOOD ITEM</th>
                                             <th>FI AMOUNT/SIZE</th>
@@ -404,7 +412,14 @@
                                                 <tr id="line" style="{{ strlen($data->line_no) >= 3  ? "background-color:#ffbfbf" : ""}}">    
                                                     <td>
                                                         <button data-path={{ route('food.record.delete.data', ['id'=> $data->id, 'patid'=> $id, 'date'=>$date, 'day'=>$recordDay, 'lineno'=>$data->line_no ])}} type="button" class="autofocus d-sm-inline-block btn btn-danger shadow-sm open-modal"><i class="fa fa-trash"></i></button>
-                                                    </td>               
+                                                    </td>  
+                                                    
+                                                    <td>
+                                                        <div class="form-group-line">
+                                                            <input type="text"class="form-no-border" name="menu_title[]" id="menu_title" placeholder="Menu Title" value="{{$data->menu_title}}"/>
+                                                        </div>
+                                                    </td>
+
                                                     <td>
                                                         <div class="form-group-line">
                                                         <input type="number" step="any" class="form-no-border line-number" name="line_no[]" id="line_no" placeholder="00" value="{{$data->line_no}}" required/>

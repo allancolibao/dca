@@ -182,6 +182,18 @@ class CaseReportController extends Controller
             'sec_02_oth_05_01' => $request['sec_02_oth_05_01'],
             'sec_02_oth_05_02' => $request['sec_02_oth_05_02'],
             'sec_02_oth_05_03' => $request['sec_02_oth_05_03'],
+            'sec_add_rt_01' => $request['sec_add_rt_01'],
+            'sec_add_rt_02' => $request['sec_add_rt_02'],
+            'sec_add_rt_03' => $request['sec_add_rt_03'],
+            'sec_add_rt_res_01' => $request['sec_add_rt_res_01'],
+            'sec_add_rt_res_02' => $request['sec_add_rt_res_02'],
+            'sec_add_rt_res_03' => $request['sec_add_rt_res_03'],
+            'sec_add_igm_01' => $request['sec_add_igm_01'],
+            'sec_add_igm_02' => $request['sec_add_igm_02'],
+            'sec_add_igm_03' => $request['sec_add_igm_03'],
+            'sec_add_igm_res_01' => $request['sec_add_igm_res_01'],
+            'sec_add_igm_res_02' => $request['sec_add_igm_res_02'],
+            'sec_add_igm_res_03' => $request['sec_add_igm_res_03'],
             'encoded_by' => Auth::user()->name
         ]);
 
@@ -333,6 +345,18 @@ class CaseReportController extends Controller
             'sec_02_oth_05_01' => $request['sec_02_oth_05_01'],
             'sec_02_oth_05_02' => $request['sec_02_oth_05_02'],
             'sec_02_oth_05_03' => $request['sec_02_oth_05_03'],
+            'sec_add_rt_01' => $request['sec_add_rt_01'],
+            'sec_add_rt_02' => $request['sec_add_rt_02'],
+            'sec_add_rt_03' => $request['sec_add_rt_03'],
+            'sec_add_rt_res_01' => $request['sec_add_rt_res_01'],
+            'sec_add_rt_res_02' => $request['sec_add_rt_res_02'],
+            'sec_add_rt_res_03' => $request['sec_add_rt_res_03'],
+            'sec_add_igm_01' => $request['sec_add_igm_01'],
+            'sec_add_igm_02' => $request['sec_add_igm_02'],
+            'sec_add_igm_03' => $request['sec_add_igm_03'],
+            'sec_add_igm_res_01' => $request['sec_add_igm_res_01'],
+            'sec_add_igm_res_02' => $request['sec_add_igm_res_02'],
+            'sec_add_igm_res_03' => $request['sec_add_igm_res_03'],
             'updated_by' => Auth::user()->name
         ];
 

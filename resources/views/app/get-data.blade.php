@@ -13,12 +13,6 @@
                         <h6 class="m-0 font-weight-bold text-primary">Please make sure you have internet connection, Thank you!</h6>
                     </div>
                   <div class="card-body">
-                    {{-- <p>*If you want to use this feature make sure the internet connection is stable.</p>
-                    <a class="text-primary" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-                        <button class="btn btn-sm btn-warning shadow-sm mb-2 send">
-                            <i class="fas fa-download"></i> Get All Data
-                        </button>
-                    </a> --}}
                     <div class="table-responsive">
                             <table class="table table-bordered" id="dataTables" width="100%" cellspacing="0">
                                 <thead>

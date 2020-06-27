@@ -75,7 +75,7 @@ class GetDataController extends Controller
             $adverse = Adverse::upsert($dataAdverse, $dataAdverse);
 
             // Case Report
-            $getCase = CaseReport::on('mysqlsec')->exclude('id')->where('participant_id', $id)->get()->toArray();
+            $getCase = CaseReport::on('mysqlsec')->exclude(['id', 'sec_add_rt_01','sec_add_rt_02','sec_add_rt_03','sec_add_rt_res_01','sec_add_rt_res_02','sec_add_rt_res_03','sec_add_igm_01','sec_add_igm_02','sec_add_igm_03','sec_add_igm_res_01','sec_add_igm_res_02','sec_add_igm_res_03',])->where('participant_id', $id)->get()->toArray();
             $dataCase = json_decode( json_encode($getCase), true);
             $case = CaseReport::upsert($dataCase, $dataCase);
 
@@ -95,7 +95,7 @@ class GetDataController extends Controller
             $participant = Participant::upsert($dataParticipant, $dataParticipant);
 
             // Record Data
-            $getRecord = Record::on('mysqlsec')->exclude('id')->where('participant_id', $id)->get()->toArray();
+            $getRecord = Record::on('mysqlsec')->exclude(['id','menu_title'])->where('participant_id', $id)->get()->toArray();
             $dataRecord = json_decode( json_encode($getRecord), true);
             $record = Record::insertIgnore($dataRecord);
 

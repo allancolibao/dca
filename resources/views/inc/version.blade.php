@@ -1,6 +1,6 @@
 <li class="nav-item dropdown no-arrow mx-1">
     <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    <i class="fas fa-code-branch fa-fw" style="padding-right:1vmin;"></i>ND-1.0.6
+    <i class="fas fa-code-branch fa-fw" style="padding-right:1vmin;"></i>ND-1.0.7
     <!-- Version Changlog -->
     </a>
     <!-- Dropdown - Version -->
@@ -46,6 +46,13 @@
             <div>
             <div class="small text-gray-500">ND-1.0.6 | June 21, 2020</div>
                 - Added delete food record per day<br/>
+            </div>
+        </a>
+        <a class="dropdown-item d-flex align-items-center" href="#">
+            <div>
+            <div class="small text-gray-500">ND-1.0.7 | June 27, 2020</div>
+                - Added RT-PCR and IGM on Case Report Form<br/>
+                - Added Menu title on Daily Food Record
             </div>
         </a>
     </div>

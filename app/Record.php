@@ -26,6 +26,7 @@ class Record extends Model
     protected $fillable = [
         'participant_id',
         'record_date',
+        'menu_title', 
         'line_no',
         'food_item',
         'fi_amount_size',
@@ -60,6 +61,7 @@ class Record extends Model
         'id',
         'participant_id',
         'record_date',
+        'menu_title',
         'line_no',
         'food_item',
         'fi_amount_size',

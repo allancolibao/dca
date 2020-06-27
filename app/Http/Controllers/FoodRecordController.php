@@ -155,6 +155,7 @@ class FoodRecordController extends Controller
                 $record = [
                     'participant_id' => $participantId,
                     'record_date' => $recordDate,
+                    'menu_title' => $request->menu_title[$input],
                     'line_no' => $request->line_no[$input],
                     'food_item' => $request->food_item[$input],
                     'fi_amount_size' => $request->fi_amount_size[$input],
@@ -222,6 +223,7 @@ class FoodRecordController extends Controller
         $data = $request->all();
         
         $row_id = array_reverse($data['row_id']);
+        $menu_title = array_reverse($data['menu_title']);
         $line_no = array_reverse($data['line_no']);
         $food_item = array_reverse($data['food_item']);
         $fi_amount_size = array_reverse($data['fi_amount_size']);
@@ -252,6 +254,7 @@ class FoodRecordController extends Controller
                 if(Auth::user()->is_admin != 3) {
 
                 $data = [
+                    'menu_title' => $menu_title[$input],
                     'line_no' => $line_no[$input],
                     'food_item' => $food_item[$input],
                     'fi_amount_size' => $fi_amount_size[$input],
@@ -278,6 +281,7 @@ class FoodRecordController extends Controller
                 } else {
 
                 $data = [
+                    'menu_title' => $menu_title[$input],
                     'line_no' => $line_no[$input],
                     'food_item' => $food_item[$input],
                     'fi_amount_size' => $fi_amount_size[$input],
@@ -376,10 +380,10 @@ class FoodRecordController extends Controller
     {   
         
         $data = [
-            'line_no' => random_int(500,999),
+            'line_no' => random_int(500,9999),
         ];
 
-        $dataInserted = $this->record->updateLineNumber($id, $data);
+        $updated = $this->record->updateLineNumber($id, $data);
         $record = $this->record->deleteLineNumber($id);
         $user = Auth::user()->name;
 
@@ -417,6 +421,19 @@ class FoodRecordController extends Controller
 
     }
 
+
+    /**
+    * Get restore line number
+    *
+    * 
+    */
+    public function getrestoreDeletedLineNumber($id)
+    {   
+
+        return view('app.confirm-restore', compact('id'));
+
+    }
+
     /**
     * Restore the target deleted participant
     *
@@ -430,7 +447,7 @@ class FoodRecordController extends Controller
 
         if($record) {
             $data = Activity::create([
-                'action' => $user.' successfully restored line number with id'.$id.'.',
+                'action' => $user.' successfully restored line number with id '.$id.'.',
                 'taken_by' => $user
             ]);
         }
@@ -481,6 +498,7 @@ class FoodRecordController extends Controller
                 $data = [
                     'participant_id' =>  $id,
                     'record_date' => $date,
+                    'menu_title' => $newData->menu_title,
                     'line_no' => $newData->line_no,
                     'food_item' => $newData->food_item,
                     'fi_amount_size' => $newData->fi_amount_size,
@@ -560,7 +578,7 @@ class FoodRecordController extends Controller
             foreach($rowId as $id) {
 
                 $data = [
-                    'line_no' => random_int(500,999),
+                    'line_no' => random_int(500,9999),
                 ];
 
                 $lineUpdated = $this->record->updateLineNumber($id, $data);

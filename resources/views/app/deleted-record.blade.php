@@ -21,6 +21,7 @@
                                 <thead>
                                     <tr>
                                         <th>RESTORE</th>
+                                        <th>MENU TITLE</th>
                                         <th>LINE NO</th>
                                         <th>FOOD ITEM</th>
                                         <th>FI AMOUNT/SIZE</th>
@@ -49,15 +50,15 @@
                                         @foreach ($recordData as $data)
                                             <tr id="line" style="{{ strlen($data->line_no) >= 3  ? "background-color:#ffbfbf" : ""}}">   
                                                 <td>  
-                                                    <form id="restore-line-number" action="{{ route('restore.line.number', ['id'=> $data->id ]) }}" method="POST" style="display: none;">
-                                                      @csrf
-                                                    </form>
-                                                    <a href="#" data-toggle="modal" data-target="#restore-food-record">
-                                                      <button type="button" class="d-sm-inline-block btn btn-sm btn-danger shadow-sm">
-                                                          <i class="fas fa-trash-restore-alt"></i> Restore
-                                                      </button>
-                                                    </a>
-                                                  </td>                
+                                                    <button data-path="{{route('get.line.number', ['id'=> $data->id])}}" type="submit" class="d-sm-inline-block btn  btn-danger shadow-sm ml-4 mr-3 open-modal">
+                                                        Restore  
+                                                    </button>
+                                                </td>    
+                                                <td>
+                                                    <div class="form-group-line">
+                                                        <input type="text"class="form-no-border" name="menu_title[]" id="menu_title" placeholder="Menu Title" value="{{$data->menu_title}}"/>
+                                                    </div>
+                                                </td>
                                                 <td>
                                                     <div class="form-group-line">
                                                     <input type="number" step="any" class="form-no-border line-number" name="line_no[]" id="line_no" placeholder="00" value="{{$data->line_no}}" required/>
@@ -255,31 +256,7 @@
                                     @endif
                                 </tbody>  
                             </table>
-                        </div>
-                                          
-
-                        {{-- Confirmation Modal --}}
-                        <div class="modal fade" id="restore-food-record" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                            <div class="modal-dialog" role="document">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel">Confirmation</h5>
-                                        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                                            <span aria-hidden="true">×</span>
-                                        </button>
-                                    </div>
-                                    <div class="modal-body">Select "Proceed" below if you want to restore the specific line number.</div>
-                                    <div class="modal-footer">
-                                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                                        <a class="btn btn-primary" href="#"
-                                        onclick="event.preventDefault();
-                                        document.getElementById('restore-line-number').submit();">
-                                        Proceed
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>                      
+                        </div>                   
                     </div>
                 </div>
             </div>

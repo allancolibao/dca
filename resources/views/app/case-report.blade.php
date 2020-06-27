@@ -745,6 +745,70 @@
                                                     </td> 
                                                 </tr>
 
+
+                                                <tr style="background-color:#ededed">
+                                                    <td><strong>RT-PCR</strong></td>
+                                                    <td><strong>Date of Exam <i class="fas fa-arrow-right"></i></strong></td>
+                                                    <td>
+                                                        <input type="date" class="form-control" name="sec_add_rt_01" id="sec_add_rt_01"  value="{{ old('sec_add_rt_01') }}">
+                                                    </td>
+                                                    <td>
+                                                        <input type="date" class="form-control" name="sec_add_rt_02" id="sec_add_rt_02"  value="{{ old('sec_add_rt_02') }}">
+                                                    </td>
+                                                    <td>
+                                                        <input type="date" class="form-control" name="sec_add_rt_03" id="sec_add_rt_03"  value="{{ old('sec_add_rt_03') }}">
+                                                    </td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td>
+                                                        RT-PCR Result
+                                                    </td>
+                                                    <td>
+                                                        <small>
+                                                            Positive or Negative
+                                                        </small> 
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" class="form-control" name="sec_add_rt_res_01" id="sec_add_rt_res_01" placeholder="" value="{{ old('sec_add_rt_res_01') }}">
+                                                    </td> 
+                                                    <td>
+                                                        <input type="text"  class="form-control" name="sec_add_rt_res_02" id="sec_add_rt_res_02" placeholder="" value="{{ old('sec_add_rt_res_02') }}">
+                                                    </td>  
+                                                    <td>
+                                                        <input type="text"  class="form-control" name="sec_add_rt_res_03" id="sec_add_rt_res_03" placeholder="" value="{{ old('sec_add_rt_res_03') }}">
+                                                    </td>                                                   
+                                                </tr>
+
+                                                <tr style="background-color:#ededed">
+                                                    <td><strong>IGM</strong></td>
+                                                    <td><strong>Date of Exam <i class="fas fa-arrow-right"></i></strong></td>
+                                                    <td>
+                                                        <input type="date" class="form-control" name="sec_add_igm_01" id="sec_add_igm_01"  value="{{ old('sec_add_igm_01') }}">
+                                                    </td>
+                                                    <td>
+                                                        <input type="date" class="form-control" name="sec_add_igm_02" id="sec_add_igm_02"  value="{{ old('sec_add_igm_02') }}">
+                                                    </td>
+                                                    <td>
+                                                        <input type="date" class="form-control" name="sec_add_igm_03" id="sec_add_igm_03"  value="{{ old('sec_add_igm_03') }}">
+                                                    </td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td colspan="2">
+                                                        IGM Value
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" class="form-control" name="sec_add_igm_res_01" id="sec_add_igm_res_01" placeholder="" value="{{ old('sec_add_igm_res_01') }}">
+                                                    </td> 
+                                                    <td>
+                                                        <input type="text"  class="form-control" name="sec_add_igm_res_02" id="sec_add_igm_res_02" placeholder="" value="{{ old('sec_add_igm_res_02') }}">
+                                                    </td>  
+                                                    <td>
+                                                        <input type="text"  class="form-control" name="sec_add_igm_res_03" id="sec_add_igm_res_03" placeholder="" value="{{ old('sec_add_igm_res_03') }}">
+                                                    </td>                                                   
+                                                </tr>
+
                                             </tbody>
                                         </table>
                                     </div>
