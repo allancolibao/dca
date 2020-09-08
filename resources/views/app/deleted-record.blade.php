@@ -25,8 +25,7 @@
                                         <th>LINE NO</th>
                                         <th>FOOD ITEM</th>
                                         <th>FI AMOUNT/SIZE</th>
-                                        <th>PLATE WASTE</th>
-                                        <th>PW AMOUNT/SIZE</th>
+                                        
                                         <th>RF CODE</th>
                                         <th>MEAL CODE</th>
                                         @if(Auth::user()->is_admin != 3)
@@ -36,6 +35,8 @@
                                         <th>FW CMC</th>
                                         <th>SUPCODE</th>
                                         <th>SRCCODE</th>
+                                        <th>PLATE WASTE</th>
+                                        <th>PW AMOUNT/SIZE</th>
                                         <th>PW WEIGHT</th>
                                         <th>PW RCC</th>
                                         <th>PW CMC</th>
@@ -74,16 +75,7 @@
                                                         <input type="text"  class="form-no-border" name="fi_amount_size[]" id="fi_amount_size" placeholder="Amount/Size" value="{{$data->fi_amount_size}}"/>
                                                     </div>
                                                 </td>
-                                                <td>
-                                                    <div class="form-group-line">
-                                                            <input type="text" class="form-no-border" name="plate_waste[]" id="plate_waste" placeholder="Plate Waste" value="{{$data->plate_waste}}"/>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div class="form-group-line">
-                                                        <input type="text"class="form-no-border" name="pw_amount_size[]" id="pw_amount_size" placeholder="Amount/Size" value="{{$data->pw_amount_size}}"/>
-                                                    </div>
-                                                </td>
+                                                
                                                 <td>
                                                     <div class="form-group-line">
                                                         <select type="text" class="form-no-border" name="rf_code[]" id="rf_code" placeholder="RF Code" value="{{$data->rf_code}}">
@@ -197,6 +189,17 @@
                                                                 <option value="19" {{$data->src_code == '19'  ? 'selected' : ''}}>19 - Others</option>
                                                                 <option value=""  {{$data->src_code == ''  ? 'selected' : ''}}>88 - NONE</option>
                                                             </select>
+                                                        </div>
+                                                    </td>
+
+                                                    <td>
+                                                        <div class="form-group-line">
+                                                                <input type="text" class="form-no-border" name="plate_waste[]" id="plate_waste" placeholder="Plate Waste" value="{{$data->plate_waste}}"/>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="form-group-line">
+                                                            <input type="text"class="form-no-border" name="pw_amount_size[]" id="pw_amount_size" placeholder="Amount/Size" value="{{$data->pw_amount_size}}"/>
                                                         </div>
                                                     </td>
                                                     <td>

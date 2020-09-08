@@ -76,11 +76,7 @@
                                             <th>LINE NO</th>
                                             <th>FOOD ITEM</th>
                                             <th>FI AMOUNT/SIZE</th>
-                                            <th>PLATE WASTE</th>
-                                            <th>PW AMOUNT/SIZE</th>
-                                            <th>PW WEIGHT</th>
-                                            <th>PW RCC</th>
-                                            <th>PW CMC</th>
+
                                             <th>RF CODE</th>
                                             <th>MEAL CODE</th>
                                             @if(Auth::user()->is_admin != 3)
@@ -90,6 +86,13 @@
                                             <th>FW CMC</th>
                                             <th>SUPCODE</th>
                                             <th>SRCCODE</th>
+
+                                            <th>PLATE WASTE</th>
+                                            <th>PW AMOUNT/SIZE</th>
+                                            <th>PW WEIGHT</th>
+                                            <th>PW RCC</th>
+                                            <th>PW CMC</th>
+
                                             <th>UNIT COST</th>
                                             <th>UNIT WEIGHT</th>
                                             <th>UNIT MEAS</th>
@@ -122,48 +125,7 @@
                                                     <input type="text"  class="form-no-border" name="fi_amount_size[]" id="fi_amount_size" placeholder="Amount/Size" value=""/>
                                                 </div>
                                             </td>
-                                            <td>
-                                                <div class="form-group-line">
-                                                        <input type="text" class="form-no-border" name="plate_waste[]" id="plate_waste" placeholder="Plate Waste" value=""/>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div class="form-group-line">
-                                                    <input type="text"class="form-no-border" name="pw_amount_size[]" id="pw_amount_size" placeholder="Amount/Size" value=""/>
-                                                </div>
-                                            </td>
-
-                                            <td>
-                                                <div class="form-group-line">
-                                                    <input type="number" step="any" class="form-no-border" name="pw_weight[]" id="pw_weight" placeholder="Weight" value=""/>
-                                                </div>
-                                            </td>                            
-                                            <td>
-                                                <div class="form-group-line">
-                                                    <select type="text"class="form-no-border RCC" name="pw_rcc[]" id="pw_rcc" placeholder="RCC" value="">
-                                                        <option value="">Please select</option>
-                                                        <option value="1" >1 - Raw as purchased</option>
-                                                        <option value="2" >2 - Raw edible portion</option>
-                                                        <option value="3" >3 - Cooked as purchased</option>
-                                                        <option value="4" >4 - Cooked edible portion</option>
-                                                        <option value="5" >5 - Cleaned and Drawn fresh fish </option>
-                                                        <option value="6" >6 - Cleaned and Drawn cooked fish</option>
-                                                    </select>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div class="form-group-line">
-                                                    <select type="text"  class="form-no-border CMC" name="pw_cmc[]" id="pw_cmc" placeholder="CMC" value="">
-                                                        <option value="">Please select</option>
-                                                        <option value="1" >1 - Boiled</option>
-                                                        <option value="2" >2 - Fried</option>
-                                                        <option value="3" >3 - Sauteed</option>
-                                                        <option value="4" >4 - Broiled</option>
-                                                        <option value="5" >5 - Scambled</option>
-                                                        <option value="6" >6 - Raw</option>
-                                                    </select>    
-                                                </div>
-                                            </td>
+                                            
 
                                             <td>
                                                 <div class="form-group-line">
@@ -271,6 +233,49 @@
                                                             <option value="18" >18 - Pharmacy / Clinic</option>
                                                             <option value="19" >19 - Others</option>
                                                         </select>
+                                                    </div>
+                                                </td>
+
+                                                <td>
+                                                    <div class="form-group-line">
+                                                            <input type="text" class="form-no-border" name="plate_waste[]" id="plate_waste" placeholder="Plate Waste" value=""/>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="form-group-line">
+                                                        <input type="text"class="form-no-border" name="pw_amount_size[]" id="pw_amount_size" placeholder="Amount/Size" value=""/>
+                                                    </div>
+                                                </td>
+    
+                                                <td>
+                                                    <div class="form-group-line">
+                                                        <input type="number" step="any" class="form-no-border" name="pw_weight[]" id="pw_weight" placeholder="Weight" value=""/>
+                                                    </div>
+                                                </td>                            
+                                                <td>
+                                                    <div class="form-group-line">
+                                                        <select type="text"class="form-no-border RCC" name="pw_rcc[]" id="pw_rcc" placeholder="RCC" value="">
+                                                            <option value="">Please select</option>
+                                                            <option value="1" >1 - Raw as purchased</option>
+                                                            <option value="2" >2 - Raw edible portion</option>
+                                                            <option value="3" >3 - Cooked as purchased</option>
+                                                            <option value="4" >4 - Cooked edible portion</option>
+                                                            <option value="5" >5 - Cleaned and Drawn fresh fish </option>
+                                                            <option value="6" >6 - Cleaned and Drawn cooked fish</option>
+                                                        </select>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="form-group-line">
+                                                        <select type="text"  class="form-no-border CMC" name="pw_cmc[]" id="pw_cmc" placeholder="CMC" value="">
+                                                            <option value="">Please select</option>
+                                                            <option value="1" >1 - Boiled</option>
+                                                            <option value="2" >2 - Fried</option>
+                                                            <option value="3" >3 - Sauteed</option>
+                                                            <option value="4" >4 - Broiled</option>
+                                                            <option value="5" >5 - Scambled</option>
+                                                            <option value="6" >6 - Raw</option>
+                                                        </select>    
                                                     </div>
                                                 </td>
                                                 
@@ -388,11 +393,7 @@
                                             <th>LINE NO</th>
                                             <th>FOOD ITEM</th>
                                             <th>FI AMOUNT/SIZE</th>
-                                            <th>PLATE WASTE</th>
-                                            <th>PW AMOUNT/SIZE</th>
-                                            <th>PW WEIGHT</th>
-                                            <th>PW RCC</th>
-                                            <th>PW CMC</th>
+                                            
                                             <th>RF CODE</th>
                                             <th>MEAL CODE</th>
                                             @if(Auth::user()->is_admin != 3)
@@ -402,6 +403,13 @@
                                             <th>FW CMC</th>
                                             <th>SUPCODE</th>
                                             <th>SRCCODE</th>
+
+                                            <th>PLATE WASTE</th>
+                                            <th>PW AMOUNT/SIZE</th>
+                                            <th>PW WEIGHT</th>
+                                            <th>PW RCC</th>
+                                            <th>PW CMC</th>
+
                                             <th>UNIT COST</th>
                                             <th>UNIT WEIGHT</th>
                                             <th>UNIT MEAS</th>
@@ -438,50 +446,7 @@
                                                             <input type="text"  class="form-no-border" name="fi_amount_size[]" id="fi_amount_size" placeholder="Amount/Size" value="{{$data->fi_amount_size}}"/>
                                                         </div>
                                                     </td>
-                                                    <td>
-                                                        <div class="form-group-line">
-                                                                <input type="text" class="form-no-border" name="plate_waste[]" id="plate_waste" placeholder="Plate Waste" value="{{$data->plate_waste}}"/>
-                                                        </div>
-                                                    </td>
-                                                    <td>
-                                                        <div class="form-group-line">
-                                                            <input type="text"class="form-no-border" name="pw_amount_size[]" id="pw_amount_size" placeholder="Amount/Size" value="{{$data->pw_amount_size}}"/>
-                                                        </div>
-                                                    </td>
-
-                                                    <td>
-                                                        <div class="form-group-line">
-                                                            <input type="number" step="any" class="form-no-border" name="pw_weight[]" id="pw_weight" placeholder="Weight" value="{{$data->pw_weight}}"/>
-                                                        </div>
-                                                    </td>                            
-                                                    <td>
-                                                        <div class="form-group-line">
-                                                            <select type="text"class="form-no-border RCC" name="pw_rcc[]" id="pw_rcc" placeholder="RCC" value="{{$data->pw_rcc}}">
-                                                                <option selected="true" disabled="disabled">Please select</option>
-                                                                <option value="1" {{$data->pw_rcc == '1'  ? 'selected' : ''}}>1 - Raw as purchased</option>
-                                                                <option value="2" {{$data->pw_rcc == '2'  ? 'selected' : ''}}>2 - Raw edible portion</option>
-                                                                <option value="3" {{$data->pw_rcc == '3'  ? 'selected' : ''}}>3 - Cooked as purchased</option>
-                                                                <option value="4" {{$data->pw_rcc == '4'  ? 'selected' : ''}}>4 - Cooked edible portion</option>
-                                                                <option value="5" {{$data->pw_rcc == '5'  ? 'selected' : ''}}>5 - Cleaned and Drawn fresh fish </option>
-                                                                <option value="6" {{$data->pw_rcc == '6'  ? 'selected' : ''}}>6 - Cleaned and Drawn cooked fish</option>
-                                                                <option value="" {{$data->pw_rcc == ''  ? 'selected' : ''}}>88 - NONE </option>
-                                                            </select>
-                                                        </div>
-                                                    </td>
-                                                    <td>
-                                                        <div class="form-group-line">
-                                                            <select type="text"  class="form-no-border CMC" name="pw_cmc[]" id="pw_cmc" placeholder="CMC" value="{{$data->pw_cmc}}">
-                                                                <option selected="true" disabled="disabled">Please select</option>
-                                                                <option value="1" {{$data->pw_cmc == '1'  ? 'selected' : ''}}>1 - Boiled</option>
-                                                                <option value="2" {{$data->pw_cmc == '2'  ? 'selected' : ''}}>2 - Fried</option>
-                                                                <option value="3" {{$data->pw_cmc == '3'  ? 'selected' : ''}}>3 - Sauteed</option>
-                                                                <option value="4" {{$data->pw_cmc == '4'  ? 'selected' : ''}}>4 - Broiled</option>
-                                                                <option value="5" {{$data->pw_cmc == '5'  ? 'selected' : ''}}>5 - Scambled</option>
-                                                                <option value="6" {{$data->pw_cmc == '6'  ? 'selected' : ''}}>6 - Raw</option>
-                                                                <option value="" {{$data->pw_cmc == ''  ? 'selected' : ''}}>88 - NONE</option>
-                                                            </select>    
-                                                        </div>
-                                                    </td>
+                                                    
 
                                                     <td>
                                                         <div class="form-group-line">
@@ -596,6 +561,51 @@
                                                                     <option value="19" {{$data->src_code == '19'  ? 'selected' : ''}}>19 - Others</option>
                                                                     <option value=""  {{$data->src_code == ''  ? 'selected' : ''}}>88 - NONE</option>
                                                                 </select>
+                                                            </div>
+                                                        </td>
+
+                                                        <td>
+                                                            <div class="form-group-line">
+                                                                    <input type="text" class="form-no-border" name="plate_waste[]" id="plate_waste" placeholder="Plate Waste" value="{{$data->plate_waste}}"/>
+                                                            </div>
+                                                        </td>
+                                                        <td>
+                                                            <div class="form-group-line">
+                                                                <input type="text"class="form-no-border" name="pw_amount_size[]" id="pw_amount_size" placeholder="Amount/Size" value="{{$data->pw_amount_size}}"/>
+                                                            </div>
+                                                        </td>
+    
+                                                        <td>
+                                                            <div class="form-group-line">
+                                                                <input type="number" step="any" class="form-no-border" name="pw_weight[]" id="pw_weight" placeholder="Weight" value="{{$data->pw_weight}}"/>
+                                                            </div>
+                                                        </td>                            
+                                                        <td>
+                                                            <div class="form-group-line">
+                                                                <select type="text"class="form-no-border RCC" name="pw_rcc[]" id="pw_rcc" placeholder="RCC" value="{{$data->pw_rcc}}">
+                                                                    <option selected="true" disabled="disabled">Please select</option>
+                                                                    <option value="1" {{$data->pw_rcc == '1'  ? 'selected' : ''}}>1 - Raw as purchased</option>
+                                                                    <option value="2" {{$data->pw_rcc == '2'  ? 'selected' : ''}}>2 - Raw edible portion</option>
+                                                                    <option value="3" {{$data->pw_rcc == '3'  ? 'selected' : ''}}>3 - Cooked as purchased</option>
+                                                                    <option value="4" {{$data->pw_rcc == '4'  ? 'selected' : ''}}>4 - Cooked edible portion</option>
+                                                                    <option value="5" {{$data->pw_rcc == '5'  ? 'selected' : ''}}>5 - Cleaned and Drawn fresh fish </option>
+                                                                    <option value="6" {{$data->pw_rcc == '6'  ? 'selected' : ''}}>6 - Cleaned and Drawn cooked fish</option>
+                                                                    <option value="" {{$data->pw_rcc == ''  ? 'selected' : ''}}>88 - NONE </option>
+                                                                </select>
+                                                            </div>
+                                                        </td>
+                                                        <td>
+                                                            <div class="form-group-line">
+                                                                <select type="text"  class="form-no-border CMC" name="pw_cmc[]" id="pw_cmc" placeholder="CMC" value="{{$data->pw_cmc}}">
+                                                                    <option selected="true" disabled="disabled">Please select</option>
+                                                                    <option value="1" {{$data->pw_cmc == '1'  ? 'selected' : ''}}>1 - Boiled</option>
+                                                                    <option value="2" {{$data->pw_cmc == '2'  ? 'selected' : ''}}>2 - Fried</option>
+                                                                    <option value="3" {{$data->pw_cmc == '3'  ? 'selected' : ''}}>3 - Sauteed</option>
+                                                                    <option value="4" {{$data->pw_cmc == '4'  ? 'selected' : ''}}>4 - Broiled</option>
+                                                                    <option value="5" {{$data->pw_cmc == '5'  ? 'selected' : ''}}>5 - Scambled</option>
+                                                                    <option value="6" {{$data->pw_cmc == '6'  ? 'selected' : ''}}>6 - Raw</option>
+                                                                    <option value="" {{$data->pw_cmc == ''  ? 'selected' : ''}}>88 - NONE</option>
+                                                                </select>    
                                                             </div>
                                                         </td>
                                                         
