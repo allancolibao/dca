@@ -161,6 +161,9 @@ class FoodRecordController extends Controller
                     'fi_amount_size' => $request->fi_amount_size[$input],
                     'plate_waste' => $request->plate_waste[$input],
                     'pw_amount_size' => $request->pw_amount_size[$input],
+                    'pw_weight' => $request->pw_weight[$input],
+                    'pw_rcc' => $request->pw_rcc[$input],
+                    'pw_cmc' => $request->pw_cmc[$input],
                     'rf_code' => $request->rf_code[$input],
                     'meal_code' => $request->meal_code[$input],
                     'food_code' => $request->food_code[$input],
@@ -169,10 +172,7 @@ class FoodRecordController extends Controller
                     'fw_rcc' => $request->fw_rcc[$input],
                     'fw_cmc' => $request->fw_cmc[$input],
                     'supply_code' => $request->supply_code[$input],
-                    'src_code' => $request->src_code[$input],
-                    'pw_weight' => $request->pw_weight[$input],
-                    'pw_rcc' => $request->pw_rcc[$input],
-                    'pw_cmc' => $request->pw_cmc[$input],
+                    'src_code' => $request->src_code[$input],                  
                     'unit_cost' => $request->unit_cost[$input],
                     'unit_weight' => $request->unit_weight[$input],
                     'unit_meas' => $request->unit_meas[$input],
@@ -229,6 +229,9 @@ class FoodRecordController extends Controller
         $fi_amount_size = array_reverse($data['fi_amount_size']);
         $plate_waste = array_reverse($data['plate_waste']);
         $pw_amount_size = array_reverse($data['pw_amount_size']);
+        $pw_weight = array_reverse($data['pw_weight']);
+        $pw_rcc = array_reverse($data['pw_rcc']);
+        $pw_cmc = array_reverse($data['pw_cmc']);
         $rf_code = array_reverse($data['rf_code']);
         $meal_code = array_reverse($data['meal_code']);
 
@@ -239,9 +242,6 @@ class FoodRecordController extends Controller
         $fw_cmc = array_reverse($data['fw_cmc']);
         $supply_code = array_reverse($data['supply_code']);
         $src_code = array_reverse($data['src_code']);
-        $pw_weight = array_reverse($data['pw_weight']);
-        $pw_rcc = array_reverse($data['pw_rcc']);
-        $pw_cmc = array_reverse($data['pw_cmc']);
         $unit_cost = array_reverse($data['unit_cost']);
         $unit_weight = array_reverse($data['unit_weight']);
         $unit_meas = array_reverse($data['unit_meas']);
@@ -260,6 +260,9 @@ class FoodRecordController extends Controller
                     'fi_amount_size' => $fi_amount_size[$input],
                     'plate_waste' => $plate_waste[$input],
                     'pw_amount_size' => $pw_amount_size[$input],
+                    'pw_weight' => $pw_weight[$input],
+                    'pw_rcc' => $pw_rcc[$input],
+                    'pw_cmc' => $pw_cmc[$input],
                     'rf_code' => $rf_code[$input],
                     'meal_code' => $meal_code[$input],
                     'food_code' => $food_code[$input],
@@ -269,9 +272,6 @@ class FoodRecordController extends Controller
                     'fw_cmc' => $fw_cmc[$input],
                     'supply_code' => $supply_code[$input],
                     'src_code' => $src_code[$input],
-                    'pw_weight' => $pw_weight[$input],
-                    'pw_rcc' => $pw_rcc[$input],
-                    'pw_cmc' => $pw_cmc[$input],
                     'unit_cost' => $unit_cost[$input],
                     'unit_weight' => $unit_weight[$input],
                     'unit_meas' => $unit_meas[$input],
@@ -287,6 +287,9 @@ class FoodRecordController extends Controller
                     'fi_amount_size' => $fi_amount_size[$input],
                     'plate_waste' => $plate_waste[$input],
                     'pw_amount_size' => $pw_amount_size[$input],
+                    'pw_weight' => $pw_weight[$input],
+                    'pw_rcc' => $pw_rcc[$input],
+                    'pw_cmc' => $pw_cmc[$input],
                     'rf_code' => $rf_code[$input],
                     'meal_code' => $meal_code[$input],
                     'updated_by' => Auth::user()->name
@@ -504,6 +507,9 @@ class FoodRecordController extends Controller
                     'fi_amount_size' => $newData->fi_amount_size,
                     'plate_waste' => $newData->plate_waste,
                     'pw_amount_size' => $newData->pw_amount_size,
+                    'pw_weight' => $newData->pw_weight,
+                    'pw_rcc' => $newData->pw_rcc,
+                    'pw_cmc' => $newData->pw_cmc,
                     'rf_code' => $newData->rf_code,
                     'meal_code' => $newData->meal_code,
                     'food_code' => $newData->food_code,
@@ -513,9 +519,6 @@ class FoodRecordController extends Controller
                     'fw_cmc' => $newData->fw_cmc,
                     'supply_code' => $newData->supply_code,
                     'src_code' => $newData->src_code,
-                    'pw_weight' => $newData->pw_weight,
-                    'pw_rcc' => $newData->pw_rcc,
-                    'pw_cmc' => $newData->pw_cmc,
                     'unit_cost' => $newData->unit_cost,
                     'unit_weight' => $newData->unit_weight,
                     'unit_meas' => $newData->unit_meas,
