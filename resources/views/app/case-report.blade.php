@@ -185,32 +185,52 @@
                                                         <input type="number" step="any" class="form-control" name="sec_02_03_03" id="sec_02_03_03" placeholder="(BMI) (kg/m2)" value="{{ old('sec_02_03_03') }}" readonly>
                                                     </td> 
                                                 </tr>
+
+                                                {{-- Exclude in get data from hospital --}}
                                                 <tr>
                                                     <td colspan="2">
-                                                        Remarks
+                                                       Remarks
                                                     </td>
                                                     <td>
-                                                        <input type="text" class="form-control" name="sec_02_anthrop_rem_01" id="sec_02_anthrop_rem_01" placeholder="Remarks"  value="{{ old('sec_02_anthrop_rem_01') }}">
+                                                        <select type="text" class="form-control" name="sec_02_anthrop_rem_01" id="sec_02_anthrop_rem_01" placeholder="Remarks"  value="{{ old('sec_02_anthrop_rem_01') }}">
+                                                            <option value="">Select remarks</option>
+                                                            <option {{ (old("sec_02_anthrop_rem_01") == 'Underweight'  ? 'selected' : '') }} value="Underweight">Underweight</option>
+                                                            <option {{ (old("sec_02_anthrop_rem_01") == 'Normal'  ? 'selected' : '') }} value="Normal">Normal</option>
+                                                            <option {{ (old("sec_02_anthrop_rem_01") == 'Overweight'  ? 'selected' : '') }} value="Overweight">Overweight</option>
+                                                            <option {{ (old("sec_02_anthrop_rem_01") == 'Obese'  ? 'selected' : '') }} value="Obese">Obese</option>
+                                                        </select>
                                                     </td> 
                                                     <td>
-                                                        <input type="text" class="form-control" name="sec_02_anthrop_rem_02" id="sec_02_anthrop_rem_02" placeholder="Remarks"  value="{{ old('sec_02_anthrop_rem_02') }}">
+                                                        <select type="text" class="form-control" name="sec_02_anthrop_rem_02" id="sec_02_anthrop_rem_02" placeholder="Remarks"  value="{{ old('sec_02_anthrop_rem_02') }}">
+                                                            <option value="">Select remarks</option>
+                                                            <option {{ (old("sec_02_anthrop_rem_02") == 'Underweight'  ? 'selected' : '') }} value="Underweight">Underweight</option>
+                                                            <option {{ (old("sec_02_anthrop_rem_02") == 'Normal'  ? 'selected' : '') }} value="Normal">Normal</option>
+                                                            <option {{ (old("sec_02_anthrop_rem_02") == 'Overweight'  ? 'selected' : '') }} value="Overweight">Overweight</option>
+                                                            <option {{ (old("sec_02_anthrop_rem_02") == 'Obese'  ? 'selected' : '') }} value="Obese">Obese</option>
+                                                        </select>
                                                     </td> 
                                                     <td>
-                                                        <input type="text" class="form-control" name="sec_02_anthrop_rem_03" id="sec_02_anthrop_rem_03" placeholder="Remarks"  value="{{ old('sec_02_anthrop_rem_03') }}">
+                                                        <select type="text" class="form-control" name="sec_02_anthrop_rem_03" id="sec_02_anthrop_rem_03" placeholder="Remarks"  value="{{ old('sec_02_anthrop_rem_03') }}">
+                                                            <option value="">Select remarks</option>
+                                                            <option {{ (old("sec_02_anthrop_rem_03") == 'Underweight'  ? 'selected' : '') }} value="Underweight">Underweight</option>
+                                                            <option {{ (old("sec_02_anthrop_rem_03") == 'Normal'  ? 'selected' : '') }} value="Normal">Normal</option>
+                                                            <option {{ (old("sec_02_anthrop_rem_03") == 'Overweight'  ? 'selected' : '') }} value="Overweight">Overweight</option>
+                                                            <option {{ (old("sec_02_anthrop_rem_03") == 'Obese'  ? 'selected' : '') }} value="Obese">Obese</option>
+                                                        </select>
                                                     </td> 
                                                 </tr>
 
                                                 <tr style="background-color:#ededed">
                                                     <td><strong>Diabetes</strong></td>
-                                                    <td><strong>Date Taken <i class="fas fa-arrow-right"></i></strong></td>
+                                                    <td><strong hidden>Date Taken <i class="fas fa-arrow-right"></i></strong></td>
                                                     <td>
-                                                        <input type="date" class="form-control" name="sec_02_dia_01" id="sec_02_dia_01"  value="{{ old('sec_02_dia_01') }}">
+                                                        <input type="hidden" class="form-control" name="sec_02_dia_01" id="sec_02_dia_01"  value="{{ old('sec_02_dia_01') }}">
                                                     </td>
                                                     <td>
-                                                        <input type="date" class="form-control" name="sec_02_dia_02" id="sec_02_dia_02"  value="{{ old('sec_02_dia_02') }}">
+                                                        <input type="hidden" class="form-control" name="sec_02_dia_02" id="sec_02_dia_02"  value="{{ old('sec_02_dia_02') }}">
                                                     </td>
                                                     <td>
-                                                        <input type="date" class="form-control" name="sec_02_dia_03" id="sec_02_dia_03"  value="{{ old('sec_02_dia_03') }}">
+                                                        <input type="hidden" class="form-control" name="sec_02_dia_03" id="sec_02_dia_03"  value="{{ old('sec_02_dia_03') }}">
                                                     </td>
                                                 </tr>
                                                 <tr>
@@ -238,27 +258,45 @@
                                                         Remarks
                                                     </td>
                                                     <td>
-                                                        <input type="text" class="form-control" name="sec_02_dia_rem_01" id="sec_02_dia_rem_01" placeholder="Remarks"  value="{{ old('sec_02_dia_rem_01') }}">
+                                                        <select type="text" class="form-control" name="sec_02_dia_rem_01" id="sec_02_dia_rem_01" placeholder="Remarks"  value="{{ old('sec_02_dia_rem_01') }}">
+                                                            <option value="">Select remarks</option>
+                                                            <option {{ (old("sec_02_dia_rem_01") == 'Low'  ? 'selected' : '') }} value="Low">Low</option>
+                                                            <option {{ (old("sec_02_dia_rem_01") == 'Normal'  ? 'selected' : '') }} value="Normal">Normal</option>
+                                                            <option {{ (old("sec_02_dia_rem_01") == 'Pre-diabetes'  ? 'selected' : '') }} value="Pre-diabetes">Pre-diabetes</option>
+                                                            <option {{ (old("sec_02_dia_rem_01") == 'Diabetes'  ? 'selected' : '') }} value="Diabetes">Diabetes</option>
+                                                        </select>
                                                     </td> 
                                                     <td>
-                                                        <input type="text" class="form-control" name="sec_02_dia_rem_02" id="sec_02_dia_rem_02" placeholder="Remarks"  value="{{ old('sec_02_dia_rem_02') }}">
+                                                        <select type="text" class="form-control" name="sec_02_dia_rem_02" id="sec_02_dia_rem_02" placeholder="Remarks"  value="{{ old('sec_02_dia_rem_02') }}">
+                                                            <option value="">Select remarks</option>
+                                                            <option {{ (old("sec_02_dia_rem_02") == 'Low'  ? 'selected' : '') }} value="Low">Low</option>
+                                                            <option {{ (old("sec_02_dia_rem_02") == 'Normal'  ? 'selected' : '') }} value="Normal">Normal</option>
+                                                            <option {{ (old("sec_02_dia_rem_02") == 'Pre-diabetes'  ? 'selected' : '') }} value="Pre-diabetes">Pre-diabetes</option>
+                                                            <option {{ (old("sec_02_dia_rem_02") == 'Diabetes'  ? 'selected' : '') }} value="Diabetes">Diabetes</option>
+                                                        </select>
                                                     </td> 
                                                     <td>
-                                                        <input type="text" class="form-control" name="sec_02_dia_rem_03" id="sec_02_dia_rem_03" placeholder="Remarks"  value="{{ old('sec_02_dia_rem_03') }}">
+                                                        <select type="text" class="form-control" name="sec_02_dia_rem_03" id="sec_02_dia_rem_03" placeholder="Remarks"  value="{{ old('sec_02_dia_rem_03') }}">
+                                                            <option value="">Select remarks</option>
+                                                            <option {{ (old("sec_02_dia_rem_03") == 'Low'  ? 'selected' : '') }} value="Low">Low</option>
+                                                            <option {{ (old("sec_02_dia_rem_03") == 'Normal'  ? 'selected' : '') }} value="Normal">Normal</option>
+                                                            <option {{ (old("sec_02_dia_rem_03") == 'Pre-diabetes'  ? 'selected' : '') }} value="Pre-diabetes">Pre-diabetes</option>
+                                                            <option {{ (old("sec_02_dia_rem_03") == 'Diabetes'  ? 'selected' : '') }} value="Diabetes">Diabetes</option>
+                                                        </select>
                                                     </td> 
                                                 </tr>
 
                                                 <tr style="background-color:#ededed">
                                                     <td><strong>Lipid profile</strong></td>
-                                                    <td><strong>Date Taken <i class="fas fa-arrow-right"></i></strong></td>
+                                                    <td><strong hidden>Date Taken <i class="fas fa-arrow-right"></i></strong></td>
                                                     <td>
-                                                        <input type="date" class="form-control" name="sec_02_lipid_01" id="sec_02_lipid_01"  value="{{ old('sec_02_lipid_01') }}">
+                                                        <input type="hidden" class="form-control" name="sec_02_lipid_01" id="sec_02_lipid_01"  value="{{ old('sec_02_lipid_01') }}">
                                                     </td>
                                                     <td>
-                                                        <input type="date" class="form-control" name="sec_02_lipid_02" id="sec_02_lipid_02"  value="{{ old('sec_02_lipid_02') }}">
+                                                        <input type="hidden" class="form-control" name="sec_02_lipid_02" id="sec_02_lipid_02"  value="{{ old('sec_02_lipid_02') }}">
                                                     </td>
                                                     <td>
-                                                        <input type="date" class="form-control" name="sec_02_lipid_03" id="sec_02_lipid_03"  value="{{ old('sec_02_lipid_03') }}">
+                                                        <input type="hidden" class="form-control" name="sec_02_lipid_03" id="sec_02_lipid_03"  value="{{ old('sec_02_lipid_03') }}">
                                                     </td>
                                                 </tr>
                                                 <tr>
@@ -282,6 +320,38 @@
                                                         <input type="text"  class="form-control" name="sec_02_05_03" id="sec_02_05_03" placeholder="(mg/dL)" value="{{ old('sec_02_05_03') }}">
                                                     </td>                                                   
                                                 </tr>
+
+                                                {{-- new remarks --}}
+                                                <tr>
+                                                    <td colspan="2">
+                                                        Remarks
+                                                    </td>
+                                                    <td>
+                                                        <select type="text" class="form-control" name="sec_02_05_01_rem" id="sec_02_05_01_rem" placeholder="Remarks"  value="{{ old('sec_02_05_01_rem') }}">
+                                                            <option value="">Select remarks</option>
+                                                            <option {{ (old("sec_02_05_01_rem") == 'Desirable'  ? 'selected' : '') }} value="Desirable">Desirable</option>
+                                                            <option {{ (old("sec_02_05_01_rem") == 'Borderline High'  ? 'selected' : '') }} value="Borderline High">Borderline High</option>
+                                                            <option {{ (old("sec_02_05_01_rem") == 'High'  ? 'selected' : '') }} value="High">High</option>
+                                                        </select>
+                                                    </td> 
+                                                    <td>
+                                                        <select type="text" class="form-control" name="sec_02_05_02_rem" id="sec_02_05_02_rem" placeholder="Remarks"  value="{{ old('sec_02_05_02_rem') }}">
+                                                            <option value="">Select remarks</option>
+                                                            <option {{ (old("sec_02_05_02_rem") == 'Desirable'  ? 'selected' : '') }} value="Desirable">Desirable</option>
+                                                            <option {{ (old("sec_02_05_02_rem") == 'Borderline High'  ? 'selected' : '') }} value="Borderline High">Borderline High</option>
+                                                            <option {{ (old("sec_02_05_02_rem") == 'High'  ? 'selected' : '') }} value="High">High</option>
+                                                        </select>
+                                                    </td> 
+                                                    <td>
+                                                        <select type="text" class="form-control" name="sec_02_05_03_rem" id="sec_02_05_03_rem" placeholder="Remarks"  value="{{ old('sec_02_05_03_rem') }}">
+                                                            <option value="">Select remarks</option>
+                                                            <option {{ (old("sec_02_05_03_rem") == 'Desirable'  ? 'selected' : '') }} value="Desirable">Desirable</option>
+                                                            <option {{ (old("sec_02_05_03_rem") == 'Borderline High'  ? 'selected' : '') }} value="Borderline High">Borderline High</option>
+                                                            <option {{ (old("sec_02_05_03_rem") == 'High'  ? 'selected' : '') }} value="High">High</option>
+                                                        </select>
+                                                    </td> 
+                                                </tr>
+
                                                 <tr>
                                                     <td>
                                                         2.6 Low-density lipoprotein cholesterol (mg/dL)
@@ -301,6 +371,35 @@
                                                         <input type="text"class="form-control" name="sec_02_06_03" id="sec_02_06_03" placeholder="(mg/dL)" value="{{ old('sec_02_06_03') }}">
                                                     </td>                                                   
                                                 </tr>
+
+                                                {{-- new remarks --}}
+                                                <tr>
+                                                    <td colspan="2">
+                                                        Remarks
+                                                    </td>
+                                                    <td>
+                                                        <select type="text" class="form-control" name="sec_02_06_01_rem" id="sec_02_06_01_rem" placeholder="Remarks"  value="{{ old('sec_02_06_01_rem') }}">
+                                                            <option value="">Select remarks</option>
+                                                            <option {{ (old("sec_02_06_01_rem") == 'Normal'  ? 'selected' : '') }} value="Normal">Normal</option>
+                                                            <option {{ (old("sec_02_06_01_rem") == 'High'  ? 'selected' : '') }} value="High">High</option>
+                                                        </select>
+                                                    </td> 
+                                                    <td>
+                                                        <select type="text" class="form-control" name="sec_02_06_02_rem" id="sec_02_06_02_rem" placeholder="Remarks"  value="{{ old('sec_02_06_02_rem') }}">
+                                                            <option value="">Select remarks</option>
+                                                            <option {{ (old("sec_02_06_02_rem") == 'Normal'  ? 'selected' : '') }} value="Normal">Normal</option>
+                                                            <option {{ (old("sec_02_06_02_rem") == 'High'  ? 'selected' : '') }} value="High">High</option>
+                                                        </select>
+                                                    </td> 
+                                                    <td>
+                                                        <select type="text" class="form-control" name="sec_02_06_03_rem" id="sec_02_06_03_rem" placeholder="Remarks"  value="{{ old('sec_02_06_03_rem') }}">
+                                                            <option value="">Select remarks</option>
+                                                            <option {{ (old("sec_02_06_03_rem") == 'Normal'  ? 'selected' : '') }} value="Normal">Normal</option>
+                                                            <option {{ (old("sec_02_06_03_rem") == 'High'  ? 'selected' : '') }} value="High">High</option>
+                                                        </select>
+                                                    </td> 
+                                                </tr>
+
                                                 <tr>
                                                     <td>
                                                         2.7 Triglyceride (mg/dL)
@@ -327,28 +426,46 @@
                                                         Remarks
                                                     </td>
                                                     <td>
-                                                        <input type="text" class="form-control" name="sec_02_lipid_rem_01" id="sec_02_lipid_rem_01" placeholder="Remarks"  value="{{ old('sec_02_lipid_rem_01') }}">
+                                                        <select type="text" class="form-control" name="sec_02_lipid_rem_01" id="sec_02_lipid_rem_01" placeholder="Remarks"  value="{{ old('sec_02_lipid_rem_01') }}">
+                                                            <option value="">Select remarks</option>
+                                                            <option {{ (old("sec_02_lipid_rem_01") == 'Desirable'  ? 'selected' : '') }} value="Desirable">Desirable</option>
+                                                            <option {{ (old("sec_02_lipid_rem_01") == 'Borderline High'  ? 'selected' : '') }} value="Borderline High">Borderline High</option>
+                                                            <option {{ (old("sec_02_lipid_rem_01") == 'High'  ? 'selected' : '') }} value="High">High</option>
+                                                            <option {{ (old("sec_02_lipid_rem_01") == 'Very High'  ? 'selected' : '') }} value="Very High">Very High</option>
+                                                        </select>
                                                     </td> 
                                                     <td>
-                                                        <input type="text" class="form-control" name="sec_02_lipid_rem_02" id="sec_02_lipid_rem_02" placeholder="Remarks"  value="{{ old('sec_02_lipid_rem_02') }}">
+                                                        <select type="text" class="form-control" name="sec_02_lipid_rem_02" id="sec_02_lipid_rem_02" placeholder="Remarks"  value="{{ old('sec_02_lipid_rem_02') }}">
+                                                            <option value="">Select remarks</option>
+                                                            <option {{ (old("sec_02_lipid_rem_02") == 'Desirable'  ? 'selected' : '') }} value="Desirable">Desirable</option>
+                                                            <option {{ (old("sec_02_lipid_rem_02") == 'Borderline High'  ? 'selected' : '') }} value="Borderline High">Borderline High</option>
+                                                            <option {{ (old("sec_02_lipid_rem_02") == 'High'  ? 'selected' : '') }} value="High">High</option>
+                                                            <option {{ (old("sec_02_lipid_rem_02") == 'Very High'  ? 'selected' : '') }} value="Very High">Very High</option>
+                                                        </select>
                                                     </td> 
                                                     <td>
-                                                        <input type="text" class="form-control" name="sec_02_lipid_rem_03" id="sec_02_lipid_rem_03" placeholder="Remarks"  value="{{ old('sec_02_lipid_rem_03') }}">
+                                                        <select type="text" class="form-control" name="sec_02_lipid_rem_03" id="sec_02_lipid_rem_03" placeholder="Remarks"  value="{{ old('sec_02_lipid_rem_03') }}">
+                                                            <option value="">Select remarks</option>
+                                                            <option {{ (old("sec_02_lipid_rem_03") == 'Desirable'  ? 'selected' : '') }} value="Desirable">Desirable</option>
+                                                            <option {{ (old("sec_02_lipid_rem_03") == 'Borderline High'  ? 'selected' : '') }} value="Borderline High">Borderline High</option>
+                                                            <option {{ (old("sec_02_lipid_rem_03") == 'High'  ? 'selected' : '') }} value="High">High</option>
+                                                            <option {{ (old("sec_02_lipid_rem_03") == 'Very High'  ? 'selected' : '') }} value="Very High">Very High</option>
+                                                         </select>
                                                     </td> 
                                                 </tr>
 
 
                                                 <tr style="background-color:#ededed">
                                                     <td><strong>Liver function tests</strong></td>
-                                                    <td><strong>Date Taken <i class="fas fa-arrow-right"></i></strong></td>
+                                                    <td><strong hidden>Date Taken <i class="fas fa-arrow-right"></i></strong></td>
                                                     <td>
-                                                        <input type="date" class="form-control" name="sec_02_liver_01" id="sec_02_liver_01"  value="{{ old('sec_02_liver_01') }}">
+                                                        <input type="hidden" class="form-control" name="sec_02_liver_01" id="sec_02_liver_01"  value="{{ old('sec_02_liver_01') }}">
                                                     </td>
                                                     <td>
-                                                        <input type="date" class="form-control" name="sec_02_liver_02" id="sec_02_liver_02"  value="{{ old('sec_02_liver_02') }}">
+                                                        <input type="hidden" class="form-control" name="sec_02_liver_02" id="sec_02_liver_02"  value="{{ old('sec_02_liver_02') }}">
                                                     </td>
                                                     <td>
-                                                        <input type="date" class="form-control" name="sec_02_liver_03" id="sec_02_liver_03"  value="{{ old('sec_02_liver_03') }}">
+                                                        <input type="hidden" class="form-control" name="sec_02_liver_03" id="sec_02_liver_03"  value="{{ old('sec_02_liver_03') }}">
                                                     </td>
                                                 </tr>
 
@@ -371,6 +488,37 @@
                                                         <input type="text"  class="form-control" name="sec_02_08_03" id="sec_02_08_03" placeholder="(/L)" value="{{ old('sec_02_08_03') }}">
                                                     </td>                                                   
                                                 </tr>
+
+
+                                                {{-- new remarks --}}
+                                                <tr>
+                                                    <td colspan="2">
+                                                        Remarks
+                                                    </td>
+                                                    <td>
+                                                        <select type="text" class="form-control" name="sec_02_08_01_rem" id="sec_02_08_01_rem" placeholder="Remarks"  value="{{ old('sec_02_08_01_rem') }}">
+                                                            <option value="">Select remarks</option>
+                                                            <option {{ (old("sec_02_08_01_rem") == 'Normal'  ? 'selected' : '') }} value="Normal">Normal</option>
+                                                            <option {{ (old("sec_02_08_01_rem") == 'High'  ? 'selected' : '') }} value="High">High</option>
+                                                        </select>
+                                                    </td> 
+                                                    <td>
+                                                        <select type="text" class="form-control" name="sec_02_08_02_rem" id="sec_02_08_02_rem" placeholder="Remarks"  value="{{ old('sec_02_08_02_rem') }}">
+                                                            <option value="">Select remarks</option>
+                                                            <option {{ (old("sec_02_08_02_rem") == 'Normal'  ? 'selected' : '') }} value="Normal">Normal</option>
+                                                            <option {{ (old("sec_02_08_02_rem") == 'High'  ? 'selected' : '') }} value="High">High</option>
+                                                        </select>
+                                                    </td> 
+                                                    <td>
+                                                        <select type="text" class="form-control" name="sec_02_08_03_rem" id="sec_02_08_03_rem" placeholder="Remarks"  value="{{ old('sec_02_08_03_rem') }}">
+                                                            <option value="">Select remarks</option>
+                                                            <option {{ (old("sec_02_08_03_rem") == 'Normal'  ? 'selected' : '') }} value="Normal">Normal</option>
+                                                            <option {{ (old("sec_02_08_03_rem") == 'High'  ? 'selected' : '') }} value="High">High</option>
+                                                        </select>
+                                                    </td> 
+                                                </tr>
+
+
                                                 <tr>
                                                     <td>
                                                         2.9 Aspartate aminotransferase (AST or SGOT) (/L)
@@ -395,28 +543,40 @@
                                                         Remarks
                                                     </td>
                                                     <td>
-                                                        <input type="text" class="form-control" name="sec_02_liver_rem_01" id="sec_02_liver_rem_01" placeholder="Remarks"  value="{{ old('sec_02_liver_rem_01') }}">
+                                                        <select type="text" class="form-control" name="sec_02_liver_rem_01" id="sec_02_liver_rem_01" placeholder="Remarks"  value="{{ old('sec_02_liver_rem_01') }}">
+                                                            <option value="">Select remarks</option>
+                                                            <option {{ (old("sec_02_liver_rem_01") == 'Normal'  ? 'selected' : '') }} value="Normal">Normal</option>
+                                                            <option {{ (old("sec_02_liver_rem_01") == 'High'  ? 'selected' : '') }} value="High">High</option>
+                                                        </select>
                                                     </td> 
                                                     <td>
-                                                        <input type="text" class="form-control" name="sec_02_liver_rem_02" id="sec_02_liver_rem_02" placeholder="Remarks"  value="{{ old('sec_02_liver_rem_02') }}">
+                                                        <select type="text" class="form-control" name="sec_02_liver_rem_02" id="sec_02_liver_rem_02" placeholder="Remarks"  value="{{ old('sec_02_liver_rem_02') }}">
+                                                            <option value="">Select remarks</option>
+                                                            <option {{ (old("sec_02_liver_rem_02") == 'Normal'  ? 'selected' : '') }} value="Normal">Normal</option>
+                                                            <option {{ (old("sec_02_liver_rem_02") == 'High'  ? 'selected' : '') }} value="High">High</option>
+                                                        </select>
                                                     </td> 
                                                     <td>
-                                                        <input type="text" class="form-control" name="sec_02_liver_rem_03" id="sec_02_liver_rem_03" placeholder="Remarks"  value="{{ old('sec_02_liver_rem_03') }}">
+                                                        <select type="text" class="form-control" name="sec_02_liver_rem_03" id="sec_02_liver_rem_03" placeholder="Remarks"  value="{{ old('sec_02_liver_rem_03') }}">
+                                                            <option value="">Select remarks</option>
+                                                            <option {{ (old("sec_02_liver_rem_03") == 'Normal'  ? 'selected' : '') }} value="Normal">Normal</option>
+                                                            <option {{ (old("sec_02_liver_rem_03") == 'High'  ? 'selected' : '') }} value="High">High</option>
+                                                        </select>
                                                     </td> 
                                                 </tr>
 
                                                 
                                                 <tr style="background-color:#ededed">
                                                     <td><strong>Clinical tests for infection</strong></td>
-                                                    <td><strong>Date Taken <i class="fas fa-arrow-right"></i></strong></td>
+                                                    <td><strong hidden>Date Taken <i class="fas fa-arrow-right"></i></strong></td>
                                                     <td>
-                                                        <input type="date" class="form-control" name="sec_02_cli_01" id="sec_02_cli_01"  value="{{ old('sec_02_cli_01') }}">
+                                                        <input type="hidden" class="form-control" name="sec_02_cli_01" id="sec_02_cli_01"  value="{{ old('sec_02_cli_01') }}">
                                                     </td>
                                                     <td>
-                                                        <input type="date" class="form-control" name="sec_02_cli_02" id="sec_02_cli_02"  value="{{ old('sec_02_cli_02') }}">
+                                                        <input type="hidden" class="form-control" name="sec_02_cli_02" id="sec_02_cli_02"  value="{{ old('sec_02_cli_02') }}">
                                                     </td>
                                                     <td>
-                                                        <input type="date" class="form-control" name="sec_02_cli_03" id="sec_02_cli_03"  value="{{ old('sec_02_cli_03') }}">
+                                                        <input type="hidden" class="form-control" name="sec_02_cli_03" id="sec_02_cli_03"  value="{{ old('sec_02_cli_03') }}">
                                                     </td>
                                                 </tr>
 
@@ -440,6 +600,37 @@
                                                     </td>                                                   
                                                 </tr>
 
+                                                {{-- new remarks --}}
+                                                <tr>
+                                                    <td colspan="2">
+                                                        Remarks
+                                                    </td>
+                                                    <td>
+                                                        <select type="text" class="form-control" name="sec_02_10_01_rem" id="sec_02_10_01_rem" placeholder="Remarks"  value="{{ old('sec_02_10_01_rem') }}">
+                                                            <option value="">Select remarks</option>
+                                                            <option {{ (old("sec_02_10_01_rem") == 'Low'  ? 'selected' : '') }} value="Low">Low</option>
+                                                            <option {{ (old("sec_02_10_01_rem") == 'Normal'  ? 'selected' : '') }} value="Normal">Normal</option>
+                                                            <option {{ (old("sec_02_10_01_rem") == 'High'  ? 'selected' : '') }} value="High">High</option>
+                                                        </select>
+                                                    </td> 
+                                                    <td>
+                                                        <select type="text" class="form-control" name="sec_02_10_02_rem" id="sec_02_10_02_rem" placeholder="Remarks"  value="{{ old('sec_02_10_02_rem') }}">
+                                                            <option value="">Select remarks</option>
+                                                            <option {{ (old("sec_02_10_02_rem") == 'Low'  ? 'selected' : '') }} value="Low">Low</option>
+                                                            <option {{ (old("sec_02_10_02_rem") == 'Normal'  ? 'selected' : '') }} value="Normal">Normal</option>
+                                                            <option {{ (old("sec_02_10_02_rem") == 'High'  ? 'selected' : '') }} value="High">High</option>
+                                                        </select>
+                                                    </td> 
+                                                    <td>
+                                                        <select type="text" class="form-control" name="sec_02_10_03_rem" id="sec_02_10_03_rem" placeholder="Remarks"  value="{{ old('sec_02_10_03_rem') }}">
+                                                            <option value="">Select remarks</option>
+                                                            <option {{ (old("sec_02_10_03_rem") == 'Low'  ? 'selected' : '') }} value="Low">Low</option>
+                                                            <option {{ (old("sec_02_10_03_rem") == 'Normal'  ? 'selected' : '') }} value="Normal">Normal</option>
+                                                            <option {{ (old("sec_02_10_03_rem") == 'High'  ? 'selected' : '') }} value="High">High</option>
+                                                        </select>
+                                                    </td> 
+                                                </tr>
+
                                                 <tr>
                                                     <td>
                                                         2.11 Neutrophils (/µL)
@@ -460,6 +651,38 @@
                                                     </td>                                                   
                                                 </tr>
 
+
+                                                {{-- new remarks --}}
+                                                <tr>
+                                                    <td colspan="2">
+                                                        Remarks
+                                                    </td>
+                                                    <td>
+                                                        <select type="text" class="form-control" name="sec_02_11_01_rem" id="sec_02_11_01_rem" placeholder="Remarks"  value="{{ old('sec_02_11_01_rem') }}">
+                                                            <option value="">Select remarks</option>
+                                                            <option {{ (old("sec_02_11_01_rem") == 'Low'  ? 'selected' : '') }} value="Low">Low</option>
+                                                            <option {{ (old("sec_02_11_01_rem") == 'Normal'  ? 'selected' : '') }} value="Normal">Normal</option>
+                                                            <option {{ (old("sec_02_11_01_rem") == 'High'  ? 'selected' : '') }} value="High">High</option>
+                                                        </select>
+                                                    </td> 
+                                                    <td>
+                                                        <select type="text" class="form-control" name="sec_02_11_02_rem" id="sec_02_11_02_rem" placeholder="Remarks"  value="{{ old('sec_02_11_02_rem') }}">
+                                                            <option value="">Select remarks</option>
+                                                            <option {{ (old("sec_02_11_02_rem") == 'Low'  ? 'selected' : '') }} value="Low">Low</option>
+                                                            <option {{ (old("sec_02_11_02_rem") == 'Normal'  ? 'selected' : '') }} value="Normal">Normal</option>
+                                                            <option {{ (old("sec_02_11_02_rem") == 'High'  ? 'selected' : '') }} value="High">High</option>
+                                                        </select>
+                                                    </td> 
+                                                    <td>
+                                                        <select type="text" class="form-control" name="sec_02_11_03_rem" id="sec_02_11_03_rem" placeholder="Remarks"  value="{{ old('sec_02_11_03_rem') }}">
+                                                            <option value="">Select remarks</option>
+                                                            <option {{ (old("sec_02_11_03_rem") == 'Low'  ? 'selected' : '') }} value="Low">Low</option>
+                                                            <option {{ (old("sec_02_11_03_rem") == 'Normal'  ? 'selected' : '') }} value="Normal">Normal</option>
+                                                            <option {{ (old("sec_02_11_03_rem") == 'High'  ? 'selected' : '') }} value="High">High</option>
+                                                        </select>
+                                                    </td> 
+                                                </tr>
+
                                                 <tr>
                                                     <td>
                                                         2.12 Lymphocytes (/L)
@@ -478,6 +701,37 @@
                                                     <td>
                                                         <input type="text"  class="form-control" name="sec_02_12_03" id="sec_02_12_03" placeholder="(/L)" value="{{ old('sec_02_12_03') }}">
                                                     </td>                                                   
+                                                </tr>
+
+                                                {{-- new remarks --}}
+                                                <tr>
+                                                    <td colspan="2">
+                                                        Remarks
+                                                    </td>
+                                                    <td>
+                                                        <select type="text" class="form-control" name="sec_02_12_01_rem" id="sec_02_12_01_rem" placeholder="Remarks"  value="{{ old('sec_02_12_01_rem') }}">
+                                                            <option value="">Select remarks</option>
+                                                            <option {{ (old("sec_02_12_01_rem") == 'Low'  ? 'selected' : '') }} value="Low">Low</option>
+                                                            <option {{ (old("sec_02_12_01_rem") == 'Normal'  ? 'selected' : '') }} value="Normal">Normal</option>
+                                                            <option {{ (old("sec_02_12_01_rem") == 'High'  ? 'selected' : '') }} value="High">High</option>
+                                                        </select>
+                                                    </td> 
+                                                    <td>
+                                                        <select type="text" class="form-control" name="sec_02_12_02_rem" id="sec_02_12_02_rem" placeholder="Remarks"  value="{{ old('sec_02_12_02_rem') }}">
+                                                            <option value="">Select remarks</option>
+                                                            <option {{ (old("sec_02_12_02_rem") == 'Low'  ? 'selected' : '') }} value="Low">Low</option>
+                                                            <option {{ (old("sec_02_12_02_rem") == 'Normal'  ? 'selected' : '') }} value="Normal">Normal</option>
+                                                            <option {{ (old("sec_02_12_02_rem") == 'High'  ? 'selected' : '') }} value="High">High</option>
+                                                        </select>
+                                                    </td> 
+                                                    <td>
+                                                        <select type="text" class="form-control" name="sec_02_12_03_rem" id="sec_02_12_03_rem" placeholder="Remarks"  value="{{ old('sec_02_12_03_rem') }}">
+                                                            <option value="">Select remarks</option>
+                                                            <option {{ (old("sec_02_12_03_rem") == 'Low'  ? 'selected' : '') }} value="Low">Low</option>
+                                                            <option {{ (old("sec_02_12_03_rem") == 'Normal'  ? 'selected' : '') }} value="Normal">Normal</option>
+                                                            <option {{ (old("sec_02_12_03_rem") == 'High'  ? 'selected' : '') }} value="High">High</option>
+                                                        </select>
+                                                    </td> 
                                                 </tr>
 
                                                 <tr>
@@ -501,7 +755,35 @@
                                                     </td>                                                   
                                                 </tr>
 
+                                                {{-- new remarks --}}
                                                 <tr>
+                                                    <td colspan="2">
+                                                        Remarks
+                                                    </td>
+                                                    <td>
+                                                        <select type="text" class="form-control" name="sec_02_13_01_rem" id="sec_02_13_01_rem" placeholder="Remarks"  value="{{ old('sec_02_13_01_rem') }}">
+                                                            <option value="">Select remarks</option>
+                                                            <option {{ (old("sec_02_13_01_rem") == 'Normal'  ? 'selected' : '') }} value="Normal">Normal</option>
+                                                            <option {{ (old("sec_02_13_01_rem") == 'High'  ? 'selected' : '') }} value="High">High</option>
+                                                        </select>
+                                                    </td> 
+                                                    <td>
+                                                        <select type="text" class="form-control" name="sec_02_13_02_rem" id="sec_02_13_02_rem" placeholder="Remarks"  value="{{ old('sec_02_13_02_rem') }}">
+                                                            <option value="">Select remarks</option>
+                                                            <option {{ (old("sec_02_13_02_rem") == 'Normal'  ? 'selected' : '') }} value="Normal">Normal</option>
+                                                            <option {{ (old("sec_02_13_02_rem") == 'High'  ? 'selected' : '') }} value="High">High</option>
+                                                        </select>
+                                                    </td> 
+                                                    <td>
+                                                        <select type="text" class="form-control" name="sec_02_13_03_rem" id="sec_02_13_03_rem" placeholder="Remarks"  value="{{ old('sec_02_13_03_rem') }}">
+                                                            <option value="">Select remarks</option>
+                                                            <option {{ (old("sec_02_13_03_rem") == 'Normal'  ? 'selected' : '') }} value="Normal">Normal</option>
+                                                            <option {{ (old("sec_02_13_03_rem") == 'High'  ? 'selected' : '') }} value="High">High</option>
+                                                        </select>
+                                                    </td> 
+                                                </tr>
+
+                                                <tr hidden>
                                                     <td colspan="2">
                                                         2.14 ALT/SGPT
                                                     </td>
@@ -516,7 +798,7 @@
                                                     </td>                                                   
                                                 </tr>
 
-                                                <tr>
+                                                <tr hidden>
                                                     <td colspan="2">
                                                         2.15 AST/SGOT
                                                     </td>
@@ -531,7 +813,7 @@
                                                     </td>                                                   
                                                 </tr>
 
-                                                <tr>
+                                                <tr hidden>
                                                     <td colspan="2">
                                                         2.16 Viral Load
                                                     </td>
@@ -551,13 +833,13 @@
                                                         2.17 CD4 + Count
                                                     </td>
                                                     <td>
-                                                        <input type="text" class="form-control" name="sec_02_17_01" id="sec_02_17_01" placeholder="" value="{{ old('sec_02_17_01') }}">
+                                                        <input type="text" class="form-control" name="sec_02_17_01" id="sec_02_17_01" placeholder="value" value="{{ old('sec_02_17_01') }}">
                                                     </td> 
                                                     <td>
-                                                        <input type="text"  class="form-control" name="sec_02_17_02" id="sec_02_17_02" placeholder="" value="{{ old('sec_02_17_02') }}">
+                                                        <input type="text"  class="form-control" name="sec_02_17_02" id="sec_02_17_02" placeholder="value" value="{{ old('sec_02_17_02') }}">
                                                     </td>  
                                                     <td>
-                                                        <input type="text"  class="form-control" name="sec_02_17_03" id="sec_02_17_03" placeholder="" value="{{ old('sec_02_17_03') }}">
+                                                        <input type="text"  class="form-control" name="sec_02_17_03" id="sec_02_17_03" placeholder="value" value="{{ old('sec_02_17_03') }}">
                                                     </td>                                                   
                                                 </tr>
 
@@ -578,15 +860,15 @@
 
                                                 <tr style="background-color:#ededed">
                                                     <td><strong>Signs and symptoms</strong></td>
-                                                    <td><strong>Date Taken <i class="fas fa-arrow-right"></i></strong></td>
+                                                    <td><strong hidden>Date Taken <i class="fas fa-arrow-right"></i></strong></td>
                                                     <td>
-                                                        <input type="date" class="form-control" name="sec_02_sign_01" id="sec_02_sign_01"  value="{{ old('sec_02_sign_01') }}">
+                                                        <input type="hidden" class="form-control" name="sec_02_sign_01" id="sec_02_sign_01"  value="{{ old('sec_02_sign_01') }}">
                                                     </td>
                                                     <td>
-                                                        <input type="date" class="form-control" name="sec_02_sign_02" id="sec_02_sign_02"  value="{{ old('sec_02_sign_02') }}">
+                                                        <input type="hidden" class="form-control" name="sec_02_sign_02" id="sec_02_sign_02"  value="{{ old('sec_02_sign_02') }}">
                                                     </td>
                                                     <td>
-                                                        <input type="date" class="form-control" name="sec_02_sign_03" id="sec_02_sign_03"  value="{{ old('sec_02_sign_03') }}">
+                                                        <input type="hidden" class="form-control" name="sec_02_sign_03" id="sec_02_sign_03"  value="{{ old('sec_02_sign_03') }}">
                                                     </td>
                                                 </tr>
 
@@ -770,13 +1052,25 @@
                                                         </small> 
                                                     </td>
                                                     <td>
-                                                        <input type="text" class="form-control" name="sec_add_rt_res_01" id="sec_add_rt_res_01" placeholder="" value="{{ old('sec_add_rt_res_01') }}">
+                                                        <select type="text" class="form-control" name="sec_add_rt_res_01" id="sec_add_rt_res_01" placeholder="" value="{{ old('sec_add_rt_res_01') }}">
+                                                            <option value="">Select Result</option>
+                                                            <option {{ (old("sec_add_rt_res_01") == 'Positive'  ? 'selected' : '') }} value="Positive">Positive</option>
+                                                            <option {{ (old("sec_add_rt_res_01") == 'Negative'  ? 'selected' : '') }} value="Negative">Negative</option>
+                                                        </select>
                                                     </td> 
                                                     <td>
-                                                        <input type="text"  class="form-control" name="sec_add_rt_res_02" id="sec_add_rt_res_02" placeholder="" value="{{ old('sec_add_rt_res_02') }}">
+                                                        <select type="text"  class="form-control" name="sec_add_rt_res_02" id="sec_add_rt_res_02" placeholder="" value="{{ old('sec_add_rt_res_02') }}">
+                                                            <option value="">Select Result</option>
+                                                            <option {{ (old("sec_add_rt_res_02") == 'Positive'  ? 'selected' : '') }} value="Positive">Positive</option>
+                                                            <option {{ (old("sec_add_rt_res_02") == 'Negative'  ? 'selected' : '') }} value="Negative">Negative</option>
+                                                        </select>
                                                     </td>  
                                                     <td>
-                                                        <input type="text"  class="form-control" name="sec_add_rt_res_03" id="sec_add_rt_res_03" placeholder="" value="{{ old('sec_add_rt_res_03') }}">
+                                                        <select type="text"  class="form-control" name="sec_add_rt_res_03" id="sec_add_rt_res_03" placeholder="" value="{{ old('sec_add_rt_res_03') }}">
+                                                            <option value="">Select Result</option>
+                                                            <option {{ (old("sec_add_rt_res_03") == 'Positive'  ? 'selected' : '') }} value="Positive">Positive</option>
+                                                            <option {{ (old("sec_add_rt_res_03") == 'Negative'  ? 'selected' : '') }} value="Negative">Negative</option>
+                                                        </select>
                                                     </td>                                                   
                                                 </tr>
 
@@ -799,13 +1093,25 @@
                                                         IGM Value
                                                     </td>
                                                     <td>
-                                                        <input type="text" class="form-control" name="sec_add_igm_res_01" id="sec_add_igm_res_01" placeholder="" value="{{ old('sec_add_igm_res_01') }}">
+                                                        <select type="text" class="form-control" name="sec_add_igm_res_01" id="sec_add_igm_res_01" placeholder="" value="{{ old('sec_add_igm_res_01') }}">
+                                                            <option value="">Select Result</option>
+                                                            <option {{ (old("sec_add_igm_res_01") == 'Positive'  ? 'selected' : '') }} value="Positive">Positive</option>
+                                                            <option {{ (old("sec_add_igm_res_01") == 'Negative'  ? 'selected' : '') }} value="Negative">Negative</option>
+                                                        </select>
                                                     </td> 
                                                     <td>
-                                                        <input type="text"  class="form-control" name="sec_add_igm_res_02" id="sec_add_igm_res_02" placeholder="" value="{{ old('sec_add_igm_res_02') }}">
+                                                        <select type="text"  class="form-control" name="sec_add_igm_res_02" id="sec_add_igm_res_02" placeholder="" value="{{ old('sec_add_igm_res_02') }}">
+                                                            <option value="">Select Result</option>
+                                                            <option {{ (old("sec_add_igm_res_02") == 'Positive'  ? 'selected' : '') }} value="Positive">Positive</option>
+                                                            <option {{ (old("sec_add_igm_res_02") == 'Negative'  ? 'selected' : '') }} value="Negative">Negative</option>
+                                                        </select>
                                                     </td>  
                                                     <td>
-                                                        <input type="text"  class="form-control" name="sec_add_igm_res_03" id="sec_add_igm_res_03" placeholder="" value="{{ old('sec_add_igm_res_03') }}">
+                                                        <select type="text"  class="form-control" name="sec_add_igm_res_03" id="sec_add_igm_res_03" placeholder="" value="{{ old('sec_add_igm_res_03') }}">
+                                                            <option value="">Select Result</option>
+                                                            <option {{ (old("sec_add_igm_res_03") == 'Positive'  ? 'selected' : '') }} value="Positive">Positive</option>
+                                                            <option {{ (old("sec_add_igm_res_03") == 'Negative'  ? 'selected' : '') }} value="Negative">Negative</option>
+                                                        </select>
                                                     </td>                                                   
                                                 </tr>
 
