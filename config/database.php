@@ -55,7 +55,7 @@ return [
             'strict' => true,
             'engine' => null,
             'dump' => [
-                'dump_binary_path' => 'c:\wamp64\bin\mysql\mysql5.7.24\bin', 
+                'dump_binary_path' => 'c:\wamp\bin\mysql\mysql5.7.24\bin', 
                 'use_single_transaction',
                 'timeout' => 60 * 5,
             ]  
@@ -63,8 +63,8 @@ return [
 
         'mysqlsec' => [
             'driver' => 'mysql',
-            'host' => env('DB_HOST_SEC', '202.90.141.86'),
-            'port' => env('DB_PORT_SEC', '3674'),
+            'host' => env('DB_HOST_SEC', '127.0.0.1'),
+            'port' => env('DB_PORT_SEC', '3306'),
             'database' => env('DB_DATABASE_SEC', 'forge'),
             'username' => env('DB_USERNAME_SEC', 'forge'),
             'password' => env('DB_PASSWORD_SEC', ''),
@@ -79,8 +79,8 @@ return [
 
         'mysqltrd' => [
             'driver' => 'mysql',
-            'host' => env('DB_HOST_TRD', '202.90.141.86'),
-            'port' => env('DB_PORT_TRD', '3674'),
+            'host' => env('DB_HOST_TRD', '127.0.0.1'),
+            'port' => env('DB_PORT_TRD', '3306'),
             'database' => env('DB_DATABASE_TRD', 'forge'),
             'username' => env('DB_USERNAME_TRD', 'forge'),
             'password' => env('DB_PASSWORD_TRD', ''),
