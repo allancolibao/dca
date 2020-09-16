@@ -1,6 +1,6 @@
 <li class="nav-item dropdown no-arrow mx-1">
-    <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    <i class="fas fa-code-branch fa-fw" style="padding-right:1vmin;"></i>ND-2.0.0
+    <a class="nav-link dropdown-toggle text-dark" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <i class="fas fa-code-branch fa-fw" style="padding-right:1vmin;"></i> ND-2.0.1
     <!-- Version Changlog -->
     </a>
     <!-- Dropdown - Version -->
@@ -74,6 +74,13 @@
             <div>
             <div class="small text-gray-500">ND-2.0.0 | Sept 12, 2020</div>
                 - Case report form remarks update
+            </div>
+        </a>
+
+        <a class="dropdown-item d-flex align-items-center" href="#">
+            <div>
+            <div class="small text-gray-500">ND-2.0.1 | Sept 16, 2020</div>
+                - Added particpant status classification on edt section
             </div>
         </a>
     </div>

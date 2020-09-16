@@ -168,6 +168,32 @@
                             </div>
                         </div>
 
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Status</label>
+                                    <select class="form-control" name="participant_status" id="participant_status" value="{{$participant->participant_status}}">
+                                        <option value=''>Please select</option>
+                                        <option value='Included' {{$participant->participant_status == 'Included'  ? 'selected' : ''}} >Included</option>
+                                        <option value='Excluded' {{$participant->participant_status == 'Excluded'  ? 'selected' : ''}} >Excluded</option>
+                                        <option value='Drop out' {{$participant->participant_status == 'Drop out'  ? 'selected' : ''}} >Drop out</option>
+                                        <option value='NA' {{$participant->participant_status == 'NA'  ? 'selected' : ''}} >NA</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Group</label>
+                                    <select class="form-control" name="participant_group" id="participant_group" value="{{$participant->participant_group}}">
+                                        <option value=''>Please select</option>
+                                        <option value='Intervention' {{$participant->participant_group == 'Intervention'  ? 'selected' : ''}} >Intervention</option>
+                                        <option value='Control' {{$participant->participant_group == 'Control'  ? 'selected' : ''}} >Control</option>
+                                        <option value='NA' {{$participant->participant_group == 'NA'  ? 'selected' : ''}} >NA</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
                         <button type="submit" class="d-sm-inline-block btn  btn-primary shadow-sm">
                             Update
                         </button>

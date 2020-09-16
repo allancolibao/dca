@@ -233,7 +233,7 @@ class GetDataController extends Controller
             $monitoringHeader = MonitoringHeader::upsert($dataMonitoringHeader, $dataMonitoringHeader);
 
             // Participant
-            $getParticipant = Participant::on('mysqlsec')->exclude('id')->where('participant_id', $id)->get()->toArray();
+            $getParticipant = Participant::on('mysqlsec')->exclude(['id', 'participant_status', 'participant_group'])->where('participant_id', $id)->get()->toArray();
             $dataParticipant = json_decode( json_encode($getParticipant), true);
             $participant = Participant::upsert($dataParticipant, $dataParticipant);
 

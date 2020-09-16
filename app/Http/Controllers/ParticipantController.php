@@ -148,6 +148,8 @@ class ParticipantController extends Controller
             'occupation' => $request['occupation'],
             'home_address' => $request['home_address'],
             'contact' => $request['contact'],
+            'participant_status' => $request['participant_status'],
+            'participant_group' => $request['participant_group'],
             'updated_by' => Auth::user()->name
         ];
 
