@@ -235,12 +235,13 @@
                                                 </tr>
                                                 <tr>
                                                     <td>
-                                                        2.4 Fasting blood glucose  (mg/dL)
+                                                        2.4 Fasting blood glucose  (ADA Recommendations 2015)
                                                     </td>
                                                     <td>
                                                         <small>
-                                                            - Prediabetes 100.1 -125.06<br>
-                                                            - Diabetics ≥126.14
+                                                            - Normal: 70.10 - 98.93 mg/dL<br>
+                                                            - Pre-diabetics: 100.1 -125.06 mg/dL<br>
+                                                            - Diabetics: >/= 126.14 mg/dL
                                                         </small> 
                                                     </td>
                                                     <td>
@@ -301,13 +302,13 @@
                                                 </tr>
                                                 <tr>
                                                     <td>
-                                                        2.5 Total cholesterol (mg/dL)
+                                                        2.5 Total cholesterol (NCEP Recommendations)
                                                     </td>
                                                     <td>
                                                         <small>
-                                                            - Desirable < 200<br>
-                                                            - Borderline High 200.00 - 239.38<br>
-                                                            - High  ≥239.38
+                                                            - Desirable: < 200 mg/dL<br>
+                                                            - Borderline High: 200.00 - 239.38  mg/dL<br>
+                                                            - High  >/= 239.38  mg/dL
                                                         </small> 
                                                     </td>
                                                     <td>
@@ -358,7 +359,8 @@
                                                     </td>
                                                     <td>
                                                         <small>
-                                                            - Normal 63.32 - 167.57
+                                                            - Male: Normal 49.03 - 172.59 mg/dL<br>
+                                                            - Female: Normal 63.32 - 167.57 mg/dL
                                                         </small> 
                                                     </td>
                                                     <td>
@@ -402,13 +404,13 @@
 
                                                 <tr>
                                                     <td>
-                                                        2.7 Triglyceride (mg/dL)
+                                                        2.7 Triglyceride (NCEP Recommendations)
                                                     </td>
                                                     <td>
                                                         <small>
-                                                            Borderline High 149.57 - 199.12<br>
-                                                            High 200.1 - 499.14<br>
-                                                            Very High ≥500.02
+                                                            - Borderline High: 149.57 - 199.12 mg/dL<br>
+                                                            - High: 200.01 - 499.14 mg/dL<br>
+                                                            - Very: High >/= 500.02 mg/dL
                                                         </small> 
                                                     </td>
                                                     <td>
@@ -475,7 +477,8 @@
                                                     </td>
                                                     <td>
                                                         <small>
-                                                            Normal 10.00 - 35.00
+                                                            -Male: Normal 10.00 - 50.00 U/L<br>
+                                                            -Female: Normal 10.00 - 35.00 U/L<br>
                                                         </small> 
                                                     </td>
                                                     <td>
@@ -525,8 +528,9 @@
                                                     </td>
                                                     <td>
                                                         <small>
-                                                            Normal 10.00 - 35.00
-                                                        </small> 
+                                                            -Male: Normal 10.00 - 50.00 U/L<br>
+                                                            -Female: Normal 10.00 - 35.00 U/L<br>
+                                                        </small>
                                                     </td>
                                                     <td>
                                                         <input type="text" class="form-control" name="sec_02_09_01" id="sec_02_09_01" placeholder="(/L)" value="{{ old('sec_02_09_01') }}">
@@ -586,7 +590,8 @@
                                                     </td>
                                                     <td>
                                                         <small>
-                                                            Normal 3.98 - 10.04
+                                                            - Male: Normal 4.23 - 9.07<br>
+                                                            - Female: Normal 3.98 - 10.04
                                                         </small> 
                                                     </td>
                                                     <td>
@@ -637,7 +642,8 @@
                                                     </td>
                                                     <td>
                                                         <small>
-                                                            Normal 34.00 - 71.00
+                                                            - Male: Normal 34.00 - 68.00%
+                                                            - Female: Normal 34.00 - 71.00%
                                                         </small> 
                                                     </td>
                                                     <td>
@@ -689,7 +695,8 @@
                                                     </td>
                                                     <td>
                                                         <small>
-                                                            Normal 19.00 - 52.00
+                                                            - Male: Normal 22.00 - 53.00%
+                                                            - Female: Normal 19.00 - 52.00%
                                                         </small> 
                                                     </td>
                                                     <td>
@@ -736,12 +743,12 @@
 
                                                 <tr>
                                                     <td>
-                                                        2.13 C-reactive protein (mg/L)
+                                                        2.13 C-reactive protein (mg/dL)
                                                     </td>
                                                     <td>
                                                         <small>
-                                                            - Normal < 10 <br>
-                                                            - Sign of infection > 10
+                                                            - </=5.00 Negative<br>
+                                                            - >5.00 Positive
                                                         </small> 
                                                     </td>
                                                     <td>
@@ -1074,8 +1081,50 @@
                                                     </td>                                                   
                                                 </tr>
 
+
                                                 <tr style="background-color:#ededed">
-                                                    <td><strong>IGM</strong></td>
+                                                    <td><strong>IgG</strong></td>
+                                                    <td><strong>Date of Exam <i class="fas fa-arrow-right"></i></strong></td>
+                                                    <td>
+                                                        <input type="date" class="form-control" name="sec_add_igg_01" id="sec_add_igg_01"  value="{{ old('sec_add_igg_01') }}">
+                                                    </td>
+                                                    <td>
+                                                        <input type="date" class="form-control" name="sec_add_igg_02" id="sec_add_igg_02"  value="{{ old('sec_add_igg_02') }}">
+                                                    </td>
+                                                    <td>
+                                                        <input type="date" class="form-control" name="sec_add_igg_03" id="sec_add_igg_03"  value="{{ old('sec_add_igg_03') }}">
+                                                    </td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td colspan="2">
+                                                        IgG Value
+                                                    </td>
+                                                    <td>
+                                                        <select type="text" class="form-control" name="sec_add_igg_res_01" id="sec_add_igg_res_01" placeholder="" value="{{ old('sec_add_igg_res_01') }}">
+                                                            <option value="">Select Result</option>
+                                                            <option {{ (old("sec_add_igg_res_01") == 'Reactive'  ? 'selected' : '') }} value="Reactive">Reactive</option>
+                                                            <option {{ (old("sec_add_igg_res_01") == 'Non-Reactive'  ? 'selected' : '') }} value="Non-Reactive">Non-Reactive</option>
+                                                        </select>
+                                                    </td> 
+                                                    <td>
+                                                        <select type="text"  class="form-control" name="sec_add_igg_res_02" id="sec_add_igg_res_02" placeholder="" value="{{ old('sec_add_igg_res_02') }}">
+                                                            <option value="">Select Result</option>
+                                                            <option {{ (old("sec_add_igg_res_02") == 'Reactive'  ? 'selected' : '') }} value="Reactive">Reactive</option>
+                                                            <option {{ (old("sec_add_igg_res_02") == 'Non-Reactive'  ? 'selected' : '') }} value="Non-Reactive">Non-Reactive</option>
+                                                        </select>
+                                                    </td>  
+                                                    <td>
+                                                        <select type="text"  class="form-control" name="sec_add_igg_res_03" id="sec_add_igg_res_03" placeholder="" value="{{ old('sec_add_igg_res_03') }}">
+                                                            <option value="">Select Result</option>
+                                                            <option {{ (old("sec_add_igg_res_03") == 'Reactive'  ? 'selected' : '') }} value="Reactive">Reactive</option>
+                                                            <option {{ (old("sec_add_igg_res_03") == 'Non-Reactive'  ? 'selected' : '') }} value="Non-Reactive">Non-Reactive</option>
+                                                        </select>
+                                                    </td>                                                   
+                                                </tr>
+
+                                                <tr style="background-color:#ededed">
+                                                    <td><strong>IgM</strong></td>
                                                     <td><strong>Date of Exam <i class="fas fa-arrow-right"></i></strong></td>
                                                     <td>
                                                         <input type="date" class="form-control" name="sec_add_igm_01" id="sec_add_igm_01"  value="{{ old('sec_add_igm_01') }}">
@@ -1090,27 +1139,27 @@
 
                                                 <tr>
                                                     <td colspan="2">
-                                                        IGM Value
+                                                        IgM Value
                                                     </td>
                                                     <td>
                                                         <select type="text" class="form-control" name="sec_add_igm_res_01" id="sec_add_igm_res_01" placeholder="" value="{{ old('sec_add_igm_res_01') }}">
                                                             <option value="">Select Result</option>
-                                                            <option {{ (old("sec_add_igm_res_01") == 'Positive'  ? 'selected' : '') }} value="Positive">Positive</option>
-                                                            <option {{ (old("sec_add_igm_res_01") == 'Negative'  ? 'selected' : '') }} value="Negative">Negative</option>
+                                                            <option {{ (old("sec_add_igm_res_01") == 'Reactive'  ? 'selected' : '') }} value="Reactive">Reactive</option>
+                                                            <option {{ (old("sec_add_igm_res_01") == 'Non-Reactive'  ? 'selected' : '') }} value="Non-Reactive">Non-Reactive</option>
                                                         </select>
                                                     </td> 
                                                     <td>
                                                         <select type="text"  class="form-control" name="sec_add_igm_res_02" id="sec_add_igm_res_02" placeholder="" value="{{ old('sec_add_igm_res_02') }}">
                                                             <option value="">Select Result</option>
-                                                            <option {{ (old("sec_add_igm_res_02") == 'Positive'  ? 'selected' : '') }} value="Positive">Positive</option>
-                                                            <option {{ (old("sec_add_igm_res_02") == 'Negative'  ? 'selected' : '') }} value="Negative">Negative</option>
+                                                            <option {{ (old("sec_add_igm_res_02") == 'Reactive'  ? 'selected' : '') }} value="Reactive">Reactive</option>
+                                                            <option {{ (old("sec_add_igm_res_02") == 'Non-Reactive'  ? 'selected' : '') }} value="Non-Reactive">Non-Reactive</option>
                                                         </select>
                                                     </td>  
                                                     <td>
                                                         <select type="text"  class="form-control" name="sec_add_igm_res_03" id="sec_add_igm_res_03" placeholder="" value="{{ old('sec_add_igm_res_03') }}">
                                                             <option value="">Select Result</option>
-                                                            <option {{ (old("sec_add_igm_res_03") == 'Positive'  ? 'selected' : '') }} value="Positive">Positive</option>
-                                                            <option {{ (old("sec_add_igm_res_03") == 'Negative'  ? 'selected' : '') }} value="Negative">Negative</option>
+                                                            <option {{ (old("sec_add_igm_res_03") == 'Reactive'  ? 'selected' : '') }} value="Reactive">Reactive</option>
+                                                            <option {{ (old("sec_add_igm_res_03") == 'Non-Reactive'  ? 'selected' : '') }} value="Non-Reactive">Non-Reactive</option>
                                                         </select>
                                                     </td>                                                   
                                                 </tr>
