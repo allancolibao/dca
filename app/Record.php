@@ -26,6 +26,7 @@ class Record extends Model
     protected $fillable = [
         'participant_id',
         'record_date',
+        'menu_title', 
         'line_no',
         'food_item',
         'fi_amount_size',
@@ -60,6 +61,7 @@ class Record extends Model
         'id',
         'participant_id',
         'record_date',
+        'menu_title',
         'line_no',
         'food_item',
         'fi_amount_size',
@@ -121,6 +123,7 @@ class Record extends Model
     {
         return $this->where('participant_id', $participantId)
                     ->where('record_date',  $recordDate)
+                    ->orderBy('line_no', 'ASC')
                     ->get();
     }
 
@@ -159,6 +162,55 @@ class Record extends Model
         return $this->where('participant_id', $id);
     }
 
+
+
+    /**
+     *  Delete record data per date
+     * 
+     * 
+     */
+    public function deleteParticipantRecordPerDay($id, $date)
+    {
+        return $this->where('participant_id', $id)->where('record_date', $date);
+    }
+
+
+    /**
+     *  Delete specific line number
+     * 
+     * 
+     */
+    public function deleteLineNumber($id)
+    {
+        return $this->where('id', $id)->delete();
+    }
+
+
+    /**
+     * Update the line number before delete
+     * 
+     * 
+     */
+    public function updateLineNumber($id, $data)
+    {
+        return $this->where('id', $id)
+                    ->update($data);
+    }
+
+
+    /**
+    * Get the max line number
+    *
+    *
+    */
+    public function getMaxLineNumber($patid, $date)
+    {   
+        return $this->where('participant_id', $patid)
+                    ->where('record_date', $date)
+                    ->onlyTrashed()
+                    ->max('line_no');
+    }
+
     /**
     * Restore the participant data
     *
@@ -168,6 +220,32 @@ class Record extends Model
     {   
         return $this->onlyTrashed()
                     ->where('participant_id', $id)
+                    ->restore();
+    }
+
+    /**
+    * Restore the line number of specific day
+    *
+    *
+    */
+    public function getDeletedLineNumber($id, $date)
+    {   
+        return $this->onlyTrashed()
+                    ->where('participant_id', $id)
+                    ->where('record_date', $date)
+                    ->get();
+    }
+
+
+    /**
+    * Restore the line number
+    *
+    *
+    */
+    public function restoreLineNumber($id)
+    {   
+        return $this->onlyTrashed()
+                    ->where('id', $id)
                     ->restore();
     }
 

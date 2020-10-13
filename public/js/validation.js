@@ -8,6 +8,10 @@ $("#save-record-btn").click( function(){
     }
 });
 
+$("#update-record-btn").click( function(){
+    $('#update-record-modal').modal('show');
+});
+
 $("#line_no").change(function() {
     let value = $(this).val();
 

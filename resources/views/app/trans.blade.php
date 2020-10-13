@@ -12,7 +12,7 @@
                     <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                         <h6 class="m-0 font-weight-bold text-primary">Please make sure you have internet connection, Thank you!</h6>
                         <a class="text-primary" href="{{ route('backup')}}" role="button" aria-haspopup="true" aria-expanded="false">
-                            <button class="btn btn-sm btn-warning shadow-sm">
+                            <button class="btn btn-sm btn-warning shadow-sm backup">
                             <i class="fas fa-download fa-fw"></i>Quick Backup
                             </button>
                         </a>
@@ -64,13 +64,23 @@
 
         {{-- Loading Spinner --}}
         <div id="loading" class="overlay" style="display:none">
-          <div class="overlay__inner">
+            <div class="overlay__inner">
               <div class="overlay__content">
                   <span class="spinner"></span><br>
                   <p class="text-light">Transmitting data...</p>
               </div>
-          </div>
-      </div>
+            </div>
+        </div>
+
+        {{-- Loading Spinner --}}
+        <div id="loading-backup" class="overlay" style="display:none">
+            <div class="overlay__inner">
+                <div class="overlay__content">
+                    <span class="spinner"></span><br>
+                    <p class="text-light">Creating backup...</p>
+                </div>
+            </div>
+        </div>
 @endsection
 
 

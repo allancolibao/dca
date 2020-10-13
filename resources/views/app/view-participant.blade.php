@@ -17,16 +17,20 @@
                     <div class="card-body">
                         <h4 class="text-dark">List of Forms</h4>
                         <div class="list-group form-list">
-                        <a href="{{route('view.screening', ['id'=> $id, 'fullname'=> $fullname, 'sex'=> $sex, 'age'=> $age ])}}" class="list-group-item d-flex justify-content-between align-items-center" style="{{$screening ? 'background:#d4ffe4;' : 'background:#ebebeb;' }}">
+                        <a href="{{route('view.screening', ['id'=> $id, 'fullname'=> $fullname, 'sex'=> $sex, 'age'=> $age ])}}" class="list-group-item d-flex justify-content-between align-items-center" 
+                                style="{{$screening ? 'background:#d4ffe4;' : 'background:#ebebeb;' }}">
                                 <h6 class="text-dark">Screening Form </h6>
                             </a>
-                            <a href="{{route('view.case.report', ['id'=> $id, 'fullname'=> $fullname, 'sex'=> $sex, 'age'=> $age ])}}" class="list-group-item d-flex justify-content-between align-items-center" style="{{$case ? 'background:#d4ffe4;' : 'background:#ebebeb;' }}">
+                            <a href="{{route('view.case.report', ['id'=> $id, 'fullname'=> $fullname, 'sex'=> $sex, 'age'=> $age ])}}" class="list-group-item d-flex justify-content-between align-items-center" 
+                                style="{{$case ? 'background:#d4ffe4;' : 'background:#ebebeb;' }}">
                                 <h6 class="text-dark">Case Report Form</h6>
                             </a>
-                            <a href="{{route('view.daily.monitoring', ['id'=> $id, 'fullname'=> $fullname, 'sex'=> $sex, 'age'=> $age ])}}" class="list-group-item d-flex justify-content-between align-items-center" style="{{$monitoring ? 'background:#d4ffe4;' : 'background:#ebebeb;' }}">
+                            <a href="{{route('view.daily.monitoring', ['id'=> $id, 'fullname'=> $fullname, 'sex'=> $sex, 'age'=> $age ])}}" class="list-group-item d-flex justify-content-between align-items-center" 
+                                style="{{ ($monitoring && sizeOf($monitoringData) > 0 )  ? 'background:#d4ffe4;' : (($monitoring || sizeOf($monitoringData) > 0) ? 'background:#ffddcc;' : 'background:#ebebeb;') }}">
                                 <h6 class="text-dark">Daily Monitoring</h6>
                             </a>
-                            <a href="{{route('view.record', ['id'=> $id, 'fullname'=> $fullname, 'sex'=> $sex, 'age'=> $age ])}}" class="list-group-item d-flex justify-content-between align-items-center" style="{{sizeOf($foodRecord) > 0 ? 'background:#d4ffe4;' : 'background:#ebebeb;' }}">
+                            <a href="{{route('view.record', ['id'=> $id, 'fullname'=> $fullname, 'sex'=> $sex, 'age'=> $age ])}}" class="list-group-item d-flex justify-content-between align-items-center" 
+                                style="{{ ( sizeOf($foodRecord) > 0 && sizeOf($record) > 0 ) ? 'background:#d4ffe4;' : (( sizeOf($foodRecord) > 0 || sizeOf($record) > 0 ) ? 'background:#ffddcc;' : 'background:#ebebeb;') }}">
                                 <h6 class="text-dark">Daily Food Record</h6>
                             </a>
                         </div>

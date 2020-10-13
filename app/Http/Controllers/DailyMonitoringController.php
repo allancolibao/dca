@@ -8,6 +8,7 @@ use App\Http\Requests\MonitoringHeaderRequest;
 use App\Monitoring;
 use App\MonitoringHeader;
 use Auth;
+use Exception;
 
 class DailyMonitoringController extends Controller
 {
@@ -106,9 +107,10 @@ class DailyMonitoringController extends Controller
     *
     * @return \Illuminate\Contracts\Support\Renderable
     */
-    public function update(Request $request, $id, $day)
+    public function update(Request $request, $id)
     {
         $data = [
+            'mon_day' => $request['mon_day'],
             'mon_date' => $request['mon_date'],
             'mon_temp' => $request['mon_temp'],
             'mon_chills' => $request['mon_chills'],
@@ -131,17 +133,28 @@ class DailyMonitoringController extends Controller
             'updated_by' => Auth::user()->name
         ];
 
-        $updated = $this->monitoring->updateMonitoring($id, $day, $data);
+        
+        try {
 
-        if($updated){
-            
+            $updated = $this->monitoring->updateMonitoring($id, $data);
+
+        } catch (Exception $error) {
+
             $notification = [
-                'message' => 'Data  successfully updated!',
-                'alert-type' => 'info'
-            ];
 
+                'message' => 'Oooops! Duplicate monitoring day',
+                'alert-type' => 'error'
+            ];
             return redirect()->back()->with($notification);
+
         }
+            
+        $notification = [
+            'message' => 'Data  successfully updated!',
+            'alert-type' => 'info'
+        ];
+
+        return redirect()->back()->with($notification);
     }
 
     /**

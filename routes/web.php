@@ -96,6 +96,22 @@ Route::post('update-record-data/{id}/{fullname}/{sex}/{age}/{date}' ,'FoodRecord
 Route::post('update-record-header/{id}/{fullname}/{sex}/{age}/{date}' ,'FoodRecordController@updateRecordHeader')->name('update.record.header');
 
 
+Route::get('/food-record-delete-data/{id}/{patid}/{date}/{day}/{lineno}', 'FoodRecordController@toDelete')->name('food.record.delete.data');
+Route::delete('/record-delete/{id}/{patid}/{date}', 'FoodRecordController@destroy')->name('record.delete');
+
+Route::get('/get-deleted-record/{id}/{fullname}/{sex}/{age}/{date}', 'FoodRecordController@getDeleted')->name('deleted.records');
+Route::get('/get-line-number/{id}', 'FoodRecordController@getrestoreDeletedLineNumber')->name('get.line.number');
+Route::post('/restore-line-number/{id}', 'FoodRecordController@restoreDeletedLineNumber')->name('restore.line.number');
+
+
+Route::get('/copy-record/{id}/{date}', 'FoodRecordController@copyRecords')->name('copy.records');
+Route::post('/copying-record/{id}/{date}', 'FoodRecordController@insertCopiedRecords')->name('insert.copied.record');
+
+
+Route::get('/delete-all-record/{patid}/{date}/{day}', 'FoodRecordController@deleteAll')->name('delete.all');
+Route::delete('/destroy-all-record/{patid}/{date}', 'FoodRecordController@destroyAll')->name('destroy.all.record');
+
+
 /**
  * Handle monitoring page
  * 
@@ -106,7 +122,7 @@ Route::get('/view-daily-monitoring/{id}/{fullname}/{sex}/{age}', 'DailyMonitorin
 Route::get('/edit-daily-monitoring/{id}/{fullname}/{sex}/{age}/{day}', 'DailyMonitoringController@edit')->name('edit.daily.monitoring');
 
 Route::post('/insert-monitoring-data/{id}', 'DailyMonitoringController@insert')->name('insert.monitoring.data');
-Route::post('/update-monitoring-data/{id}/{day}' ,'DailyMonitoringController@update')->name('update.monitoring.data');
+Route::post('/update-monitoring-data/{id}' ,'DailyMonitoringController@update')->name('update.monitoring.data');
 Route::post('/insert-monitoring-header/{id}', 'DailyMonitoringController@insertHeader')->name('insert.monitoring.header');
 Route::post('/update-monitoring-header/{id}', 'DailyMonitoringController@updateHeader')->name('update.monitoring.header');
 

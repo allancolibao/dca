@@ -148,6 +148,8 @@ class ParticipantController extends Controller
             'occupation' => $request['occupation'],
             'home_address' => $request['home_address'],
             'contact' => $request['contact'],
+            'participant_status' => $request['participant_status'],
+            'participant_group' => $request['participant_group'],
             'updated_by' => Auth::user()->name
         ];
 
@@ -263,9 +265,11 @@ class ParticipantController extends Controller
         $screening = $this->screening->getScreening($id);
         $case = $this->case->getCaseReport($id);
         $monitoring = $this->monitoringHeader->getMonitoringHeader($id);
+        $monitoringData = $this->monitoring->getMonitoringData($id);
         $foodRecord = $this->recordHeader->getRecordDate($id);
+        $record = $this->record->getParticipantRecord($id);
 
-        return view('app.view-participant', compact('id','fullname','sex','age','screening','case','monitoring','foodRecord'));
+        return view('app.view-participant', compact('id','fullname','sex','age','screening','case','monitoring','foodRecord', 'monitoringData', 'record'));
 
     }
 }

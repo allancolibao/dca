@@ -15,12 +15,17 @@
                         <h6 class="m-0 font-weight-bold text-gray-800">Participant Monitoring Form-1A: ID-{{$id}} {{$fullname}} {{$age}} years old</h6>
                     </div>
                     <div class="card-body">
-                        <h4 class="text-danger mb-4">Monitoring Day: {{$day}}</h4>
+                        <h4 class="text-danger mb-4">Daily Monitoring Day</h4>
                         <form id="insert-monitoring-data" method="POST" action="{{ action('DailyMonitoringController@insert', $id) }}" accept-charset="UTF-8">
                             @csrf 
-                            <input type="hidden" name="mon_day" id="mon_day" value="{{$day}}">
                             <div class="table-responsive table-responsive-foodrecord">
                                 <table class="table table-bordered" id="dataTable" width="20%" cellspacing="0">   
+                                    <tr>
+                                        <th>
+                                            Monitoring Day
+                                            <input type="number" class="form-control {{ $errors->has('mon_day') ? 'has-error' : ''}}" name="mon_day" id="mon_day" value="{{ old('mon_day') }}">
+                                        </th>
+                                    </tr>
                                     <tr>
                                         <th>
                                             Date (MM/DD)

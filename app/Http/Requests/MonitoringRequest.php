@@ -26,7 +26,8 @@ class MonitoringRequest extends FormRequest
     public function rules(Request $request)
     {
         return [
-            'mon_day' => [ Rule::unique('monitoring_data')->where(function ($query) use ($request) {
+            'mon_day' => [ 'required',
+                            Rule::unique('monitoring_data')->where(function ($query) use ($request) {
                             return $query
                             ->where('participant_id', $this->route('id'))
                             ->where('mon_day', $request['mon_day']);

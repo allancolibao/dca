@@ -13,6 +13,11 @@
                             </button>
                         </a>
                         <h6 class="m-0 font-weight-bold text-gray-800">Update Food Record: ID-{{$id}} {{$fullname}} {{$age}} years old | Record date: {{$date}} | Record day: {{$recordDay}}</h6>
+                        <a href="{{route('deleted.records', ['id'=> $id, 'fullname'=> $fullname, 'sex'=> $sex, 'age'=> $age, 'date'=>$date ])}}" class="mr-3">
+                            <button type="submit" class="d-sm-inline-block btn  btn-warning shadow-sm ml-4">
+                                Restore Data  
+                            </button>
+                        </a>
                     </div>
                     <form id="update-record-header" method="POST" action="{{ action('FoodRecordController@updateRecordHeader', ['id'=> $id, 'fullname'=> $fullname, 'sex'=> $sex, 'age'=> $age, 'date'=>$date ]) }}" accept-charset="UTF-8">
                         @csrf
@@ -52,11 +57,12 @@
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
+                                            <th>DEL</th>
+                                            <th>MENU TITLE</th>
                                             <th>LINE NO</th>
                                             <th>FOOD ITEM</th>
                                             <th>FI AMOUNT/SIZE</th>
-                                            <th>PLATE WASTE</th>
-                                            <th>PW AMOUNT/SIZE</th>
+                                            
                                             <th>RF CODE</th>
                                             <th>MEAL CODE</th>
                                             @if(Auth::user()->is_admin != 3)
@@ -66,9 +72,13 @@
                                             <th>FW CMC</th>
                                             <th>SUPCODE</th>
                                             <th>SRCCODE</th>
+
+                                            <th>PLATE WASTE</th>
+                                            <th>PW AMOUNT/SIZE</th>
                                             <th>PW WEIGHT</th>
                                             <th>PW RCC</th>
                                             <th>PW CMC</th>
+
                                             <th>UNIT COST</th>
                                             <th>UNIT WEIGHT</th>
                                             <th>UNIT MEAS</th>
@@ -79,7 +89,17 @@
                                         @if(sizeOf($recordData) > 0 )
                                             @foreach ($recordData as $data)
                                                 <input type="hidden" name="row_id[]" value="{{$data->id}}"/>
-                                                <tr id="line">                   
+                                                <tr id="line" style="{{ strlen($data->line_no) >= 3  ? "background-color:#ffbfbf" : ""}}">  
+                                                    <td>
+                                                        <button data-path={{ route('food.record.delete.data', ['id'=> $data->id, 'patid'=> $id, 'date'=>$date, 'day'=>$recordDay, 'lineno'=>$data->line_no ])}} type="button" class="autofocus d-sm-inline-block btn btn-danger shadow-sm open-modal"><i class="fa fa-trash"></i></button>
+                                                    </td>   
+                                                    
+                                                    <td>
+                                                        <div class="form-group-line">
+                                                            <input type="text"class="form-no-border" name="menu_title[]" id="menu_title" placeholder="Menu Title" value="{{$data->menu_title}}"/>
+                                                        </div>
+                                                    </td>
+
                                                     <td>
                                                         <div class="form-group-line">
                                                         <input type="number" step="any" class="form-no-border line-number" name="line_no[]" id="line_no" placeholder="00" value="{{$data->line_no}}" required/>
@@ -95,16 +115,8 @@
                                                             <input type="text"  class="form-no-border" name="fi_amount_size[]" id="fi_amount_size" placeholder="Amount/Size" value="{{$data->fi_amount_size}}"/>
                                                         </div>
                                                     </td>
-                                                    <td>
-                                                        <div class="form-group-line">
-                                                                <input type="text" class="form-no-border" name="plate_waste[]" id="plate_waste" placeholder="Plate Waste" value="{{$data->plate_waste}}"/>
-                                                        </div>
-                                                    </td>
-                                                    <td>
-                                                        <div class="form-group-line">
-                                                            <input type="text"class="form-no-border" name="pw_amount_size[]" id="pw_amount_size" placeholder="Amount/Size" value="{{$data->pw_amount_size}}"/>
-                                                        </div>
-                                                    </td>
+                                                    
+                                                    
                                                     <td>
                                                         <div class="form-group-line">
                                                             <select type="text" class="form-no-border" name="rf_code[]" id="rf_code" placeholder="RF Code" value="{{$data->rf_code}}">
@@ -220,6 +232,18 @@
                                                                 </select>
                                                             </div>
                                                         </td>
+
+                                                        <td>
+                                                            <div class="form-group-line">
+                                                                    <input type="text" class="form-no-border" name="plate_waste[]" id="plate_waste" placeholder="Plate Waste" value="{{$data->plate_waste}}"/>
+                                                            </div>
+                                                        </td>
+                                                        <td>
+                                                            <div class="form-group-line">
+                                                                <input type="text"class="form-no-border" name="pw_amount_size[]" id="pw_amount_size" placeholder="Amount/Size" value="{{$data->pw_amount_size}}"/>
+                                                            </div>
+                                                        </td>
+    
                                                         <td>
                                                             <div class="form-group-line">
                                                                 <input type="number" step="any" class="form-no-border" name="pw_weight[]" id="pw_weight" placeholder="Weight" value="{{$data->pw_weight}}"/>
@@ -253,6 +277,7 @@
                                                                 </select>    
                                                             </div>
                                                         </td>
+                                                       
                                                         <td>
                                                             <div class="form-group-line">
                                                                 <input type="number" step="any" class="form-no-border" name="unit_cost[]" id="unit_cost" placeholder="Unit Cost" value="{{$data->unit_cost}}"/>

@@ -94,7 +94,7 @@
                                                     </button>  
                                                 </td>                 
                                                 <td>{{$data->mon_day}}</td>
-                                                <td>{{$data->mon_date}}</td>
+                                                <td>{{date('m-d-Y', strtotime($data->mon_date))}}</td>
                                                 <td>{{$data->mon_temp}}</td>
                                                 <td>{{$data->mon_chills == 0 ? 'No' : 'Yes'}}</td>
                                                 <td>{{$data->mon_conjunct == 0 ? 'No' : 'Yes'}}</td>
