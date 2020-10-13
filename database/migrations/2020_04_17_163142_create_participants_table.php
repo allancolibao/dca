@@ -27,6 +27,8 @@ class CreateParticipantsTable extends Migration
             $table->string('occupation', 100);
             $table->string('home_address', 150);
             $table->string('contact', 15);
+            $table->string('participant_status', 50)->nullable();
+            $table->string('participant_group', 50)->nullable();
             $table->tinyInteger('is_agreed')->default('0')->nullable();
             $table->string('assent_date', 20)->nullable();
             $table->string('witness_name', 50)->nullable();
