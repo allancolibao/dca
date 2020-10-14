@@ -15,9 +15,9 @@ class CreateRecordHeadersTable extends Migration
     {
         Schema::create('record_headers', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('participant_id', 10)->index();
+            $table->string('participant_id', 20)->index();
             $table->string('record_date', 20);
-            $table->string('record_day', 10)->nullable();
+            $table->string('record_day', 20)->nullable();
             $table->string('accom_by', 50)->nullable();
             $table->string('position', 50)->nullable();
             $table->string('date', 20)->nullable();

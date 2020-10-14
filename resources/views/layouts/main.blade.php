@@ -9,7 +9,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-  <meta name="theme-color" content="#FF5055">
+  <meta name="theme-color" content="#8645bf">
   <link rel="shortcut icon" type="image/png" href="{{ asset('img/vco.png') }}">
 
   <title>{{ config('app.name', 'VCO') }}</title>

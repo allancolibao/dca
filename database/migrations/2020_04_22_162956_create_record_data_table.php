@@ -15,8 +15,9 @@ class CreateRecordDataTable extends Migration
     {
         Schema::create('record_data', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('participant_id', 10)->index();
+            $table->string('participant_id', 20)->index();
             $table->string('record_date', 20);
+            $table->string('menu_title', 99)->nullable();
             $table->string('line_no', 4);
             $table->string('food_item', 50)->nullable();
             $table->string('fi_amount_size', 50)->nullable();
@@ -24,19 +25,20 @@ class CreateRecordDataTable extends Migration
             $table->string('pw_amount_size', 50)->nullable();
             $table->string('rf_code', 4)->nullable();
             $table->string('meal_code', 4)->nullable();
+            $table->string('food_source', 99)->nullable();
             $table->string('food_code', 250)->nullable();
             $table->string('fic', 4)->nullable();
-            $table->string('food_weight', 10)->nullable();
+            $table->string('food_weight', 20)->nullable();
             $table->string('fw_rcc', 4)->nullable();
             $table->string('fw_cmc', 4)->nullable();
             $table->string('supply_code', 4)->nullable();
             $table->string('src_code', 4)->nullable();
-            $table->string('pw_weight', 10)->nullable();
+            $table->string('pw_weight', 20)->nullable();
             $table->string('pw_rcc', 4)->nullable();
             $table->string('pw_cmc', 4)->nullable();
-            $table->string('unit_cost', 10)->nullable();
-            $table->string('unit_weight', 10)->nullable();
-            $table->string('unit_meas', 10)->nullable();
+            $table->string('unit_cost', 20)->nullable();
+            $table->string('unit_weight', 20)->nullable();
+            $table->string('unit_meas', 20)->nullable();
             $table->string('encoded_by', 20)->nullable();
             $table->string('updated_by', 20)->nullable();
             $table->timestamps();
