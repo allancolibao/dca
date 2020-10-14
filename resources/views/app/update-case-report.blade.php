@@ -413,7 +413,7 @@
                                                         <small>
                                                             - Borderline High: 149.57 - 199.12 mg/dL<br>
                                                             - High: 200.01 - 499.14 mg/dL<br>
-                                                            - Very: High >/= 500.02 mg/dL
+                                                            - Very High: >/= 500.02 mg/dL
                                                         </small> 
                                                     </td>
                                                     <td>
@@ -644,7 +644,7 @@
                                                     </td>
                                                     <td>
                                                         <small>
-                                                            - Male: Normal 34.00 - 68.00%
+                                                            - Male: Normal 34.00 - 68.00%<br>
                                                             - Female: Normal 34.00 - 71.00%
                                                         </small> 
                                                     </td>
@@ -696,7 +696,7 @@
                                                     </td>
                                                     <td>
                                                         <small>
-                                                            - Male: Normal 22.00 - 53.00%
+                                                            - Male: Normal 22.00 - 53.00%<br>
                                                             - Female: Normal 19.00 - 52.00%
                                                         </small> 
                                                     </td>
@@ -748,8 +748,8 @@
                                                     </td>
                                                     <td>
                                                         <small>
-                                                            - </=5.00 Negative<br>
-                                                            - >5.00 Positive
+                                                            < / =5.00 Negative<br>
+                                                            >5.00 Positive
                                                         </small> 
                                                     </td>
                                                     <td>
@@ -1087,39 +1087,44 @@
                                                     <td><strong>IgG</strong></td>
                                                     <td><strong>Date of Exam <i class="fas fa-arrow-right"></i></strong></td>
                                                     <td>
-                                                        <input type="date" class="form-control" name="sec_add_igm_01" id="sec_add_igm_01"  value="{{ $data->sec_add_igm_01 }}">
+                                                        <input type="date" class="form-control" name="sec_add_igg_01" id="sec_add_igg_01"  value="{{ $data->sec_add_igg_01 }}">
                                                     </td>
                                                     <td>
-                                                        <input type="date" class="form-control" name="sec_add_igm_02" id="sec_add_igm_02"  value="{{ $data->sec_add_igm_02 }}">
+                                                        <input type="date" class="form-control" name="sec_add_igg_02" id="sec_add_igg_02"  value="{{ $data->sec_add_igg_02 }}">
                                                     </td>
                                                     <td>
-                                                        <input type="date" class="form-control" name="sec_add_igm_03" id="sec_add_igm_03"  value="{{ $data->sec_add_igm_03 }}">
+                                                        <input type="date" class="form-control" name="sec_add_igg_03" id="sec_add_igg_03"  value="{{ $data->sec_add_igg_03 }}">
                                                     </td>
                                                 </tr>
 
                                                 <tr>
-                                                    <td colspan="2">
+                                                    <td>
                                                         IgG Value
                                                     </td>
                                                     <td>
-                                                        <select type="text" class="form-control" name="sec_add_igm_res_01" id="sec_add_igm_res_01" placeholder="" value="{{ $data->sec_add_igm_res_01 }}">
+                                                        <small>
+                                                            Reactive or Non-Reactive
+                                                        </small> 
+                                                    </td>
+                                                    <td>
+                                                        <select type="text" class="form-control" name="sec_add_igg_res_01" id="sec_add_igg_res_01" placeholder="" value="{{ $data->sec_add_igg_res_01 }}">
                                                             <option value="">Select Result</option>
-                                                            <option {{ ($data->sec_add_igm_res_01 == 'Reactive'  ? 'selected' : '') }} value="Reactive">Reactive</option>
-                                                            <option {{ ($data->sec_add_igm_res_01 == 'Non-Reactive'  ? 'selected' : '') }} value="Non-Reactive">Non-Reactive</option>
+                                                            <option {{ ($data->sec_add_igg_res_01 == 'Reactive'  ? 'selected' : '') }} value="Reactive">Reactive</option>
+                                                            <option {{ ($data->sec_add_igg_res_01 == 'Non-Reactive'  ? 'selected' : '') }} value="Non-Reactive">Non-Reactive</option>
                                                         </select>
                                                     </td> 
                                                     <td>
-                                                        <select type="text"  class="form-control" name="sec_add_igm_res_02" id="sec_add_igm_res_02" placeholder="" value="{{ $data->sec_add_igm_res_02 }}">
+                                                        <select type="text"  class="form-control" name="sec_add_igg_res_02" id="sec_add_igg_res_02" placeholder="" value="{{ $data->sec_add_igg_res_02 }}">
                                                             <option value="">Select Result</option>
-                                                            <option {{ ($data->sec_add_igm_res_02 == 'Reactive'  ? 'selected' : '') }} value="Reactive">Reactive</option>
-                                                            <option {{ ($data->sec_add_igm_res_02 == 'Non-Reactive'  ? 'selected' : '') }} value="Non-Reactive">Non-Reactive</option>
+                                                            <option {{ ($data->sec_add_igg_res_02 == 'Reactive'  ? 'selected' : '') }} value="Reactive">Reactive</option>
+                                                            <option {{ ($data->sec_add_igg_res_02 == 'Non-Reactive'  ? 'selected' : '') }} value="Non-Reactive">Non-Reactive</option>
                                                         </select>
                                                     </td>  
                                                     <td>
-                                                        <select type="text"  class="form-control" name="sec_add_igm_res_03" id="sec_add_igm_res_03" placeholder="" value="{{ $data->sec_add_igm_res_03 }}">
+                                                        <select type="text"  class="form-control" name="sec_add_igg_res_03" id="sec_add_igg_res_03" placeholder="" value="{{ $data->sec_add_igg_res_03 }}">
                                                             <option value="">Select Result</option>
-                                                            <option {{ ($data->sec_add_igm_res_03 == 'Reactive'  ? 'selected' : '') }} value="Reactive">Reactive</option>
-                                                            <option {{ ($data->sec_add_igm_res_03 == 'Non-Reactive'  ? 'selected' : '') }} value="Non-Reactive">Non-Reactive</option>
+                                                            <option {{ ($data->sec_add_igg_res_03 == 'Reactive'  ? 'selected' : '') }} value="Reactive">Reactive</option>
+                                                            <option {{ ($data->sec_add_igg_res_03 == 'Non-Reactive'  ? 'selected' : '') }} value="Non-Reactive">Non-Reactive</option>
                                                         </select>
                                                     </td>                                                   
                                                 </tr>
@@ -1140,8 +1145,13 @@
                                                 </tr>
 
                                                 <tr>
-                                                    <td colspan="2">
+                                                    <td>
                                                         IgM Value
+                                                    </td>
+                                                    <td>
+                                                        <small>
+                                                            Reactive or Non-Reactive
+                                                        </small> 
                                                     </td>
                                                     <td>
                                                         <select type="text" class="form-control" name="sec_add_igm_res_01" id="sec_add_igm_res_01" placeholder="" value="{{ $data->sec_add_igm_res_01 }}">

@@ -174,6 +174,12 @@ class CreateCaseReportsTable extends Migration
             $table->string('sec_add_rt_res_01', 50)->nullable();
             $table->string('sec_add_rt_res_02', 50)->nullable();
             $table->string('sec_add_rt_res_03', 50)->nullable();
+            $table->string('sec_add_igg_01', 50)->nullable();
+            $table->string('sec_add_igg_02', 50)->nullable();
+            $table->string('sec_add_igg_03', 50)->nullable();
+            $table->string('sec_add_igg_res_01', 50)->nullable();
+            $table->string('sec_add_igg_res_02', 50)->nullable();
+            $table->string('sec_add_igg_res_03', 50)->nullable();
             $table->string('sec_add_igm_01', 50)->nullable();
             $table->string('sec_add_igm_02', 50)->nullable();
             $table->string('sec_add_igm_03', 50)->nullable();
