@@ -360,7 +360,9 @@
                                                     <td>
                                                         <small>
                                                             - Male: Normal 49.03 - 172.59 mg/dL<br>
-                                                            - Female: Normal 63.32 - 167.57 mg/dL
+                                                            - Female: Normal 63.32 - 167.57 mg/dL<br>
+                                                            - Male: Low < 49.03 mg/dL<br>
+                                                            - Female: Low < 63.32 mg/ dL
                                                         </small> 
                                                     </td>
                                                     <td>
@@ -384,6 +386,7 @@
                                                             <option value="">Select remarks</option>
                                                             <option {{ (old("sec_02_06_01_rem") == 'Normal'  ? 'selected' : '') }} value="Normal">Normal</option>
                                                             <option {{ (old("sec_02_06_01_rem") == 'High'  ? 'selected' : '') }} value="High">High</option>
+                                                            <option {{ (old("sec_02_06_01_rem") == 'Low'  ? 'selected' : '') }} value="Low">Low</option>
                                                         </select>
                                                     </td> 
                                                     <td>
@@ -391,6 +394,7 @@
                                                             <option value="">Select remarks</option>
                                                             <option {{ (old("sec_02_06_02_rem") == 'Normal'  ? 'selected' : '') }} value="Normal">Normal</option>
                                                             <option {{ (old("sec_02_06_02_rem") == 'High'  ? 'selected' : '') }} value="High">High</option>
+                                                            <option {{ (old("sec_02_06_02_rem") == 'Low'  ? 'selected' : '') }} value="Low">Low</option>
                                                         </select>
                                                     </td> 
                                                     <td>
@@ -398,6 +402,7 @@
                                                             <option value="">Select remarks</option>
                                                             <option {{ (old("sec_02_06_03_rem") == 'Normal'  ? 'selected' : '') }} value="Normal">Normal</option>
                                                             <option {{ (old("sec_02_06_03_rem") == 'High'  ? 'selected' : '') }} value="High">High</option>
+                                                            <option {{ (old("sec_02_06_03_rem") == 'Low'  ? 'selected' : '') }} value="Low">Low</option>
                                                         </select>
                                                     </td> 
                                                 </tr>
@@ -479,6 +484,8 @@
                                                         <small>
                                                             -Male: Normal 10.00 - 50.00 U/L<br>
                                                             -Female: Normal 10.00 - 35.00 U/L<br>
+                                                            -Male: Low < 10.00<br>
+                                                            -Female: Low < 10.00
                                                         </small> 
                                                     </td>
                                                     <td>
@@ -503,6 +510,7 @@
                                                             <option value="">Select remarks</option>
                                                             <option {{ (old("sec_02_08_01_rem") == 'Normal'  ? 'selected' : '') }} value="Normal">Normal</option>
                                                             <option {{ (old("sec_02_08_01_rem") == 'High'  ? 'selected' : '') }} value="High">High</option>
+                                                            <option {{ (old("sec_02_08_01_rem") == 'Low'  ? 'selected' : '') }} value="Low">Low</option>
                                                         </select>
                                                     </td> 
                                                     <td>
@@ -510,6 +518,7 @@
                                                             <option value="">Select remarks</option>
                                                             <option {{ (old("sec_02_08_02_rem") == 'Normal'  ? 'selected' : '') }} value="Normal">Normal</option>
                                                             <option {{ (old("sec_02_08_02_rem") == 'High'  ? 'selected' : '') }} value="High">High</option>
+                                                            <option {{ (old("sec_02_08_02_rem") == 'Low'  ? 'selected' : '') }} value="Low">Low</option>
                                                         </select>
                                                     </td> 
                                                     <td>
@@ -517,6 +526,7 @@
                                                             <option value="">Select remarks</option>
                                                             <option {{ (old("sec_02_08_03_rem") == 'Normal'  ? 'selected' : '') }} value="Normal">Normal</option>
                                                             <option {{ (old("sec_02_08_03_rem") == 'High'  ? 'selected' : '') }} value="High">High</option>
+                                                            <option {{ (old("sec_02_08_03_rem") == 'Low'  ? 'selected' : '') }} value="Low">Low</option>
                                                         </select>
                                                     </td> 
                                                 </tr>
@@ -530,6 +540,8 @@
                                                         <small>
                                                             -Male: Normal 10.00 - 50.00 U/L<br>
                                                             -Female: Normal 10.00 - 35.00 U/L<br>
+                                                            -Male: Low < 10.00<br>
+                                                            -Female: Low < 10.00
                                                         </small>
                                                     </td>
                                                     <td>
@@ -551,6 +563,7 @@
                                                             <option value="">Select remarks</option>
                                                             <option {{ (old("sec_02_liver_rem_01") == 'Normal'  ? 'selected' : '') }} value="Normal">Normal</option>
                                                             <option {{ (old("sec_02_liver_rem_01") == 'High'  ? 'selected' : '') }} value="High">High</option>
+                                                            <option {{ (old("sec_02_liver_rem_01") == 'Low'  ? 'selected' : '') }} value="Low">Low</option>
                                                         </select>
                                                     </td> 
                                                     <td>
@@ -558,6 +571,7 @@
                                                             <option value="">Select remarks</option>
                                                             <option {{ (old("sec_02_liver_rem_02") == 'Normal'  ? 'selected' : '') }} value="Normal">Normal</option>
                                                             <option {{ (old("sec_02_liver_rem_02") == 'High'  ? 'selected' : '') }} value="High">High</option>
+                                                            <option {{ (old("sec_02_liver_rem_02") == 'Low'  ? 'selected' : '') }} value="Low">Low</option>
                                                         </select>
                                                     </td> 
                                                     <td>
@@ -565,6 +579,7 @@
                                                             <option value="">Select remarks</option>
                                                             <option {{ (old("sec_02_liver_rem_03") == 'Normal'  ? 'selected' : '') }} value="Normal">Normal</option>
                                                             <option {{ (old("sec_02_liver_rem_03") == 'High'  ? 'selected' : '') }} value="High">High</option>
+                                                            <option {{ (old("sec_02_liver_rem_03") == 'Low'  ? 'selected' : '') }} value="Low">Low</option>
                                                         </select>
                                                     </td> 
                                                 </tr>
@@ -770,22 +785,22 @@
                                                     <td>
                                                         <select type="text" class="form-control" name="sec_02_13_01_rem" id="sec_02_13_01_rem" placeholder="Remarks"  value="{{ old('sec_02_13_01_rem') }}">
                                                             <option value="">Select remarks</option>
-                                                            <option {{ (old("sec_02_13_01_rem") == 'Normal'  ? 'selected' : '') }} value="Normal">Normal</option>
-                                                            <option {{ (old("sec_02_13_01_rem") == 'High'  ? 'selected' : '') }} value="High">High</option>
+                                                            <option {{ (old("sec_02_13_01_rem") == 'Negative'  ? 'selected' : '') }} value="Negative">Negative</option>
+                                                            <option {{ (old("sec_02_13_01_rem") == 'Positive'  ? 'selected' : '') }} value="Positive">Positive</option>
                                                         </select>
                                                     </td> 
                                                     <td>
                                                         <select type="text" class="form-control" name="sec_02_13_02_rem" id="sec_02_13_02_rem" placeholder="Remarks"  value="{{ old('sec_02_13_02_rem') }}">
                                                             <option value="">Select remarks</option>
-                                                            <option {{ (old("sec_02_13_02_rem") == 'Normal'  ? 'selected' : '') }} value="Normal">Normal</option>
-                                                            <option {{ (old("sec_02_13_02_rem") == 'High'  ? 'selected' : '') }} value="High">High</option>
+                                                            <option {{ (old("sec_02_13_02_rem") == 'Negative'  ? 'selected' : '') }} value="Negative">Negative</option>
+                                                            <option {{ (old("sec_02_13_02_rem") == 'Positive'  ? 'selected' : '') }} value="Positive">Positive</option>
                                                         </select>
                                                     </td> 
                                                     <td>
                                                         <select type="text" class="form-control" name="sec_02_13_03_rem" id="sec_02_13_03_rem" placeholder="Remarks"  value="{{ old('sec_02_13_03_rem') }}">
                                                             <option value="">Select remarks</option>
-                                                            <option {{ (old("sec_02_13_03_rem") == 'Normal'  ? 'selected' : '') }} value="Normal">Normal</option>
-                                                            <option {{ (old("sec_02_13_03_rem") == 'High'  ? 'selected' : '') }} value="High">High</option>
+                                                            <option {{ (old("sec_02_13_03_rem") == 'Negative'  ? 'selected' : '') }} value="Negative">Negative</option>
+                                                            <option {{ (old("sec_02_13_03_rem") == 'Positive'  ? 'selected' : '') }} value="Positive">Positive</option>
                                                         </select>
                                                     </td> 
                                                 </tr>

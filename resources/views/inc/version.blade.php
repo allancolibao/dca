@@ -1,6 +1,6 @@
 <li class="nav-item dropdown no-arrow mx-1">
     <a class="nav-link dropdown-toggle text-dark" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    <i class="fas fa-code-branch fa-fw" style="padding-right:1vmin;"></i> ND-2.0.2
+    <i class="fas fa-code-branch fa-fw" style="padding-right:1vmin;"></i> ND-2.0.3
     <!-- Version Changlog -->
     </a>
     <!-- Dropdown - Version -->
@@ -88,6 +88,12 @@
             <div>
             <div class="small text-gray-500">ND-2.0.2 | Oct 14, 2020</div>
                 - Update on Case Report Form (added IgG and updated ref value)
+            </div>
+        </a>
+        <a class="dropdown-item d-flex align-items-center" href="#">
+            <div>
+            <div class="small text-gray-500">ND-2.0.3 | Oct 14, 2020</div>
+                - Update on Case Report Form
             </div>
         </a>
     </div>
