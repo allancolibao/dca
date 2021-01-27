@@ -111,11 +111,10 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                     <label>Hospital/Center</label>
-                                    <select type="text" class="form-control {{ $errors->has('hospital') ? 'has-error' : ''}} participant" name="hospital" id="hospital" value="{{ old('hospital') }}">
+                                    <select type="text" class="form-control {{ $errors->has('hospital') ? 'has-error' : ''}} participant" name="hospital" id="hospital" data-value="{{ old('hospital') }}">
                                         <option selected="true" disabled="disabled">Please select</option>
-                                        <option value='CHO' {{ (old("hospital") == 'CHO' ? 'selected' : '') }} >CHO - City Health Office</option>
-                                        <option value='SRCH' {{ (old("hospital") == 'SRCH' ? 'selected' : '') }} >SRCH - Santa Rosa Community Hospital</option>
-                                        <option value='TMCSL' {{ (old("hospital") == 'TMCSL' ? 'selected' : '') }} >TMCSL - The Medical City South Luzon</option>
+                                        <option value='VCEH'>VCEH - Valenzuela City Emergency Hospital</option>
+                                        <option value='DNHS'>DNHS - Dalandanan NHS Isolation Facility</option>
                                     </select>
                                         @if ($errors->has('hospital'))
                                             <span class="help-block">
@@ -160,10 +159,10 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Sex</label>
-                                        <select type="text" class="form-control {{ $errors->has('sex') ? 'has-error' : ''}} participant" name="sex" id="sex"  value="{{ old('sex') }}">
+                                        <select type="text" class="form-control {{ $errors->has('sex') ? 'has-error' : ''}} participant" name="sex" id="sex"  data-value="{{ old('sex') }}">
                                             <option selected="true" disabled="disabled">Please select</option>
-                                            <option value='1' {{ (old("sex") == '1' ? 'selected' : '') }} >1 - Male</option>
-                                            <option value='2' {{ (old("sex") == '2' ? 'selected' : '') }} >2 - Female</option>
+                                            <option value='1'>1 - Male</option>
+                                            <option value='2'>2 - Female</option>
                                         </select>   
                                         @if ($errors->has('sex'))
                                             <span class="help-block">
@@ -175,16 +174,16 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Civil Status</label>
-                                        <select type="text" class="form-control {{ $errors->has('csc') ? 'has-error' : ''}} participant" name="csc" id="csc" value="{{ old('csc') }}">
+                                        <select type="text" class="form-control {{ $errors->has('csc') ? 'has-error' : ''}} participant" name="csc" id="csc" data-value="{{ old('csc') }}">
                                             <option selected="true" disabled="disabled">Please select</option>
-                                            <option value='1' {{ (old("csc") == '1'  ? 'selected' : '') }} >1 - Single</option>
-                                            <option value='2' {{ (old("csc") == '2'  ? 'selected' : '') }} >2 - Married</option>
-                                            <option value='3' {{ (old("csc") == '3'  ? 'selected' : '') }} >3 - Widowed</option>
-                                            <option value='4' {{ (old("csc") == '4'  ? 'selected' : '') }} >4 - Divorced</option>
-                                            <option value='5' {{ (old("csc") == '5'  ? 'selected' : '') }} >5 - Separated</option>
-                                            <option value='6' {{ (old("csc") == '6'  ? 'selected' : '') }} >6 - Annuled</option>
-                                            <option value='7' {{ (old("csc") == '7'  ? 'selected' : '') }} >7 - Common-Law/Live-in</option>
-                                            <option value='8' {{ (old("csc") == '8'  ? 'selected' : '') }} >8 - Not Reported</option>
+                                            <option value='1'>1 - Single</option>
+                                            <option value='2'>2 - Married</option>
+                                            <option value='3'>3 - Widowed</option>
+                                            <option value='4'>4 - Divorced</option>
+                                            <option value='5'>5 - Separated</option>
+                                            <option value='6'>6 - Annuled</option>
+                                            <option value='7'>7 - Common-Law/Live-in</option>
+                                            <option value='8'>8 - Not Reported</option>
                                         </select>
                                         @if ($errors->has('csc'))
                                             <span class="help-block">
@@ -223,72 +222,72 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label>Educational Attainment</label>
-                                        <select name="educ_attainment" id="educ_attainment" class="form-control {{ $errors->has('educ_attainment') ? 'has-error' : ''}} participant" value="{{ old('educ_attainment') }}">
+                                        <select name="educ_attainment" id="educ_attainment" class="form-control {{ $errors->has('educ_attainment') ? 'has-error' : ''}} participant" data-value="{{ old('educ_attainment') }}">
 
                                             <option selected="true" disabled="disabled">Please select</option>
-                                            <option value='0' {{(old("educ_attainment") == '0'  ? 'selected' : '') }} >0 - No Grade Completed</option>
+                                            <option value='0'>0 - No Grade Completed</option>
 
                                             <optgroup label="Early Childhood Education">
-                                                <option value='1' {{(old("educ_attainment") == '1'  ? 'selected' : '') }} >1 - Early Child Care and Development (ECCD)</option>
-                                                <option value='2' {{(old("educ_attainment") == '2'  ? 'selected' : '') }} >2 - Nursery/Daycare</option>
-                                                <option value='3' {{(old("educ_attainment") == '3'  ? 'selected' : '') }} >3 - Kinder</option>
-                                                <option value='4' {{(old("educ_attainment") == '4'  ? 'selected' : '') }} >4 - Preparatory</option>
+                                                <option value='1'>1 - Early Child Care and Development (ECCD)</option>
+                                                <option value='2'>2 - Nursery/Daycare</option>
+                                                <option value='3'>3 - Kinder</option>
+                                                <option value='4'>4 - Preparatory</option>
                                             </optgroup> 
 
                                             <optgroup label="Primary Education">
-                                                <option value='11' {{(old("educ_attainment") == '11'  ? 'selected' : '') }} >11 - Grade I</option>
-                                                <option value='12' {{(old("educ_attainment") == '12'  ? 'selected' : '') }} >12 - Grade II</option>
-                                                <option value='13' {{(old("educ_attainment") == '13'  ? 'selected' : '') }} >13 - Grade III</option>
-                                                <option value='14' {{(old("educ_attainment") == '14'  ? 'selected' : '') }} >14 - Grade IV</option>
-                                                <option value='15' {{(old("educ_attainment") == '15'  ? 'selected' : '') }} >15 - Grade V</option>
-                                                <option value='16' {{(old("educ_attainment") == '16'  ? 'selected' : '') }} >16 - Grade VI (if w/ VII)</option>
-                                                <option value='17' {{(old("educ_attainment") == '17'  ? 'selected' : '') }} >17 - Graduate</option>
+                                                <option value='11'>11 - Grade I</option>
+                                                <option value='12'>12 - Grade II</option>
+                                                <option value='13'>13 - Grade III</option>
+                                                <option value='14'>14 - Grade IV</option>
+                                                <option value='15'>15 - Grade V</option>
+                                                <option value='16'>16 - Grade VI (if w/ VII)</option>
+                                                <option value='17'>17 - Graduate</option>
                                             </optgroup> 
 
                                             <optgroup label="Lower Secondary Education">
-                                                <option value='21' {{(old("educ_attainment") == '21'  ? 'selected' : '') }} >21 - 1st Year HS/Grade 7</option>
-                                                <option value='22' {{(old("educ_attainment") == '22'  ? 'selected' : '') }} >22 - 2nd Year HS/Grade 8</option>
-                                                <option value='23' {{(old("educ_attainment") == '23'  ? 'selected' : '') }} >23 - 3rd Year HS/Grade 9</option>
-                                                <option value='24' {{(old("educ_attainment") == '24'  ? 'selected' : '') }} >24 - 4th Year HS/Grade 10</option>
+                                                <option value='21'>21 - 1st Year HS/Grade 7</option>
+                                                <option value='22'>22 - 2nd Year HS/Grade 8</option>
+                                                <option value='23'>23 - 3rd Year HS/Grade 9</option>
+                                                <option value='24'>24 - 4th Year HS/Grade 10</option>
                                             </optgroup> 
 
                                             <optgroup label="Upper Secondary Education">
-                                                <option value='25' {{(old("educ_attainment") == '25'  ? 'selected' : '') }} >25 - Grade 11</option>
-                                                <option value='26' {{(old("educ_attainment") == '26'  ? 'selected' : '') }}>26 - Grade 12</option>
-                                                <option value='27' {{(old("educ_attainment") == '27'  ? 'selected' : '') }}>27 - High School Graduate</option>
+                                                <option value='25'>25 - Grade 11</option>
+                                                <option value='26'>26 - Grade 12</option>
+                                                <option value='27'>27 - High School Graduate</option>
                                             </optgroup>
 
                                             <optgroup label="Post-Secondary Non-Tertiary Education with NC I-NC III and other certificate">
-                                                <option value='31'{{(old("educ_attainment") == '31'  ? 'selected' : '') }} >31 - Vocational Graduate, specify course</option>
+                                                <option value='31'>31 - Vocational Graduate, specify course</option>
                                             </optgroup>
 
                                             <optgroup label="Short-Cycle Tertiary Education or Equivalent">
-                                                <option value='41' {{(old("educ_attainment") == '41'  ? 'selected' : '') }} >41 - 1st Year</option>
-                                                <option value='42' {{(old("educ_attainment") == '42'  ? 'selected' : '') }} >42 - 2nd Year/3rd Year</option>
-                                                <option value='43' {{(old("educ_attainment") == '43'  ? 'selected' : '') }} >43 - Technical Vocation Graduate with diploma/NC IV certificate, specify course</option>
+                                                <option value='41'>41 - 1st Year</option>
+                                                <option value='42'>42 - 2nd Year/3rd Year</option>
+                                                <option value='43'>43 - Technical Vocation Graduate with diploma/NC IV certificate, specify course</option>
                                             </optgroup>
 
                                             <optgroup label="Bachelor Level Education or Equivalent">
-                                                <option value='51' {{(old("educ_attainment") == '51'  ? 'selected' : '') }} >51 - 1st Year</option>
-                                                <option value='52' {{(old("educ_attainment") == '52'  ? 'selected' : '') }} >52 - 2nd Year</option>
-                                                <option value='53' {{(old("educ_attainment") == '53'  ? 'selected' : '') }} >53 - 3rd Year</option>
-                                                <option value='54' {{(old("educ_attainment") == '54'  ? 'selected' : '') }} >54 - 4th/5th Year</option>
-                                                <option value='55' {{(old("educ_attainment") == '55'  ? 'selected' : '') }} >55 - College Graduate, specify course</option>
+                                                <option value='51'>51 - 1st Year</option>
+                                                <option value='52'>52 - 2nd Year</option>
+                                                <option value='53'>53 - 3rd Year</option>
+                                                <option value='54'>54 - 4th/5th Year</option>
+                                                <option value='55'>55 - College Graduate, specify course</option>
                                             </optgroup>
 
                                             <optgroup label="Master Level Education or Equivalent">
-                                                <option value='66' {{(old("educ_attainment") == '66'  ? 'selected' : '') }} >66 - Master's Graduate, Specify course</option>
+                                                <option value='66'>66 - Master's Graduate, Specify course</option>
                                             </optgroup>    
                                             
                                             <optgroup label="Doctoral Level Education or Equivalent">
-                                                <option value='67 {{(old("educ_attainment") == '67'  ? 'selected' : '') }} '>67 - Doctoral Level, Specify course</option>
+                                                <option value='67'>67 - Doctoral Level, Specify course</option>
                                             </optgroup> 
                                             
                                             <optgroup label="Other Education">
-                                                <option value='77' {{(old("educ_attainment") == '77'  ? 'selected' : '') }} >77 - Alternative Learning System (ALS), Specify level</option>
-                                                <option value='81' {{(old("educ_attainment") == '81'  ? 'selected' : '') }} >81 - SPED, specify level</option>
-                                                <option value='82' {{(old("educ_attainment") == '82'  ? 'selected' : '') }} >82 - Arabic Schooling, specify level</option>
-                                                <option value='83' {{(old("educ_attainment") == '83'  ? 'selected' : '') }} >83 - Others, specify</option>
+                                                <option value='77'>77 - Alternative Learning System (ALS), Specify level</option>
+                                                <option value='81'>81 - SPED, specify level</option>
+                                                <option value='82'>82 - Arabic Schooling, specify level</option>
+                                                <option value='83'>83 - Others, specify</option>
                                             </optgroup>
 
                                         </select> 

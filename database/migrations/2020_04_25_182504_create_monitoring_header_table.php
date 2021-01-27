@@ -15,7 +15,7 @@ class CreateMonitoringHeaderTable extends Migration
     {
         Schema::create('monitoring_header', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('participant_id', 10)->unique();
+            $table->string('participant_id', 20)->unique();
             $table->string('center_name', 250)->nullable();
             $table->string('center_address', 250)->nullable();
             $table->string('date_fill', 20)->nullable();

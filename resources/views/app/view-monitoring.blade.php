@@ -70,7 +70,7 @@
                                             <th>Cough & sputum</th>
                                             <th>Cough Only (dry)</th>
                                             <th>Diarrhea</th>
-                                            <th>Runny nose</th>
+                                            <th>Colds</th>
                                             <th>Short of breath</th>
                                             <th>Sore throat</th>
                                             <th>Loss of appetite</th>
@@ -80,6 +80,8 @@
                                             <th>Vomiting</th>
                                             <th>Muscle pain</th>
                                             <th>Chest pain</th>
+                                            <th>Headache</th>
+                                            <th>Loss of taste</th>
                                             <th>Other</th>
                                             <th>Notes</th>
                                         </tr>
@@ -111,6 +113,8 @@
                                                 <td>{{$data->mon_vomiting == 0 ? 'No' : 'Yes'}}</td>
                                                 <td>{{$data->mon_muscle_pain == 0 ? 'No' : 'Yes'}}</td>
                                                 <td>{{$data->mon_chest_pain == 0 ? 'No' : 'Yes'}}</td>
+                                                <td>{{$data->mon_headache == 0 ? 'No' : 'Yes'}}</td>
+                                                <td>{{$data->mon_loss_taste == 0 ? 'No' : 'Yes'}}</td>
                                                 <td>{{$data->mon_other == 0 ? 'No' : 'Yes'}}</td>
                                                 <td>{{$data->mon_other_note}}</td>
                                             </tr>  

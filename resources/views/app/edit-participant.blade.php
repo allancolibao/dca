@@ -186,8 +186,8 @@
                                     <label>Group</label>
                                     <select class="form-control" name="participant_group" id="participant_group" value="{{$participant->participant_group}}">
                                         <option value=''>Please select</option>
-                                        <option value='Intervention' {{$participant->participant_group == 'Intervention'  ? 'selected' : ''}} >Intervention</option>
-                                        <option value='Control' {{$participant->participant_group == 'Control'  ? 'selected' : ''}} >Control</option>
+                                        <option value='Group 1' {{$participant->participant_group == 'Group 1'  ? 'selected' : ''}} >Group 1</option>
+                                        <option value='Group 2' {{$participant->participant_group == 'Group 2'  ? 'selected' : ''}} >Group 2</option>
                                         <option value='NA' {{$participant->participant_group == 'NA'  ? 'selected' : ''}} >NA</option>
                                     </select>
                                 </div>

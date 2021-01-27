@@ -211,6 +211,9 @@
   <script type="text/javascript" src="{{ asset('js/clone.js') }}"></script>
   <script type="text/javascript" src="{{ asset('main/js/demo/datatables-demo.js') }}"></script>
 
+  {{-- Dropdown --}}
+  <script type="text/javascript" src="{{ asset('js/dropdown.js') }}"></script>
+
   {{-- Open as window script --}}
   <script type="text/javascript" src="{{ asset('js/openwindow.js') }}"></script>
 
@@ -238,6 +241,10 @@
   {{-- Participant ID --}}
   <script type="text/javascript" src="{{ asset('js/id.js') }}"></script>
 
+  @yield('script')
+
+  {{-- Remarks --}}
+  <script type="text/javascript" src="{{ asset('js/remarks.js') }}"></script>
 
   {{-- Toastr alert session condition --}}
   @include('error.messages')

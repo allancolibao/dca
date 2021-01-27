@@ -78,7 +78,7 @@
                                     </tr>  
                                     <tr>
                                         <th>
-                                            Runny nose
+                                            Colds
                                             <input type="hidden" value="0" name="mon_runny">
                                             <input type="checkbox" value="1" style="width: 1.3em;  height: 1.3em;"  class="form-control" name="mon_runny" id="mon_runny" {{ (old("mon_runny") == '1' ? 'checked' : '') }}>
                                         </th>
@@ -146,6 +146,23 @@
                                             <input type="checkbox" value="1" style="width: 1.3em;  height: 1.3em;"  class="form-control" name="mon_chest_pain" id="mon_chest_pain" {{ (old("mon_chest_pain") == '1' ? 'checked' : '') }}>
                                         </th>
                                     </tr>  
+
+                                    <tr>
+                                        <th>
+                                            Headache
+                                            <input type="hidden" value="0" name="mon_headache">
+                                            <input type="checkbox" value="1" style="width: 1.3em;  height: 1.3em;"  class="form-control" name="mon_headache" id="mon_headache" {{ (old("mon_headache") == '1' ? 'checked' : '') }}>
+                                        </th>
+                                    </tr>  
+
+                                    <tr>
+                                        <th>
+                                            Loss of taste
+                                            <input type="hidden" value="0" name="mon_loss_taste">
+                                            <input type="checkbox" value="1" style="width: 1.3em;  height: 1.3em;"  class="form-control" name="mon_loss_taste" id="mon_loss_taste" {{ (old("mon_loss_taste") == '1' ? 'checked' : '') }}>
+                                        </th>
+                                    </tr>
+                                    
                                     <tr>
                                         <th>
                                             Other (add in Notes below)

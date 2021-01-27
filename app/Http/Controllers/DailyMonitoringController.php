@@ -89,6 +89,8 @@ class DailyMonitoringController extends Controller
             'mon_vomiting' => $request['mon_vomiting'],
             'mon_muscle_pain' => $request['mon_muscle_pain'],
             'mon_chest_pain' => $request['mon_chest_pain'],
+            'mon_headache' => $request['mon_headache'],
+            'mon_loss_taste' => $request['mon_loss_taste'],
             'mon_other' => $request['mon_other'],
             'mon_other_note' => $request['mon_other_note'],
             'encoded_by' => Auth::user()->name
@@ -128,6 +130,8 @@ class DailyMonitoringController extends Controller
             'mon_vomiting' => $request['mon_vomiting'],
             'mon_muscle_pain' => $request['mon_muscle_pain'],
             'mon_chest_pain' => $request['mon_chest_pain'],
+            'mon_headache' => $request['mon_headache'],
+            'mon_loss_taste' => $request['mon_loss_taste'],
             'mon_other' => $request['mon_other'],
             'mon_other_note' => $request['mon_other_note'],
             'updated_by' => Auth::user()->name

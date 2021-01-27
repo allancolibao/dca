@@ -85,14 +85,14 @@ Route::post('/update-case-report-data/{id}', 'CaseReportController@update')->nam
  */ 
 Route::get('/cycle-menu', 'FoodRecordController@menu')->name('cycle.menu');
 Route::get('/view-record/{id}/{fullname}/{sex}/{age}', 'FoodRecordController@index')->name('view.record');
-Route::get('/get-record-date/{id}/{fullname}/{sex}/{age}/{date}', 'FoodRecordController@getUpdateRecordDate')->name('get.record.date');
-Route::get('/encode-record/{id}/{fullname}/{sex}/{age}/{date}', 'FoodRecordController@encode')->name('encode.record');
-Route::get('/get-record/{id}/{fullname}/{sex}/{age}/{date}', 'FoodRecordController@getRecord')->name('get.record');
+Route::get('/get-record-date/{id}/{fullname}/{sex}/{age}/{date}/{day}', 'FoodRecordController@getUpdateRecordDate')->name('get.record.date');
+Route::get('/encode-record/{id}/{fullname}/{sex}/{age}/{date}/{day}', 'FoodRecordController@encode')->name('encode.record');
+Route::get('/get-record/{id}/{fullname}/{sex}/{age}/{date}/{day}', 'FoodRecordController@getRecord')->name('get.record');
 
 Route::post('/insert-record-date/{id}/{fullname}/{sex}/{age}', 'FoodRecordController@insertRecordDate')->name('insert.record.date');
 Route::post('/insert-record-header/{id}/{fullname}/{sex}/{age}/{date}', 'FoodRecordController@updateRecordDate')->name('insert.record.header');
-Route::post('insert-record-data/{id}/{fullname}/{sex}/{age}/{date}' ,'FoodRecordController@insertRecordData')->name('insert.record.data');
-Route::post('update-record-data/{id}/{fullname}/{sex}/{age}/{date}' ,'FoodRecordController@updateRecordData')->name('update.record.data');
+Route::post('insert-record-data/{id}/{fullname}/{sex}/{age}/{date}/{day}' ,'FoodRecordController@insertRecordData')->name('insert.record.data');
+Route::post('update-record-data/{id}/{fullname}/{sex}/{age}/{date}/{day}' ,'FoodRecordController@updateRecordData')->name('update.record.data');
 Route::post('update-record-header/{id}/{fullname}/{sex}/{age}/{date}' ,'FoodRecordController@updateRecordHeader')->name('update.record.header');
 
 

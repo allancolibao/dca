@@ -15,10 +15,10 @@ class CreateMonitoringDataTable extends Migration
     {
         Schema::create('monitoring_data', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('participant_id', 10)->index();
+            $table->string('participant_id', 20)->index();
             $table->string('mon_day', 4);
             $table->string('mon_date', 20)->nullable();
-            $table->string('mon_temp', 10)->nullable();
+            $table->string('mon_temp', 20)->nullable();
             $table->tinyInteger('mon_chills')->default('0')->nullable();
             $table->tinyInteger('mon_conjunct')->default('0')->nullable();
             $table->tinyInteger('mon_cough')->default('0')->nullable();
@@ -34,6 +34,8 @@ class CreateMonitoringDataTable extends Migration
             $table->tinyInteger('mon_vomiting')->default('0')->nullable();
             $table->tinyInteger('mon_muscle_pain')->default('0')->nullable();
             $table->tinyInteger('mon_chest_pain')->default('0')->nullable();
+            $table->tinyInteger('mon_headache')->default('0')->nullable();
+            $table->tinyInteger('mon_loss_taste')->default('0')->nullable();
             $table->tinyInteger('mon_other')->default('0')->nullable();
             $table->string('mon_other_note', 250)->nullable();
             $table->string('encoded_by', 20)->nullable();

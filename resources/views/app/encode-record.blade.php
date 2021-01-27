@@ -14,7 +14,7 @@
                         </a>
                         <h6 class="m-0 font-weight-bold text-gray-800">Encode Food Record: ID-{{$id}} {{$fullname}} {{$age}} years old | Record date: {{$date}} | Record day: {{$recordDay}}</h6>
 
-                        <a href="{{route('get.record', ['id'=> $id, 'fullname'=> $fullname, 'sex'=> $sex, 'age'=> $age, 'date'=>$date ])}}" class="mr-2">
+                        <a href="{{route('get.record', ['id'=> $id, 'fullname'=> $fullname, 'sex'=> $sex, 'age'=> $age, 'date'=>$date, 'day' => $day ])}}" class="mr-2">
                             <button type="submit" class="d-sm-inline-block btn  btn-primary shadow-sm ml-4">
                                 View and Edit  
                             </button>
@@ -35,7 +35,7 @@
                         </button>
 
                     </div>
-                    <form id="update-record-header" method="POST" action="{{ action('FoodRecordController@updateRecordHeader', ['id'=> $id, 'fullname'=> $fullname, 'sex'=> $sex, 'age'=> $age, 'date'=>$date ]) }}" accept-charset="UTF-8">
+                    <form id="update-record-header" method="POST" action="{{ action('FoodRecordController@updateRecordHeader', ['id'=> $id, 'fullname'=> $fullname, 'sex'=> $sex, 'age'=> $age, 'date'=>$date, 'day' => $day ]) }}" accept-charset="UTF-8">
                         @csrf
                         <div class="table-responsive">
                             <table class="table"  width="100%" cellspacing="0">
@@ -67,7 +67,7 @@
                     </form>
                     <div class="card-body">
                         <div class="table-responsive table-responsive-foodrecord">
-                            <form id="insert-record" method="POST" action="{{ action('FoodRecordController@insertRecordData', ['id'=> $id, 'fullname'=> $fullname, 'sex'=> $sex, 'age'=> $age, 'date'=>$date ]) }}" accept-charset="UTF-8">
+                            <form id="insert-record" method="POST" action="{{ action('FoodRecordController@insertRecordData', ['id'=> $id, 'fullname'=> $fullname, 'sex'=> $sex, 'age'=> $age, 'date'=>$date, 'day'=> $day ]) }}" accept-charset="UTF-8">
                                 @csrf 
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
@@ -76,27 +76,26 @@
                                             <th>LINE NO</th>
                                             <th>FOOD ITEM</th>
                                             <th>FI AMOUNT/SIZE</th>
-
                                             <th>RF CODE</th>
                                             <th>MEAL CODE</th>
+                                            <th>OTHER FOOD SOURCE</th>
+
                                             @if(Auth::user()->is_admin != 3)
+
                                             <th>FOODCODE (FIC)</th>
                                             <th>FOOD WEIGHT</th>
                                             <th>FW RCC</th>
                                             <th>FW CMC</th>
                                             <th>SUPCODE</th>
                                             <th>SRCCODE</th>
-
                                             <th>PLATE WASTE</th>
                                             <th>PW AMOUNT/SIZE</th>
                                             <th>PW WEIGHT</th>
                                             <th>PW RCC</th>
                                             <th>PW CMC</th>
 
-                                            <th>UNIT COST</th>
-                                            <th>UNIT WEIGHT</th>
-                                            <th>UNIT MEAS</th>
                                             @endif
+                                            
                                             <th>ADD</th>
                                             <th>REM</th>
                                         </tr>
@@ -383,7 +382,7 @@
                     {{-- Update Record View --}}
                     <div class="card-body">
                         <div class="table-responsive table-responsive-foodrecord">
-                            <form id="update-record" method="POST" action="{{ action('FoodRecordController@updateRecordData', ['id'=> $id, 'fullname'=> $fullname, 'sex'=> $sex, 'age'=> $age, 'date'=>$date ]) }}" accept-charset="UTF-8">
+                            <form id="update-record" method="POST" action="{{ action('FoodRecordController@updateRecordData', ['id'=> $id, 'fullname'=> $fullname, 'sex'=> $sex, 'age'=> $age, 'date'=>$date, 'day'=> $day ]) }}" accept-charset="UTF-8">
                                 @csrf 
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>

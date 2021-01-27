@@ -42,8 +42,10 @@ class FoodRecordController extends Controller
     public function index($id, $fullname, $sex, $age)
     {   
         $recordDates = $this->header->getRecordDate($id);
+        $recordDatesCount = $recordDates->count();
+        $recordDay = $recordDatesCount + 1;
 
-        return view('app.record', compact('id','fullname','sex','age','recordDates'));
+        return view('app.record', compact('id','fullname','sex','age','recordDates', 'recordDay'));
     }
 
     /**
@@ -60,7 +62,7 @@ class FoodRecordController extends Controller
         $recordDate = [
             'participant_id' => $participantId,
             'record_date' => $request['record_date'],
-            'record_day' => $recordDay,
+            'record_day' => $request['record_day'],
             'encoded_by' => Auth::user()->name
         ];
 
@@ -71,7 +73,7 @@ class FoodRecordController extends Controller
             'alert-type' => 'success'
         ];
 
-        return redirect()->route('encode.record', ['id'=> $participantId, 'fullname'=> $fullname, 'sex'=> $sex, 'age'=> $age, 'date'=> $request['record_date']])->with($notification);
+        return redirect()->route('encode.record', ['id'=> $participantId, 'fullname'=> $fullname, 'sex'=> $sex, 'age'=> $age, 'date'=> $request['record_date'], 'day'=> $request['record_day']])->with($notification);
     }
 
     /**
@@ -79,7 +81,7 @@ class FoodRecordController extends Controller
     *
     * @return \Illuminate\Contracts\Support\Renderable
     */
-    public function encode($id, $fullname, $sex, $age, $date)
+    public function encode($id, $fullname, $sex, $age, $date, $day)
     {   
 
         $fct = $this->fct->getAllFctData();
@@ -87,10 +89,10 @@ class FoodRecordController extends Controller
         $recordData = $this->record->getRecordData($id, $date);
 
         $recordDate = $date;
-        $day = new DateTime($recordDate);
-        $recordDay  = $day->format('l');
+        $newDay = new DateTime($recordDate);
+        $recordDay  = $newDay->format('l');
 
-        return view('app.encode-record', compact('id','fullname','sex','age','date','fct','recordDay','recordHeader','recordData'));
+        return view('app.encode-record', compact('id','fullname','sex','age','date','fct','recordDay','recordHeader','recordData', 'day'));
 
     }
 
@@ -99,10 +101,10 @@ class FoodRecordController extends Controller
     *
     * @return \Illuminate\Contracts\Support\Renderable
     */
-    public function getUpdateRecordDate($id, $fullname, $sex, $age, $date)
+    public function getUpdateRecordDate($id, $fullname, $sex, $age, $date, $day)
     {   
 
-        return view('app.update-record-date', compact('id','fullname','sex','age','date'));
+        return view('app.update-record-date', compact('id','fullname','sex','age','date', 'day'));
 
     }
 
@@ -113,18 +115,16 @@ class FoodRecordController extends Controller
     */
     public function updateRecordDate(RecordDateRequest $request, $participantId, $fullname, $sex, $age, $recordDate)
     {   
-        $date = $request['record_date'];
-        $day = new DateTime($date);
-        $recordDay  = $day->format('l');
 
         $headerData = [
             'record_date' => $request['record_date'],
-            'record_day' => $recordDay,
+            'record_day' => $request['record_day'],
             'updated_by' => Auth::user()->name
         ];
 
         $recallData = [
             'record_date' => $request['record_date'],
+            'record_day' => $request['record_day'],
             'updated_by' => Auth::user()->name
         ];
 

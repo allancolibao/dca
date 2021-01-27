@@ -19,7 +19,10 @@
                             @csrf
                             <h5 class="mb-3 text-primary">Please enter a record date to start!</h5>
                             <div class="input-group mb-4">
+                                <label for="record_day" class="p-2">Record Date</label>
                                 <input type="date" id="record_date" name="record_date" class="form-control btn-primary bg-light text-dark small" required>
+                                <label for="record_day" class="p-2">Record Day</label>
+                                <input type="number" min="0" placeholder="Record Day" id="record_day" name="record_day" class="form-control btn-primary bg-light text-dark small" value="{{$recordDay}}" required>
                                 <a href="#" data-toggle="modal" data-target="#save-record-date" >
                                     <button type="submit" class="d-sm-inline-block btn  btn-primary shadow-sm"><i class="fas fa-plus fa-sm text-white-50"></i>Add</button>
                                 </a>
@@ -31,8 +34,8 @@
                                 @foreach ($recordDates as $date)
                                 <div class="list-group-item">
                                     <div class="row">
-                                    <button type="button" data-path={{route('get.record.date', ['id'=> $id, 'fullname'=> $fullname, 'sex'=> $sex, 'age'=> $age, 'date'=> $date->record_date ])}} class="mr-4 btn btn-default open-modal"><i class="fas fa-pen"></i></button>
-                                    <a href="{{route('encode.record', ['id'=> $id, 'fullname'=> $fullname, 'sex'=> $sex, 'age'=> $age, 'date'=> $date->record_date ])}}" class="pt-1">
+                                    <button type="button" data-path={{route('get.record.date', ['id'=> $id, 'fullname'=> $fullname, 'sex'=> $sex, 'age'=> $age, 'date'=> $date->record_date, 'day'=> $date->record_day ])}} class="mr-4 btn btn-default open-modal"><i class="fas fa-pen"></i></button>
+                                    <a href="{{route('encode.record', ['id'=> $id, 'fullname'=> $fullname, 'sex'=> $sex, 'age'=> $age, 'date'=> $date->record_date, 'day'=> $date->record_day ])}}" class="pt-1">
                                         <h6>Record : {{$date->record_date}}</h6>
                                     </a>
                                     </div>

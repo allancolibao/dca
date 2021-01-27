@@ -15,7 +15,7 @@ class CreateAdverseEventTable extends Migration
     {
         Schema::create('adverse_event', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('participant_id', 10)->unique();
+            $table->string('participant_id', 20)->unique();
             $table->tinyInteger('ae_serious')->default('0')->nullable();
             $table->tinyInteger('ae_unexpected')->default('0')->nullable();
             $table->tinyInteger('ae_related')->default('0')->nullable();
