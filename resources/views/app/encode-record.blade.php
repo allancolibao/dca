@@ -24,7 +24,7 @@
                             Copy Data  
                         </button>
 
-                        <a href="{{route('deleted.records', ['id'=> $id, 'fullname'=> $fullname, 'sex'=> $sex, 'age'=> $age, 'date'=>$date ])}}" class="mr-3">
+                        <a href="{{route('deleted.records', ['id'=> $id, 'fullname'=> $fullname, 'sex'=> $sex, 'age'=> $age, 'date'=>$date, 'day' => $day ])}}" class="mr-3">
                             <button type="submit" class="d-sm-inline-block btn  btn-warning shadow-sm ml-4">
                                 Restore Data  
                             </button>
@@ -35,6 +35,7 @@
                         </button>
 
                     </div>
+
                     <form id="update-record-header" method="POST" action="{{ action('FoodRecordController@updateRecordHeader', ['id'=> $id, 'fullname'=> $fullname, 'sex'=> $sex, 'age'=> $age, 'date'=>$date, 'day' => $day ]) }}" accept-charset="UTF-8">
                         @csrf
                         <div class="table-responsive">
@@ -154,6 +155,14 @@
                                                     </select>   
                                                 </div>
                                             </td>
+
+                                            <td>
+                                                <div class="form-group-line">
+                                                    <input type="text"class="form-no-border" name="food_source[]" id="food_source" placeholder="eg. Fastfood" value=""/>
+                                                </div>
+                                            </td>
+
+
                                             @if(Auth::user()->is_admin != 3)
                                                 <td>
                                                     <div class="form-group-line">
@@ -191,7 +200,7 @@
                                                             <option value="2" >2 - Fried</option>
                                                             <option value="3" >3 - Sauteed</option>
                                                             <option value="4" >4 - Broiled</option>
-                                                            <option value="5" >5 - Scambled</option>
+                                                            <option value="5" >5 - Scrambled</option>
                                                             <option value="6" >6 - Raw</option>
                                                         </select>    
                                                     </div>
@@ -201,9 +210,7 @@
                                                         <select type="text" class="form-no-border" name="supply_code[]" id="supply_code" placeholder="SUP" value="">
                                                             <option value="">Please select</option>
                                                             <option value="1" >1 - Bought</option>
-                                                            <option value="2" >2 - Barter</option>
-                                                            <option value="3" >3 - Given</option>
-                                                            <option value="4" >4 - Own Produced</option>
+                                                            <option value="2" >2 - Given</option>
                                                             <option value="99" >9 - NA</option>
                                                         </select>
                                                     </div>
@@ -224,13 +231,9 @@
                                                             <option value="10" >10 - Mobile Vendor</option>
                                                             <option value="11" >11 - Specialty Store</option>
                                                             <option value="12" >12 - Home prepared</option>
-                                                            <option value="13" >13 - Food Aid</option>
-                                                            <option value="14" >14 - Homeyard garden, livestock, fishpen</option>
-                                                            <option value="15" >15 - Farm garden, farmstock, fishpen</option>
-                                                            <option value="16" >16 - Water from deepwell, rainfall and spring</option>
-                                                            <option value="17" >17 - Water from waterworks like NAWASA and Maynilad</option>
-                                                            <option value="18" >18 - Pharmacy / Clinic</option>
-                                                            <option value="19" >19 - Others</option>
+                                                            <option value="13" >13 - Hospital food</option>
+                                                            <option value="14" >14 - Water Refilling Station</option>
+                                                            <option value="15" >15 - Central Kitchen</option>
                                                         </select>
                                                     </div>
                                                 </td>
@@ -272,27 +275,12 @@
                                                             <option value="2" >2 - Fried</option>
                                                             <option value="3" >3 - Sauteed</option>
                                                             <option value="4" >4 - Broiled</option>
-                                                            <option value="5" >5 - Scambled</option>
+                                                            <option value="5" >5 - Scrambled</option>
                                                             <option value="6" >6 - Raw</option>
                                                         </select>    
                                                     </div>
                                                 </td>
                                                 
-                                                <td>
-                                                    <div class="form-group-line">
-                                                        <input type="number" step="any" class="form-no-border" name="unit_cost[]" id="unit_cost" placeholder="Unit Cost" value=""/>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div class="form-group-line">
-                                                        <input type="number" step="any" class="form-no-border" name="unit_weight[]" id="unit_weight" placeholder="Unit Weight" value=""/>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div class="form-group-line">
-                                                        <input type="text" class="form-no-border" name="unit_meas[]" id="unit_meas" placeholder="Unit Meas" value=""/>
-                                                    </div>
-                                                </td>
                                             @endif
                                             <td>
                                                 <input type="button" name="add" value="+"  class=" autofocus d-sm-inline-block btn  btn-primary shadow-sm tr_clone_add">
@@ -392,26 +380,24 @@
                                             <th>LINE NO</th>
                                             <th>FOOD ITEM</th>
                                             <th>FI AMOUNT/SIZE</th>
-                                            
                                             <th>RF CODE</th>
                                             <th>MEAL CODE</th>
+                                            <th>OTHER FOOD SOURCE</th>
+
                                             @if(Auth::user()->is_admin != 3)
+
                                             <th>FOODCODE (FIC)</th>
                                             <th>FOOD WEIGHT</th>
                                             <th>FW RCC</th>
                                             <th>FW CMC</th>
                                             <th>SUPCODE</th>
                                             <th>SRCCODE</th>
-
                                             <th>PLATE WASTE</th>
                                             <th>PW AMOUNT/SIZE</th>
                                             <th>PW WEIGHT</th>
                                             <th>PW RCC</th>
                                             <th>PW CMC</th>
 
-                                            <th>UNIT COST</th>
-                                            <th>UNIT WEIGHT</th>
-                                            <th>UNIT MEAS</th>
                                             @endif
                                         </tr>
                                     </thead>
@@ -449,34 +435,41 @@
 
                                                     <td>
                                                         <div class="form-group-line">
-                                                            <select type="text" class="form-no-border" name="rf_code[]" id="rf_code" placeholder="RF Code" value="{{$data->rf_code}}">
+                                                            <select type="text" class="form-no-border" name="rf_code[]" id="rf_code" placeholder="RF Code" data-value="{{$data->rf_code}}">
                                                                 <option selected="true" disabled="disabled">Please select</option>
-                                                                <option value="1" {{$data->rf_code == '1'  ? 'selected' : ''}}>1 - Single food item</option>
-                                                                <option value="2" {{$data->rf_code == '2'  ? 'selected' : ''}}>2 - Mixed Dish</option>
-                                                                <option value="3" {{$data->rf_code == '3'  ? 'selected' : ''}}>3 - Composite Ingridient</option>
-                                                                <option value="4" {{$data->rf_code == '4'  ? 'selected' : ''}}>4 - Water</option>
-                                                                <option value="5" {{$data->rf_code == '5'  ? 'selected' : ''}}>5 - Water added to conc/powdered Beverage</option>
-                                                                <option value="6" {{$data->rf_code == '6'  ? 'selected' : ''}}>6 - Water used for cooking</option>
-                                                                <option value="7" {{$data->rf_code == '7'  ? 'selected' : ''}}>7 - Beverage</option>
-                                                                <option value="8" {{$data->rf_code == '8'  ? 'selected' : ''}}>8 - Other liquids, specify..</option>
-                                                                <option value=""  {{$data->rf_code == ''  ? 'selected' : ''}}>88 - NONE </option>
+                                                                <option value="1" >1 - Single food item</option>
+                                                                <option value="2" >2 - Mixed Dish</option>
+                                                                <option value="3" >3 - Composite Ingridient</option>
+                                                                <option value="4" >4 - Water</option>
+                                                                <option value="5" >5 - Water added to conc/powdered Beverage</option>
+                                                                <option value="6" >6 - Water used for cooking</option>
+                                                                <option value="7" >7 - Beverage</option>
+                                                                <option value="8" >8 - Other liquids, specify..</option>
+                                                                <option value=""  >88 - NONE </option>
                                                             </select>
                                                         </div>
                                                     </td>
                                                     <td>
                                                         <div class="form-group-line">
-                                                            <select type="text" class="form-no-border" name="meal_code[]" id="meal_code" placeholder="Meal Code" value="{{$data->meal_code}}">
+                                                            <select type="text" class="form-no-border" name="meal_code[]" id="meal_code" placeholder="Meal Code" data-value="{{$data->meal_code}}">
                                                                 <option selected="true" disabled="disabled">Please select</option>
-                                                                <option value="1" {{$data->meal_code == '1'  ? 'selected' : ''}}>1 - Breakfast</option>
-                                                                <option value="2" {{$data->meal_code == '2'  ? 'selected' : ''}}>2 - AM Snack</option>
-                                                                <option value="3" {{$data->meal_code == '3'  ? 'selected' : ''}}>3 - Lunch</option>
-                                                                <option value="4" {{$data->meal_code == '4'  ? 'selected' : ''}}>4 - PM Snack</option>
-                                                                <option value="5" {{$data->meal_code == '5'  ? 'selected' : ''}}>5 - Supper</option>
-                                                                <option value="6" {{$data->meal_code == '6'  ? 'selected' : ''}}>6 - Late PM Snack</option>
-                                                                <option value=""  {{$data->meal_code == ''  ? 'selected' : ''}}>88 - NONE </option>
+                                                                <option value="1" >1 - Breakfast</option>
+                                                                <option value="2" >2 - AM Snack</option>
+                                                                <option value="3" >3 - Lunch</option>
+                                                                <option value="4" >4 - PM Snack</option>
+                                                                <option value="5" >5 - Supper</option>
+                                                                <option value="6" >6 - Late PM Snack</option>
+                                                                <option value=""  >88 - NONE </option>
                                                             </select>   
                                                         </div>
                                                     </td>
+
+                                                    <td>
+                                                        <div class="form-group-line">
+                                                            <input type="text"class="form-no-border" name="food_source[]" id="food_source" placeholder="eg. Fastfood" value="{{$data->food_source}}"/>
+                                                        </div>
+                                                    </td>
+        
 
                                                     @if(Auth::user()->is_admin != 3)
                                                         <td>
@@ -496,69 +489,62 @@
                                                         </td>                            
                                                         <td>
                                                             <div class="form-group-line">
-                                                                <select type="text"class="form-no-border RCC" name="fw_rcc[]" id="fw_rcc" placeholder="fw_rcc" value="{{$data->fw_rcc}}">
+                                                                <select type="text"class="form-no-border RCC" name="fw_rcc[]" id="fw_rcc" placeholder="fw_rcc" data-value="{{$data->fw_rcc}}">
                                                                     <option selected="true" disabled="disabled">Please select</option>
-                                                                    <option value="1" {{$data->fw_rcc == '1'  ? 'selected' : ''}}>1 - Raw as purchased</option>
-                                                                    <option value="2" {{$data->fw_rcc == '2'  ? 'selected' : ''}}>2 - Raw edible portion</option>
-                                                                    <option value="3" {{$data->fw_rcc == '3'  ? 'selected' : ''}}>3 - Cooked as purchased</option>
-                                                                    <option value="4" {{$data->fw_rcc == '4'  ? 'selected' : ''}}>4 - Cooked edible portion</option>
-                                                                    <option value="5" {{$data->fw_rcc == '5'  ? 'selected' : ''}}>5 - Cleaned and Drawn fresh fish </option>
-                                                                    <option value="6" {{$data->fw_rcc == '6'  ? 'selected' : ''}}>6 - Cleaned and Drawn cooked fish</option>
-                                                                    <option value="" {{$data->fw_rcc == ''  ? 'selected' : ''}}>88 - NONE </option>
+                                                                    <option value="1">1 - Raw as purchased</option>
+                                                                    <option value="2">2 - Raw edible portion</option>
+                                                                    <option value="3">3 - Cooked as purchased</option>
+                                                                    <option value="4">4 - Cooked edible portion</option>
+                                                                    <option value="5">5 - Cleaned and Drawn fresh fish </option>
+                                                                    <option value="6">6 - Cleaned and Drawn cooked fish</option>
+                                                                    <option value="">88 - NONE </option>
                                                                 </select>
                                                             </div>
                                                         </td>
                                                         <td>
                                                             <div class="form-group-line">
-                                                                <select type="text"  class="form-no-border CMC" name="fw_cmc[]" id="fw_cmc" placeholder="CMC" value="{{$data->fw_cmc}}">
+                                                                <select type="text"  class="form-no-border CMC" name="fw_cmc[]" id="fw_cmc" placeholder="CMC" data-value="{{$data->fw_cmc}}">
                                                                     <option selected="true" disabled="disabled">Please select</option>
-                                                                    <option value="1" {{$data->fw_cmc == '1'  ? 'selected' : ''}}>1 - Boiled</option>
-                                                                    <option value="2" {{$data->fw_cmc == '2'  ? 'selected' : ''}}>2 - Fried</option>
-                                                                    <option value="3" {{$data->fw_cmc == '3'  ? 'selected' : ''}}>3 - Sauteed</option>
-                                                                    <option value="4" {{$data->fw_cmc == '4'  ? 'selected' : ''}}>4 - Broiled</option>
-                                                                    <option value="5" {{$data->fw_cmc == '5'  ? 'selected' : ''}}>5 - Scambled</option>
-                                                                    <option value="6" {{$data->fw_cmc == '6'  ? 'selected' : ''}}>6 - Raw</option>
-                                                                    <option value="" {{$data->fw_cmc == ''  ? 'selected' : ''}}>88 - NONE</option>
+                                                                    <option value="1">1 - Boiled</option>
+                                                                    <option value="2">2 - Fried</option>
+                                                                    <option value="3">3 - Sauteed</option>
+                                                                    <option value="4">4 - Broiled</option>
+                                                                    <option value="5">5 - Scrambled</option>
+                                                                    <option value="6">6 - Raw</option>
+                                                                    <option value="">88 - NONE</option>
                                                                 </select>    
                                                             </div>
                                                         </td>
                                                         <td>
                                                             <div class="form-group-line">
-                                                                <select type="text" class="form-no-border" name="supply_code[]" id="supply_code" placeholder="SUP" value="{{$data->supply_code}}">
+                                                                <select type="text" class="form-no-border" name="supply_code[]" id="supply_code" placeholder="SUP" data-value="{{$data->supply_code}}">
                                                                     <option selected="true" disabled="disabled">Please select</option>
-                                                                    <option value="1" {{$data->supply_code == '1'  ? 'selected' : ''}}>1 - Bought</option>
-                                                                    <option value="2" {{$data->supply_code == '2'  ? 'selected' : ''}}>2 - Barter</option>
-                                                                    <option value="3" {{$data->supply_code == '3'  ? 'selected' : ''}}>3 - Given</option>
-                                                                    <option value="4" {{$data->supply_code == '4'  ? 'selected' : ''}}>4 - Own Produced</option>
-                                                                    <option value="99" {{$data->supply_code == '99'  ? 'selected' : ''}}>9 - NA</option>
-                                                                    <option value=""  {{$data->supply_code == ''  ? 'selected' : ''}}>88 - NONE</option>
+                                                                    <option value="1">1 - Bought</option>
+                                                                    <option value="2">2 - Given</option>
+                                                                    <option value="99">99 - NA</option>
                                                                 </select>
                                                             </div>
                                                         </td>
                                                         <td>
                                                             <div class="form-group-line">
-                                                                <select type="text" class="form-no-border" name="src_code[]" id="src_code" placeholder="SRC" value="{{$data->src_code}}">
+                                                                <select type="text" class="form-no-border" name="src_code[]" id="src_code" placeholder="SRC" data-value="{{$data->src_code}}">
                                                                     <option selected="true" disabled="disabled">Please select</option>
-                                                                    <option value="1" {{$data->src_code == '1'  ? 'selected' : ''}}>1 - Fastfood</option>
-                                                                    <option value="2" {{$data->src_code == '2'  ? 'selected' : ''}}>2 - Carinderia / Turo-turo</option>
-                                                                    <option value="3" {{$data->src_code == '3'  ? 'selected' : ''}}>3 - Canteen/Cafeteria</option>
-                                                                    <option value="4" {{$data->src_code == '4'  ? 'selected' : ''}}>4 - Restaurant</option>
-                                                                    <option value="5" {{$data->src_code == '5'  ? 'selected' : ''}}>5 - Market / Talipapa</option>
-                                                                    <option value="6" {{$data->src_code == '6'  ? 'selected' : ''}}>6 - Sari-sari Store</option>
-                                                                    <option value="7" {{$data->src_code == '7'  ? 'selected' : ''}}>7 - Supermarket</option>
-                                                                    <option value="8" {{$data->src_code == '8'  ? 'selected' : ''}}>8 - Grocery</option>
-                                                                    <option value="9" {{$data->src_code == '9'  ? 'selected' : ''}}>9 - Convenience Store</option>
-                                                                    <option value="10" {{$data->src_code == '10'  ? 'selected' : ''}}>10 - Mobile Vendor</option>
-                                                                    <option value="11" {{$data->src_code == '11'  ? 'selected' : ''}}>11 - Specialty Store</option>
-                                                                    <option value="12" {{$data->src_code == '12'  ? 'selected' : ''}}>12 - Home prepared</option>
-                                                                    <option value="13" {{$data->src_code == '13'  ? 'selected' : ''}}>13 - Food Aid</option>
-                                                                    <option value="14" {{$data->src_code == '14'  ? 'selected' : ''}}>14 - Homeyard garden, livestock, fishpen</option>
-                                                                    <option value="15" {{$data->src_code == '15'  ? 'selected' : ''}}>15 - Farm garden, farmstock, fishpen</option>
-                                                                    <option value="16" {{$data->src_code == '16'  ? 'selected' : ''}}>16 - Water from deepwell, rainfall and spring</option>
-                                                                    <option value="17" {{$data->src_code == '17'  ? 'selected' : ''}}>17 - Water from waterworks like NAWASA and Maynilad</option>
-                                                                    <option value="18" {{$data->src_code == '18'  ? 'selected' : ''}}>18 - Pharmacy / Clinic</option>
-                                                                    <option value="19" {{$data->src_code == '19'  ? 'selected' : ''}}>19 - Others</option>
-                                                                    <option value=""  {{$data->src_code == ''  ? 'selected' : ''}}>88 - NONE</option>
+                                                                    <option value="1">1 - Fastfood</option>
+                                                                    <option value="2">2 - Carinderia / Turo-turo</option>
+                                                                    <option value="3">3 - Canteen/Cafeteria</option>
+                                                                    <option value="4">4 - Restaurant</option>
+                                                                    <option value="5">5 - Market / Talipapa</option>
+                                                                    <option value="6">6 - Sari-sari Store</option>
+                                                                    <option value="7">7 - Supermarket</option>
+                                                                    <option value="8">8 - Grocery</option>
+                                                                    <option value="9">9 - Convenience Store</option>
+                                                                    <option value="10">10 - Mobile Vendor</option>
+                                                                    <option value="11">11 - Specialty Store</option>
+                                                                    <option value="12">12 - Home prepared</option>
+                                                                    <option value="13">13 - Hospital Food</option>
+                                                                    <option value="14">14 - Water Refilling Station</option>
+                                                                    <option value="15">15 - Central Kitchen</option>
+                                                                    <option value="">88 - NONE</option>
                                                                 </select>
                                                             </div>
                                                         </td>
@@ -581,48 +567,33 @@
                                                         </td>                            
                                                         <td>
                                                             <div class="form-group-line">
-                                                                <select type="text"class="form-no-border RCC" name="pw_rcc[]" id="pw_rcc" placeholder="RCC" value="{{$data->pw_rcc}}">
+                                                                <select type="text"class="form-no-border RCC" name="pw_rcc[]" id="pw_rcc" placeholder="RCC" data-value="{{$data->pw_rcc}}">
                                                                     <option selected="true" disabled="disabled">Please select</option>
-                                                                    <option value="1" {{$data->pw_rcc == '1'  ? 'selected' : ''}}>1 - Raw as purchased</option>
-                                                                    <option value="2" {{$data->pw_rcc == '2'  ? 'selected' : ''}}>2 - Raw edible portion</option>
-                                                                    <option value="3" {{$data->pw_rcc == '3'  ? 'selected' : ''}}>3 - Cooked as purchased</option>
-                                                                    <option value="4" {{$data->pw_rcc == '4'  ? 'selected' : ''}}>4 - Cooked edible portion</option>
-                                                                    <option value="5" {{$data->pw_rcc == '5'  ? 'selected' : ''}}>5 - Cleaned and Drawn fresh fish </option>
-                                                                    <option value="6" {{$data->pw_rcc == '6'  ? 'selected' : ''}}>6 - Cleaned and Drawn cooked fish</option>
-                                                                    <option value="" {{$data->pw_rcc == ''  ? 'selected' : ''}}>88 - NONE </option>
+                                                                    <option value="1">1 - Raw as purchased</option>
+                                                                    <option value="2">2 - Raw edible portion</option>
+                                                                    <option value="3">3 - Cooked as purchased</option>
+                                                                    <option value="4">4 - Cooked edible portion</option>
+                                                                    <option value="5">5 - Cleaned and Drawn fresh fish </option>
+                                                                    <option value="6">6 - Cleaned and Drawn cooked fish</option>
+                                                                    <option value="">88 - NONE </option>
                                                                 </select>
                                                             </div>
                                                         </td>
                                                         <td>
                                                             <div class="form-group-line">
-                                                                <select type="text"  class="form-no-border CMC" name="pw_cmc[]" id="pw_cmc" placeholder="CMC" value="{{$data->pw_cmc}}">
+                                                                <select type="text"  class="form-no-border CMC" name="pw_cmc[]" id="pw_cmc" placeholder="CMC" data-value="{{$data->pw_cmc}}">
                                                                     <option selected="true" disabled="disabled">Please select</option>
-                                                                    <option value="1" {{$data->pw_cmc == '1'  ? 'selected' : ''}}>1 - Boiled</option>
-                                                                    <option value="2" {{$data->pw_cmc == '2'  ? 'selected' : ''}}>2 - Fried</option>
-                                                                    <option value="3" {{$data->pw_cmc == '3'  ? 'selected' : ''}}>3 - Sauteed</option>
-                                                                    <option value="4" {{$data->pw_cmc == '4'  ? 'selected' : ''}}>4 - Broiled</option>
-                                                                    <option value="5" {{$data->pw_cmc == '5'  ? 'selected' : ''}}>5 - Scambled</option>
-                                                                    <option value="6" {{$data->pw_cmc == '6'  ? 'selected' : ''}}>6 - Raw</option>
-                                                                    <option value="" {{$data->pw_cmc == ''  ? 'selected' : ''}}>88 - NONE</option>
+                                                                    <option value="1">1 - Boiled</option>
+                                                                    <option value="2">2 - Fried</option>
+                                                                    <option value="3">3 - Sauteed</option>
+                                                                    <option value="4">4 - Broiled</option>
+                                                                    <option value="5">5 - Scrambled</option>
+                                                                    <option value="6">6 - Raw</option>
+                                                                    <option value="">88 - NONE</option>
                                                                 </select>    
                                                             </div>
                                                         </td>
                                                         
-                                                        <td>
-                                                            <div class="form-group-line">
-                                                                <input type="number" step="any" class="form-no-border" name="unit_cost[]" id="unit_cost" placeholder="Unit Cost" value="{{$data->unit_cost}}"/>
-                                                            </div>
-                                                        </td>
-                                                        <td>
-                                                            <div class="form-group-line">
-                                                                <input type="number" step="any" class="form-no-border" name="unit_weight[]" id="unit_weight" placeholder="Unit Weight" value="{{$data->unit_weight}}"/>
-                                                            </div>
-                                                        </td>
-                                                        <td>
-                                                            <div class="form-group-line">
-                                                                <input type="text" class="form-no-border" name="unit_meas[]" id="unit_meas" placeholder="Unit Measurement" value="{{$data->unit_meas}}"/>
-                                                            </div>
-                                                        </td>
                                                     @endif
 
                                                 </tr>  

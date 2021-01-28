@@ -146,7 +146,7 @@ class FoodRecordController extends Controller
     *
     * @return \Illuminate\Contracts\Support\Renderable
     */
-    public function insertRecordData(Request $request, $participantId, $fullname, $sex, $age, $recordDate)
+    public function insertRecordData(Request $request, $participantId, $fullname, $sex, $age, $recordDate, $day)
     {   
         if(sizeof($request->line_no) > 0)
         {
@@ -155,12 +155,14 @@ class FoodRecordController extends Controller
                 $record = [
                     'participant_id' => $participantId,
                     'record_date' => $recordDate,
+                    'record_day' => $day,
                     'menu_title' => $request->menu_title[$input],
                     'line_no' => $request->line_no[$input],
                     'food_item' => $request->food_item[$input],
                     'fi_amount_size' => $request->fi_amount_size[$input],
                     'rf_code' => $request->rf_code[$input],
                     'meal_code' => $request->meal_code[$input],
+                    'food_source' => $request->food_source[$input],
                     'food_code' => $request->food_code[$input],
                     'fic' => Str::substr($request->food_code[$input], 0, 4),
                     'food_weight' => $request->food_weight[$input],
@@ -172,10 +174,7 @@ class FoodRecordController extends Controller
                     'pw_amount_size' => $request->pw_amount_size[$input],
                     'pw_weight' => $request->pw_weight[$input],
                     'pw_rcc' => $request->pw_rcc[$input],
-                    'pw_cmc' => $request->pw_cmc[$input],                 
-                    'unit_cost' => $request->unit_cost[$input],
-                    'unit_weight' => $request->unit_weight[$input],
-                    'unit_meas' => $request->unit_meas[$input],
+                    'pw_cmc' => $request->pw_cmc[$input],
                     'encoded_by' => Auth::user()->name
                 ];
 
@@ -197,7 +196,7 @@ class FoodRecordController extends Controller
     *
     * @return \Illuminate\Contracts\Support\Renderable
     */
-    public function getRecord($id, $fullname, $sex, $age, $date)
+    public function getRecord($id, $fullname, $sex, $age, $date, $day)
     {   
 
         $fct = $this->fct->getAllFctData();
@@ -205,10 +204,10 @@ class FoodRecordController extends Controller
         $recordData = $this->record->getRecordData($id, $date);
 
         $recordDate = $date;
-        $day = new DateTime($recordDate);
-        $recordDay  = $day->format('l');
+        $newDay = new DateTime($recordDate);
+        $recordDay  = $newDay->format('l');
 
-        return view('app.update-record', compact('id','fullname','sex','age','date','fct','recordDay','recordHeader','recordData'));
+        return view('app.update-record', compact('id','fullname','sex','age','date','fct','recordDay','recordHeader','recordData', 'day'));
 
     }
 
@@ -229,6 +228,7 @@ class FoodRecordController extends Controller
         $fi_amount_size = array_reverse($data['fi_amount_size']);
         $rf_code = array_reverse($data['rf_code']);
         $meal_code = array_reverse($data['meal_code']);
+        $food_source = array_reverse($data['food_source']);
 
         if(Auth::user()->is_admin != 3) {
         $food_code = array_reverse($data['food_code']);
@@ -242,9 +242,6 @@ class FoodRecordController extends Controller
         $pw_weight = array_reverse($data['pw_weight']);
         $pw_rcc = array_reverse($data['pw_rcc']);
         $pw_cmc = array_reverse($data['pw_cmc']);
-        $unit_cost = array_reverse($data['unit_cost']);
-        $unit_weight = array_reverse($data['unit_weight']);
-        $unit_meas = array_reverse($data['unit_meas']);
         }
 
         if(sizeOf($data) > 0)
@@ -260,6 +257,7 @@ class FoodRecordController extends Controller
                     'fi_amount_size' => $fi_amount_size[$input],
                     'rf_code' => $rf_code[$input],
                     'meal_code' => $meal_code[$input],
+                    'food_source' => $food_source[$input],
                     'food_code' => $food_code[$input],
                     'fic' => Str::substr($food_code[$input], 0, 4),
                     'food_weight' => $food_weight[$input],
@@ -272,9 +270,6 @@ class FoodRecordController extends Controller
                     'pw_weight' => $pw_weight[$input],
                     'pw_rcc' => $pw_rcc[$input],
                     'pw_cmc' => $pw_cmc[$input],
-                    'unit_cost' => $unit_cost[$input],
-                    'unit_weight' => $unit_weight[$input],
-                    'unit_meas' => $unit_meas[$input],
                     'updated_by' => Auth::user()->name
                 ];
 
@@ -287,6 +282,7 @@ class FoodRecordController extends Controller
                     'fi_amount_size' => $fi_amount_size[$input],
                     'rf_code' => $rf_code[$input],
                     'meal_code' => $meal_code[$input],
+                    'food_source' => $food_source[$input],
                     'updated_by' => Auth::user()->name
                 ];
 
@@ -406,16 +402,16 @@ class FoodRecordController extends Controller
     *
     * @return \Illuminate\Contracts\Support\Renderable
     */
-    public function getDeleted($id, $fullname, $sex, $age, $date)
+    public function getDeleted($id, $fullname, $sex, $age, $date, $day)
     {   
         $fct = $this->fct->getAllFctData();
         $recordData = $this->record->getDeletedLineNumber($id, $date);
 
         $recordDate = $date;
-        $day = new DateTime($recordDate);
-        $recordDay  = $day->format('l');
+        $newDay = new DateTime($recordDate);
+        $recordDay  = $newDay->format('l');
 
-        return view('app.deleted-record', compact('id','fullname','sex','age','date', 'recordData', 'recordDay', 'fct'));
+        return view('app.deleted-record', compact('id','fullname','sex','age','date', 'recordData', 'recordDay', 'fct', 'day'));
 
     }
 
@@ -502,6 +498,7 @@ class FoodRecordController extends Controller
                     'fi_amount_size' => $newData->fi_amount_size,
                     'rf_code' => $newData->rf_code,
                     'meal_code' => $newData->meal_code,
+                    'food_source' => $newData->food_source,
                     'food_code' => $newData->food_code,
                     'fic' => $newData->fic,
                     'food_weight' => $newData->food_weight,
@@ -514,9 +511,6 @@ class FoodRecordController extends Controller
                     'pw_weight' => $newData->pw_weight,
                     'pw_rcc' => $newData->pw_rcc,
                     'pw_cmc' => $newData->pw_cmc,
-                    'unit_cost' => $newData->unit_cost,
-                    'unit_weight' => $newData->unit_weight,
-                    'unit_meas' => $newData->unit_meas,
                     'encoded_by' => $newData->encoded_by,
                     'updated_by' => $newData->updated_by
                 ];

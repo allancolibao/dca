@@ -99,7 +99,7 @@ Route::post('update-record-header/{id}/{fullname}/{sex}/{age}/{date}' ,'FoodReco
 Route::get('/food-record-delete-data/{id}/{patid}/{date}/{day}/{lineno}', 'FoodRecordController@toDelete')->name('food.record.delete.data');
 Route::delete('/record-delete/{id}/{patid}/{date}', 'FoodRecordController@destroy')->name('record.delete');
 
-Route::get('/get-deleted-record/{id}/{fullname}/{sex}/{age}/{date}', 'FoodRecordController@getDeleted')->name('deleted.records');
+Route::get('/get-deleted-record/{id}/{fullname}/{sex}/{age}/{date}/{day}', 'FoodRecordController@getDeleted')->name('deleted.records');
 Route::get('/get-line-number/{id}', 'FoodRecordController@getrestoreDeletedLineNumber')->name('get.line.number');
 Route::post('/restore-line-number/{id}', 'FoodRecordController@restoreDeletedLineNumber')->name('restore.line.number');
 
