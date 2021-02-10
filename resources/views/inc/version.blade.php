@@ -1,6 +1,6 @@
 <li class="nav-item dropdown no-arrow mx-1">
     <a class="nav-link dropdown-toggle text-dark" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    <i class="fas fa-code-branch fa-fw" style="padding-right:1vmin;"></i> ND-2.0.3
+    <i class="fas fa-code-branch fa-fw" style="padding-right:1vmin;"></i> ND-3.0.0
     <!-- Version Changlog -->
     </a>
     <!-- Dropdown - Version -->
@@ -94,6 +94,13 @@
             <div>
             <div class="small text-gray-500">ND-2.0.3 | Oct 14, 2020</div>
                 - Update on Case Report Form
+            </div>
+        </a>
+
+        <a class="dropdown-item d-flex align-items-center" href="#">
+            <div>
+            <div class="small text-gray-500">ND-3.0.0| Feb 10, 2021</div>
+                - VCO App version for Valenzuela
             </div>
         </a>
     </div>

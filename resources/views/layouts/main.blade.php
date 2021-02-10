@@ -72,7 +72,7 @@
               </div>
             </li>
 
-            <li class="nav-item">
+            {{-- <li class="nav-item">
               <div >
                 <a href="http://202.90.141.86/vco-dash/public/index.php" class="nav-link text-primary" target="blank">
                   <button type="button" class="d-sm-inline-block btn btn-sm  btn-danger shadow-sm">
@@ -90,7 +90,7 @@
                   </button>
                 </a>
               </div>
-            </li>
+            </li> --}}
             
             
             <!-- Version -->
