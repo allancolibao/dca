@@ -63,7 +63,7 @@ class BackupDataController extends Controller
             $record = Backup::latest('created_at')->first();
 
             // get the filepath
-            $fileurl = storage_path() . '\app\VCO\\' .$record->filename. '.zip';
+            $fileurl = storage_path() . '\app\VCO-ND\\' .$record->filename. '.zip';
 
             // check the file if exist then download
             if (file_exists($fileurl)) {
