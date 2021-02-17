@@ -1654,7 +1654,7 @@
                                     <div class="row">
                                         <div class="col-md-9">
                                             <select type="text" class="form-control {{ $errors->has('is_eligible') ? 'has-error' : ''}}" name="is_eligible" id="is_eligible" data-value="{{ $data ? $data->is_eligible : old('is_eligible') }}">
-                                                <option selected="true" disabled="disabled">Please select (Eligible)</option>
+                                                <option value="">Please select (Eligible)</option>
                                                 <option value='Yes'>1 - Yes</option>
                                                 <option value='No'>2 - No</option>
                                                 <option value='Waitlist'>3 - Waitlist</option>

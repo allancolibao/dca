@@ -689,7 +689,7 @@
                                     <div class="row">
                                         <div class="col-md-9">
                                             <select type="text" class="form-control {{ $errors->has('is_eligible') ? 'has-error' : ''}}" name="is_eligible" id="is_eligible" value="{{ $data->is_eligible }}">
-                                                <option selected="true" disabled="disabled">Please select (Eligible)</option>
+                                                <option value="">Please select (Eligible)</option>
                                                 <option value='1' {{ ($data->is_eligible == '1' ? 'selected' : '') }}>1 - Yes</option>
                                                 <option value='2' {{ ($data->is_eligible == '2' ? 'selected' : '') }}>2 - No</option>
                                                 <option value='3' {{ ($data->is_eligible == '3' ? 'selected' : '') }}>3 - Waitlist</option>

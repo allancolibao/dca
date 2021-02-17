@@ -22,7 +22,7 @@
                                 <div class="form-group">
                                     <label>Sex</label>
                                     <select type="text" class="form-control" name="sex" id="sex" value="{{$participant->sex}}">
-                                        <option selected="true" disabled="disabled">Please select</option>
+                                        <option value="">Please select</option>
                                         <option value='1' {{$participant->sex == '1'  ? 'selected' : ''}} >1 - Male</option>
                                         <option value='2' {{$participant->sex == '2'  ? 'selected' : ''}} >2 - Female</option>
                                     </select>   
@@ -32,7 +32,7 @@
                                 <div class="form-group">
                                     <label>Civil Status</label>
                                     <select type="text" class="form-control" name="csc" id="csc" value="{{$participant->csc}}">
-                                        <option selected="true" disabled="disabled">Please select</option>
+                                        <option value="">Please select</option>
                                         <option value='1' {{$participant->csc == '1'  ? 'selected' : ''}} >1 - Single</option>
                                         <option value='2' {{$participant->csc == '2'  ? 'selected' : ''}} >2 - Married</option>
                                         <option value='3' {{$participant->csc == '3'  ? 'selected' : ''}} >3 - Widowed</option>
@@ -66,7 +66,7 @@
                                     <label>Educational Attainment</label>
                                     <select name="educ_attainment" id="educ_attainment" class="form-control" value="{{$participant->educ_attainment}}">
 
-                                            <option selected="true" disabled="disabled">Please select</option>
+                                            <option value="">Please select</option>
                                             <option value='0' {{$participant->educ_attainment == '0'  ? 'selected' : ''}} >0 - No Grade Completed</option>
 
                                         <optgroup label="Early Childhood Education">

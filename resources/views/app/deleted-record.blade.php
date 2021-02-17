@@ -164,7 +164,7 @@
                                                     <td>
                                                         <div class="form-group-line">
                                                             <select type="text" class="form-no-border" name="src_code[]" id="src_code" placeholder="SRC" data-value="{{$data->src_code}}">
-                                                                <option selected="true" disabled="disabled">Please select</option>
+                                                                <option value="">Please select</option>
                                                                 <option value="1" >1 - Fastfood</option>
                                                                 <option value="2" >2 - Carinderia / Turo-turo</option>
                                                                 <option value="3" >3 - Canteen/Cafeteria</option>

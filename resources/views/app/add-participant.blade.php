@@ -112,7 +112,7 @@
                                     <div class="form-group">
                                     <label>Hospital/Center</label>
                                     <select type="text" class="form-control {{ $errors->has('hospital') ? 'has-error' : ''}} participant" name="hospital" id="hospital" data-value="{{ old('hospital') }}">
-                                        <option selected="true" disabled="disabled">Please select</option>
+                                        <option value="">Please select</option>
                                         <option value='VCEH'>VCEH - Valenzuela City Emergency Hospital</option>
                                         <option value='DNHS'>DNHS - Dalandanan NHS Isolation Facility</option>
                                     </select>
@@ -160,7 +160,7 @@
                                     <div class="form-group">
                                         <label>Sex</label>
                                         <select type="text" class="form-control {{ $errors->has('sex') ? 'has-error' : ''}} participant" name="sex" id="sex"  data-value="{{ old('sex') }}">
-                                            <option selected="true" disabled="disabled">Please select</option>
+                                            <option value="">Please select</option>
                                             <option value='1'>1 - Male</option>
                                             <option value='2'>2 - Female</option>
                                         </select>   
@@ -175,7 +175,7 @@
                                     <div class="form-group">
                                         <label>Civil Status</label>
                                         <select type="text" class="form-control {{ $errors->has('csc') ? 'has-error' : ''}} participant" name="csc" id="csc" data-value="{{ old('csc') }}">
-                                            <option selected="true" disabled="disabled">Please select</option>
+                                            <option value="">Please select</option>
                                             <option value='1'>1 - Single</option>
                                             <option value='2'>2 - Married</option>
                                             <option value='3'>3 - Widowed</option>
@@ -224,7 +224,7 @@
                                         <label>Educational Attainment</label>
                                         <select name="educ_attainment" id="educ_attainment" class="form-control {{ $errors->has('educ_attainment') ? 'has-error' : ''}} participant" data-value="{{ old('educ_attainment') }}">
 
-                                            <option selected="true" disabled="disabled">Please select</option>
+                                            <option value="">Please select</option>
                                             <option value='0'>0 - No Grade Completed</option>
 
                                             <optgroup label="Early Childhood Education">

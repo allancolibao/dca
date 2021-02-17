@@ -436,7 +436,7 @@
                                                     <td>
                                                         <div class="form-group-line">
                                                             <select type="text" class="form-no-border" name="rf_code[]" id="rf_code" placeholder="RF Code" data-value="{{$data->rf_code}}">
-                                                                <option selected="true" disabled="disabled">Please select</option>
+                                                                <option value="">Please select</option>
                                                                 <option value="1" >1 - Single food item</option>
                                                                 <option value="2" >2 - Mixed Dish</option>
                                                                 <option value="3" >3 - Composite Ingridient</option>
@@ -445,21 +445,21 @@
                                                                 <option value="6" >6 - Water used for cooking</option>
                                                                 <option value="7" >7 - Beverage</option>
                                                                 <option value="8" >8 - Other liquids, specify..</option>
-                                                                <option value=""  >88 - NONE </option>
+                                                                
                                                             </select>
                                                         </div>
                                                     </td>
                                                     <td>
                                                         <div class="form-group-line">
                                                             <select type="text" class="form-no-border" name="meal_code[]" id="meal_code" placeholder="Meal Code" data-value="{{$data->meal_code}}">
-                                                                <option selected="true" disabled="disabled">Please select</option>
+                                                                <option value="">Please select</option>
                                                                 <option value="1" >1 - Breakfast</option>
                                                                 <option value="2" >2 - AM Snack</option>
                                                                 <option value="3" >3 - Lunch</option>
                                                                 <option value="4" >4 - PM Snack</option>
                                                                 <option value="5" >5 - Supper</option>
                                                                 <option value="6" >6 - Late PM Snack</option>
-                                                                <option value=""  >88 - NONE </option>
+                                                                
                                                             </select>   
                                                         </div>
                                                     </td>
@@ -490,35 +490,35 @@
                                                         <td>
                                                             <div class="form-group-line">
                                                                 <select type="text"class="form-no-border RCC" name="fw_rcc[]" id="fw_rcc" placeholder="fw_rcc" data-value="{{$data->fw_rcc}}">
-                                                                    <option selected="true" disabled="disabled">Please select</option>
+                                                                    <option value="">Please select</option>
                                                                     <option value="1">1 - Raw as purchased</option>
                                                                     <option value="2">2 - Raw edible portion</option>
                                                                     <option value="3">3 - Cooked as purchased</option>
                                                                     <option value="4">4 - Cooked edible portion</option>
                                                                     <option value="5">5 - Cleaned and Drawn fresh fish </option>
                                                                     <option value="6">6 - Cleaned and Drawn cooked fish</option>
-                                                                    <option value="">88 - NONE </option>
+                                                                    
                                                                 </select>
                                                             </div>
                                                         </td>
                                                         <td>
                                                             <div class="form-group-line">
                                                                 <select type="text"  class="form-no-border CMC" name="fw_cmc[]" id="fw_cmc" placeholder="CMC" data-value="{{$data->fw_cmc}}">
-                                                                    <option selected="true" disabled="disabled">Please select</option>
+                                                                    <option value="">Please select</option>
                                                                     <option value="1">1 - Boiled</option>
                                                                     <option value="2">2 - Fried</option>
                                                                     <option value="3">3 - Sauteed</option>
                                                                     <option value="4">4 - Broiled</option>
                                                                     <option value="5">5 - Scrambled</option>
                                                                     <option value="6">6 - Raw</option>
-                                                                    <option value="">88 - NONE</option>
+                                                                    
                                                                 </select>    
                                                             </div>
                                                         </td>
                                                         <td>
                                                             <div class="form-group-line">
                                                                 <select type="text" class="form-no-border" name="supply_code[]" id="supply_code" placeholder="SUP" data-value="{{$data->supply_code}}">
-                                                                    <option selected="true" disabled="disabled">Please select</option>
+                                                                    <option value="">Please select</option>
                                                                     <option value="1">1 - Bought</option>
                                                                     <option value="2">2 - Given</option>
                                                                     <option value="99">99 - NA</option>
@@ -528,7 +528,7 @@
                                                         <td>
                                                             <div class="form-group-line">
                                                                 <select type="text" class="form-no-border" name="src_code[]" id="src_code" placeholder="SRC" data-value="{{$data->src_code}}">
-                                                                    <option selected="true" disabled="disabled">Please select</option>
+                                                                    <option value="">Please select</option>
                                                                     <option value="1">1 - Fastfood</option>
                                                                     <option value="2">2 - Carinderia / Turo-turo</option>
                                                                     <option value="3">3 - Canteen/Cafeteria</option>
@@ -544,7 +544,7 @@
                                                                     <option value="13">13 - Hospital Food</option>
                                                                     <option value="14">14 - Water Refilling Station</option>
                                                                     <option value="15">15 - Central Kitchen</option>
-                                                                    <option value="">88 - NONE</option>
+                                                                    
                                                                 </select>
                                                             </div>
                                                         </td>
@@ -568,28 +568,28 @@
                                                         <td>
                                                             <div class="form-group-line">
                                                                 <select type="text"class="form-no-border RCC" name="pw_rcc[]" id="pw_rcc" placeholder="RCC" data-value="{{$data->pw_rcc}}">
-                                                                    <option selected="true" disabled="disabled">Please select</option>
+                                                                    <option value="">Please select</option>
                                                                     <option value="1">1 - Raw as purchased</option>
                                                                     <option value="2">2 - Raw edible portion</option>
                                                                     <option value="3">3 - Cooked as purchased</option>
                                                                     <option value="4">4 - Cooked edible portion</option>
                                                                     <option value="5">5 - Cleaned and Drawn fresh fish </option>
                                                                     <option value="6">6 - Cleaned and Drawn cooked fish</option>
-                                                                    <option value="">88 - NONE </option>
+                                                                    
                                                                 </select>
                                                             </div>
                                                         </td>
                                                         <td>
                                                             <div class="form-group-line">
                                                                 <select type="text"  class="form-no-border CMC" name="pw_cmc[]" id="pw_cmc" placeholder="CMC" data-value="{{$data->pw_cmc}}">
-                                                                    <option selected="true" disabled="disabled">Please select</option>
+                                                                    <option value="">Please select</option>
                                                                     <option value="1">1 - Boiled</option>
                                                                     <option value="2">2 - Fried</option>
                                                                     <option value="3">3 - Sauteed</option>
                                                                     <option value="4">4 - Broiled</option>
                                                                     <option value="5">5 - Scrambled</option>
                                                                     <option value="6">6 - Raw</option>
-                                                                    <option value="">88 - NONE</option>
+                                                                    
                                                                 </select>    
                                                             </div>
                                                         </td>
