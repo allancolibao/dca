@@ -107,13 +107,13 @@
         <a class="dropdown-item d-flex align-items-center" href="#">
             <div>
             <div class="small text-gray-500">ND-3.0.1| Feb 17, 2021</div>
-                - Fix updating on food recall
+                - Fixed updating on food recall
             </div>
         </a>
         <a class="dropdown-item d-flex align-items-center" href="#">
             <div>
             <div class="small text-gray-500">ND-3.0.2 | Feb 22, 2021</div>
-                - Fix updating on food recall transmission
+                - Fixed updating on food recall transmission
             </div>
         </a>
     </div>
