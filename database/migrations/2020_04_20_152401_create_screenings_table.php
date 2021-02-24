@@ -212,8 +212,8 @@ class CreateScreeningsTable extends Migration
             $table->string('sec_06_01_dias', 20)->nullable();
 
             $table->string('sec_06_02', 50)->nullable();
-            $table->string('sec_06_03', 250)->nullable();
-            $table->string('sec_06_04', 250)->nullable();
+            $table->text('sec_06_03')->nullable();
+            $table->text('sec_06_04')->nullable();
             $table->tinyInteger('is_fit')->default('0')->nullable();
             $table->string('physician_name', 50)->nullable();
             $table->string('physician_license', 50)->nullable();
